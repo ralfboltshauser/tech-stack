@@ -537,15 +537,15 @@ body.map-ready .canvas-heading {
   }
   #inspector {
     top: auto;
-    bottom: 66px;
+    bottom: calc(104px + env(safe-area-inset-bottom, 0px));
     right: 12px;
     width: min(280px, calc(100vw - 24px));
-    max-height: 44dvh;
+    max-height: calc(44dvh - 38px);
     padding: 16px;
   }
   .map-footer {
     left: 12px;
-    bottom: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   }
 }
 @media (pointer: coarse) {
