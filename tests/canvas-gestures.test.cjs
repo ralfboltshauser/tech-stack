@@ -36,7 +36,11 @@ handlers.pointerup(e({pointerType:'touch'}));const touchTap=e();handlers.click(t
 // Movement still claims the touch gesture and suppresses a trailing click.
 handlers.pointerdown(e({pointerType:'touch'}));const touchDrag=e({pointerType:'touch',clientX:130});handlers.pointermove(touchDrag);assert(touchDrag.prevented);
 handlers.pointerup(e({pointerType:'touch'}));const touchDragClick=e();handlers.click(touchDragClick);assert(touchDragClick.prevented&&touchDragClick.stopped);
-// Landing links are not captured as map drags.
-const link=e({target:{closest:()=>({tagName:'A'})}});handlers.pointerdown(link);assert(!link.prevented);
+// A touch drag may emit no click; its stale suppression must not eat the next link tap.
+handlers.pointerdown(e({pointerType:'touch'}));handlers.pointermove(e({pointerType:'touch',clientX:130}));handlers.pointerup(e({pointerType:'touch'}));
+const link=e({pointerType:'touch',target:{closest:()=>({tagName:'A'})}});handlers.pointerdown(link);assert(!link.prevented);
+const linkClick=e();handlers.click(linkClick);assert(!linkClick.prevented);
+// The following card tap still activates normally.
+handlers.pointerdown(e({pointerType:'touch'}));handlers.pointerup(e({pointerType:'touch'}));const nextTap=e();handlers.click(nextTap);assert(!nextTap.prevented);
 const selection=e();handlers.selectstart(selection);assert(selection.prevented);
 console.log('Passed: drag suppression, card taps, scroll pan, pointer-anchored zoom, touch pinch, landing links, selection prevention.');
