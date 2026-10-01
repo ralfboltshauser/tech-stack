@@ -294,6 +294,12 @@
       "question": "Where do I find news and things to attend?"
     },
     {
+      "id": "architecture",
+      "territory": "learning",
+      "name": "Architecture & system design",
+      "question": "How do I describe a system’s structure and boundaries?"
+    },
+    {
       "id": "resources",
       "territory": "learning",
       "name": "Resources",
@@ -1399,6 +1405,18 @@
       "distinction": "A PWA is an approach to building web apps, not a framework. Capabilities depend on the browser, operating system and implementation; the site also demonstrates web APIs that do not require PWA installation.",
       "url": "https://whatpwacando.today/",
       "icon": "assets/icons/pwa-today.png"
+    },
+    {
+      "id": "c4-model",
+      "category": "architecture",
+      "name": "C4 model",
+      "mark": "C4",
+      "type": "Software architecture diagrams",
+      "purpose": "Explain a software system at different levels of detail: system context, containers, components and code.",
+      "example": "Start with users and external systems, then zoom in to your web app, API and database to show their responsibilities and connections.",
+      "distinction": "A way to describe and reason about architecture, independent of drawing tools or frameworks. A C4 container is an application or data store, not necessarily a Docker container. Use the levels that help explain your system.",
+      "url": "https://c4model.com/",
+      "icon": "assets/icons/c4-model.svg"
     }
   ],
   "relations": [
