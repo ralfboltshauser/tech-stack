@@ -7,7 +7,7 @@ OUT = ROOT / 'dist'
 if OUT.exists():
     shutil.rmtree(OUT)
 OUT.mkdir()
-for name in ['index.html', 'app.js', 'style.css', 'ecosystem.json', 'favicon.svg', 'favicon.ico', 'site.webmanifest', 'robots.txt', 'sitemap.xml']:
+for name in ['index.html', 'app.js', 'atlas-atmosphere.js', 'style.css', 'ecosystem.json', 'favicon.svg', 'favicon.ico', 'site.webmanifest', 'robots.txt', 'sitemap.xml']:
     shutil.copy2(ROOT / name, OUT / name)
 shutil.copytree(ROOT / 'assets', OUT / 'assets', ignore=shutil.ignore_patterns('*concept*', '*.md', '.DS_Store'))
 print('Static site packaged in dist/')

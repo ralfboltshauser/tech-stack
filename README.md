@@ -12,6 +12,8 @@ python3 -m http.server 8765
 
 Open http://127.0.0.1:8765/. Drag or scroll to pan, pinch or Ctrl-scroll to zoom. Select a card for details, or use its arrow to visit the official website. Click the background or press Escape to clear the selection. Keyboard users can Tab through tools, or focus the canvas and use arrow keys, +, − and 0 (fit).
 
+On mouse hover, a shared canvas assembles the tool’s icon from 512 points, with a soft silhouette underneath. A fixed preview above the zoom controls keeps it visible at every map position and zoom level. It morphs between tools and disperses on exit. Drawing stops after the transition; dragging, zooming, hidden tabs, touch and reduced-motion preferences disable the effect. Icon samples are cached locally in memory; no graphics dependencies are loaded.
+
 ## Update the collection
 
 Edit `ecosystem.json`, then regenerate the static directory and SEO files:

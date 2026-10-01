@@ -331,6 +331,20 @@ main {
   position: relative;
   z-index: 1;
 }
+.atlas-atmosphere {
+  position: fixed;
+  left: 16px;
+  bottom: 72px;
+  z-index: 14;
+  pointer-events: none;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .atlas-atmosphere { display: none; }
+}
 /* Compact floating controls match the quiet chrome of the detail panel. */
 .map-footer {
   position: fixed;

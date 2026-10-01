@@ -11,6 +11,7 @@ const esc = (s) =>
 let data, toolById, categoryById, territoryById;
 let selected = null;
 let selectionKeyboardOrigin = null;
+let atmosphere = null;
 let scale = 1,
   panX = 20,
   panY = 20,
@@ -116,6 +117,7 @@ function websiteLink(t) {
 }
 
 function renderMap() {
+  atmosphere?.reset();
   const groups = $('#regions');
   groups.innerHTML = '';
   $('.canvas-heading').dataset.summary = `A personal index of ${data.tools.length} tools · ${data.territories.length} areas`;
@@ -284,6 +286,7 @@ function renderSelection() {
   $('#inspector').scrollTop = 0;
 }
 function applyTransform() {
+  atmosphere?.reset();
   world.style.transform = `translate(${panX}px,${panY}px) scale(${scale})`;
   viewport.style.setProperty('--grid-x', `${panX}px`);
   viewport.style.setProperty('--grid-y', `${panY}px`);
@@ -608,4 +611,7 @@ window.builderAtlas = {
   selectTool,
   fit,
 };
+import('./atlas-atmosphere.js?v=2').then(({ createAtlasAtmosphere }) => {
+  atmosphere = createAtlasAtmosphere(viewport);
+}).catch((error) => console.warn('Atlas hover animation unavailable.', error));
 reloadData();

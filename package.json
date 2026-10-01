@@ -4,7 +4,7 @@
   "private": true,
   "description": "Tools I think techies should know.",
   "scripts": {
-    "test": "node --check app.js && node tests/canvas-gestures.test.cjs && node tests/fit-map.test.cjs && node tests/selected-tool-visibility.test.cjs && node tests/publication.test.cjs",
+    "test": "node --check app.js && node --check atlas-atmosphere.js && node tests/canvas-gestures.test.cjs && node tests/fit-map.test.cjs && node tests/selected-tool-visibility.test.cjs && node tests/publication.test.cjs",
     "build": "python3 scripts/build.py && npm test && python3 scripts/package-site.py"
   },
   "engines": {
