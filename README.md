@@ -37,7 +37,7 @@ For local experiments, `window.builderAtlas` exposes `getData()`, `setData(data)
 
 Live site: https://tech.ralfboltshauser.com/
 
-GitHub: https://github.com/ralf-boltshauser/tech-stack
+GitHub: https://github.com/ralfboltshauser/tech-stack
 
 Vercel project: `tech-stack` in the `ralf-boltshauser-s-team` scope.
 
