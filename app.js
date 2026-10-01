@@ -114,7 +114,7 @@ function setData(next) {
 }
 function toolIcon(t) {
   return t.icon
-    ? `<img src="${esc(t.icon)}" alt=""><span class="icon-fallback">${esc(t.mark || t.name.slice(0, 2))}</span>`
+    ? `<img src="${esc(t.icon)}" alt="" width="25" height="25" loading="lazy" decoding="async"><span class="icon-fallback">${esc(t.mark || t.name.slice(0, 2))}</span>`
     : esc(t.mark || t.name.slice(0, 2));
 }
 function finderMatches(query, territoryId) {
@@ -674,6 +674,10 @@ async function reloadData() {
   } catch (error) {
     document.body.classList.remove('map-ready');
     $('#directory').hidden = false;
+    const notice = document.createElement('p');
+    notice.setAttribute('role', 'alert');
+    notice.textContent = 'The interactive map could not load. Browse the directory below or reload to try again.';
+    $('#directory h1').after(notice);
     console.error('Could not open the interactive map.', error);
   }
 }
