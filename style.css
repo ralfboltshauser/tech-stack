@@ -125,6 +125,7 @@ main {
 }
 .canvas-heading {
   position: absolute;
+  z-index: 1;
   top: 24px;
   left: 32px;
   white-space: nowrap;
@@ -295,10 +296,14 @@ main {
   background: #ededf1;
   color: var(--ink);
 }
+#regions {
+  position: relative;
+  z-index: 1;
+}
 #edges {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 0;
   pointer-events: none;
   overflow: visible;
 }
@@ -307,14 +312,7 @@ main {
   stroke: #9696b3;
   stroke-width: 1.5;
   stroke-linejoin: round;
-}
-#edges text {
-  font: 10px var(--mono);
-  fill: #64647c;
-  paint-order: stroke;
-  stroke: var(--paper);
-  stroke-width: 5px;
-  stroke-linejoin: round;
+  opacity: 0.7;
 }
 /* Compact floating controls match the quiet chrome of the detail panel. */
 .map-footer {

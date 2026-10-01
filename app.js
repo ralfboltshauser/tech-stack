@@ -203,6 +203,44 @@ function selectTool(id) {
   if (!toolById.has(id)) return;
   selected = id;
   renderSelection();
+  keepSelectedToolVisible();
+}
+function selectionPan(rect, panel, view, mobile) {
+  const margin = 12;
+  const covered = rect.left < panel.right + margin &&
+    rect.right > panel.left - margin &&
+    rect.top < panel.bottom + margin &&
+    rect.bottom > panel.top - margin;
+  const offscreen = rect.left < view.left + margin ||
+    rect.right > view.right - margin ||
+    rect.top < view.top + margin ||
+    rect.bottom > view.bottom - margin;
+  if (!covered && !offscreen) return { x: 0, y: 0 };
+
+  const left = view.left + margin;
+  const right = (mobile ? view.right : panel.left) - margin;
+  const top = view.top + margin;
+  const bottom = (mobile ? panel.top : view.bottom) - margin;
+  let x = rect.right > right ? right - rect.right : 0;
+  if (rect.left + x < left) x = left - rect.left;
+  let y = rect.bottom > bottom ? bottom - rect.bottom : 0;
+  if (rect.top + y < top) y = top - rect.top;
+  return { x, y };
+}
+function keepSelectedToolVisible() {
+  if (!selected) return;
+  const node = $(`#regions [data-tool="${selected}"]`);
+  if (!node) return;
+  const pan = selectionPan(
+    node.getBoundingClientRect(),
+    $('#inspector').getBoundingClientRect(),
+    viewport.getBoundingClientRect(),
+    viewport.clientWidth <= 760,
+  );
+  if (!pan.x && !pan.y) return;
+  panX += pan.x;
+  panY += pan.y;
+  applyTransform();
 }
 function renderSelection() {
   document.querySelectorAll('[data-tool]').forEach((n) => {
@@ -269,9 +307,7 @@ function drawEdges() {
       ay = a.y + a.h / 2,
       bx = b.x + b.w / 2,
       by = b.y + b.h / 2,
-      path,
-      lx,
-      ly;
+      path;
     const ga = $(`#regions [data-tool="${r.from}"]`).closest('.map-group'),
       gb = $(`#regions [data-tool="${r.to}"]`).closest('.map-group');
     if (ga !== gb) {
@@ -287,28 +323,22 @@ function drawEdges() {
         : gb.offsetLeft + gb.offsetWidth + 17;
       const routeY = Math.min(ga.offsetTop, gb.offsetTop) - 16;
       path = `M${ax},${ay} H${exit} V${routeY} H${enter} V${by} H${bx}`;
-      lx = (exit + enter) / 2;
-      ly = routeY - 9;
     } else if (Math.abs(ax - bx) > Math.abs(ay - by)) {
       const sign = bx > ax ? 1 : -1;
       ax += (sign * a.w) / 2;
       bx -= (sign * b.w) / 2;
       const offset = Math.max(35, Math.abs(bx - ax) * 0.45);
       path = `M${ax},${ay} C${ax + sign * offset},${ay} ${bx - sign * offset},${by} ${bx},${by}`;
-      lx = (ax + bx) / 2;
-      ly = Math.min(a.y, b.y) - 9;
     } else {
       const sign = by > ay ? 1 : -1;
       ay += (sign * a.h) / 2;
       by -= (sign * b.h) / 2;
       const offset = Math.max(35, Math.abs(by - ay) * 0.45);
       path = `M${ax},${ay} C${ax},${ay + sign * offset} ${bx},${by - sign * offset} ${bx},${by}`;
-      lx = (ax + bx) / 2 + 8;
-      ly = (ay + by) / 2;
     }
     svg.insertAdjacentHTML(
       'beforeend',
-      `<path d="${path}" marker-end="url(#arrow)" ${r.kind === 'overlap' ? 'stroke-dasharray="6 5"' : ''}/><text x="${lx}" y="${ly}" text-anchor="middle">${esc(r.label)}</text>`,
+      `<path d="${path}" marker-end="url(#arrow)" ${r.kind === 'overlap' ? 'stroke-dasharray="6 5"' : ''}/>`,
     );
   }
 }
@@ -593,6 +623,7 @@ new ResizeObserver(() => {
     panX += (width - previousCanvasSize.width) / 2;
     panY += (height - previousCanvasSize.height) / 2;
     applyTransform();
+    keepSelectedToolVisible();
   }
   previousCanvasSize = { width, height };
 }).observe(viewport);
