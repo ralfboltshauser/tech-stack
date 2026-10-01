@@ -316,15 +316,24 @@ function applyTransform() {
   world.style.transform = `translate(${panX}px,${panY}px) scale(${scale})`;
   $('#zoom-level').textContent = Math.round(scale * 100) + '%';
 }
-function fit() {
+function fitBounds() {
   const right = selected && viewport.clientWidth > 760 ? 265 : 16,
     top = 24;
   const availableWidth = viewport.clientWidth - right - 44,
     availableHeight = viewport.clientHeight - top - 82;
-  scale = Math.max(
-    0.12,
-    Math.min(availableWidth / worldWidth, availableHeight / worldHeight, 1),
-  );
+  return {
+    availableWidth,
+    availableHeight,
+    top,
+    scale: Math.min(availableWidth / worldWidth, availableHeight / worldHeight, 1),
+  };
+}
+function minimumScale() {
+  return Math.min(0.12, fitBounds().scale);
+}
+function fit() {
+  const { availableWidth, availableHeight, top, scale: fittedScale } = fitBounds();
+  scale = fittedScale;
   panX = 22 + (availableWidth - worldWidth * scale) / 2;
   panY = top + (availableHeight - worldHeight * scale) / 2;
   applyTransform();
@@ -335,7 +344,7 @@ function zoom(
   x = viewport.clientWidth / 2,
   y = viewport.clientHeight / 2,
 ) {
-  const next = Math.min(4, Math.max(0.12, scale * factor));
+  const next = Math.min(4, Math.max(minimumScale(), scale * factor));
   panX = x - ((x - panX) * next) / scale;
   panY = y - ((y - panY) * next) / scale;
   scale = next;
@@ -428,7 +437,7 @@ function moveCanvasPointer(e) {
     scale = Math.min(
       4,
       Math.max(
-        0.12,
+        minimumScale(),
         (pinch.scale * Math.hypot(b.x - a.x, b.y - a.y)) / pinch.distance,
       ),
     );
