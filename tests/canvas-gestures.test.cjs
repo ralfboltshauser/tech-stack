@@ -8,8 +8,8 @@ const target={clientWidth:1000,clientHeight:800,getBoundingClientRect:()=>({left
  setPointerCapture:id=>captures.add(id),hasPointerCapture:id=>captures.has(id),releasePointerCapture:id=>captures.delete(id),
  classList:{add(){},remove(){}}};
 const context=vm.createContext({viewport:target,document:{addEventListener:(type,fn)=>handlers[type]=fn},window:{addEventListener(){}},applyTransform(){},Math});
-vm.runInContext('let scale=1,panX=100,panY=80,pointer=null;',context);
-vm.runInContext(source.slice(source.indexOf('function zoom('),source.indexOf("$('#zoom-in').onclick")),context);
+vm.runInContext('let scale=1,panX=100,panY=80,pointer=null,worldWidth=1500,worldHeight=1110,selected=null;',context);
+vm.runInContext(source.slice(source.indexOf('function fitBounds()'),source.indexOf("$('#zoom-in').onclick")),context);
 vm.runInContext(source.slice(source.indexOf('// Canvas navigation:'),source.indexOf("viewport.addEventListener('keydown'")),context);
 const run=s=>vm.runInContext(s,context);
 const e=(patch={})=>({pointerId:1,pointerType:'mouse',button:0,clientX:100,clientY:100,deltaX:0,deltaY:0,deltaMode:0,ctrlKey:false,metaKey:false,shiftKey:false,target:{closest:()=>null},preventDefault(){this.prevented=true},stopImmediatePropagation(){this.stopped=true},...patch});
