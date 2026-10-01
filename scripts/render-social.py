@@ -18,6 +18,9 @@ def font(size,weight='Regular'):
 F={size:font(size) for size in [18,22,24,28,30]}
 B={size:font(size,'SemiBold') for size in [24,26,74,82]}
 tools={t['id']:t for t in json.loads((ROOT/'ecosystem.json').read_text())['tools']}
+site=json.loads((ROOT/'site.json').read_text())
+title=site['title']
+subtitle=site['description']
 
 def render(height,name,square=False):
     im=Image.new('RGB',(1200*S,height*S),PAPER);draw=ImageDraw.Draw(im)
@@ -31,12 +34,13 @@ def render(height,name,square=False):
     draw.rectangle((0,0,1200*S,(300 if not square else 410)*S),fill=PAPER)
     if square:
         centered(80,'tech.ralfboltshauser.com',F[22],MUTED)
-        centered(150,'Ralf’s',B[82]);centered(248,'Tech Stack+',B[82])
-        centered(363,'The tools, people, and ideas behind what I build.',F[28],MUTED)
+        first, rest = title.split(' ', 1)
+        centered(150,first,B[82]);centered(248,rest,B[82])
+        centered(363,subtitle,F[28],MUTED)
     else:
         text(72,58,'tech.ralfboltshauser.com',F[22],MUTED)
-        text(72,114,'Ralf’s Tech Stack+',B[74])
-        text(74,218,'The tools, people, and ideas behind what I build.',F[28],MUTED)
+        text(72,114,title,B[74])
+        text(74,218,subtitle,F[28],MUTED)
     groups=[('BUILD',['next','shadcn'],'#347e6b'),('SHIP',['vercel','cloudflare'],'#416fc1'),('WORK',['codex','github'],'#8963ac')]
     # Use actual labels and icons from the collection, not invented product UI.
     groups[0][1][0]=next(t['id'] for t in tools.values() if t['name']=='Next.js')
@@ -64,6 +68,6 @@ def render(height,name,square=False):
     else:text(74,height-62,'Software, workspace & sources worth knowing.',F[18],MUTED)
     im.resize((1200,height),Image.Resampling.LANCZOS).save(ROOT/'assets'/name,optimize=True)
 
-render(630,'social-card-v2.png')
-render(600,'social-card-x-v2.png')
-render(1200,'social-card-square-v2.png',True)
+render(630,'social-card-v3.png')
+render(600,'social-card-x-v3.png')
+render(1200,'social-card-square-v3.png',True)

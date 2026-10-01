@@ -42,13 +42,13 @@ def build():
     # Keep image metadata in server-rendered HTML; social crawlers need no JS.
     source = re.sub(r'<!-- SOCIAL:START -->.*?<!-- SOCIAL:END -->\s*', '', source, flags=re.S)
     source = re.sub(r'<meta\s+(?:property="og:image[^\"]*"|name="twitter:(?:image[^\"]*|card)")[^>]*>\s*', '', source)
-    alt = 'Ralf’s Tech Stack+ with a small map of Next.js, shadcn/ui, Vercel, Cloudflare, Codex and GitHub.'
+    alt = f'{config["title"]} with a small map of Next.js, shadcn/ui, Vercel, Cloudflare, Codex and GitHub.'
     social = ['<!-- SOCIAL:START -->']
-    for filename, width, height in [('social-card-v2.png', 1200, 630), ('social-card-square-v2.png', 1200, 1200)]:
+    for filename, width, height in [('social-card-v3.png', 1200, 630), ('social-card-square-v3.png', 1200, 1200)]:
         image_url = esc(urljoin(url, 'assets/' + filename), quote=True)
         for key, value in [('image', image_url), ('image:secure_url', image_url), ('image:type', 'image/png'), ('image:width', width), ('image:height', height), ('image:alt', esc(alt, quote=True))]:
             social.append(f'<meta property="og:{key}" content="{value}">')
-    social.extend(['<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{esc(urljoin(url, "assets/social-card-x-v2.png"), quote=True)}">', f'<meta name="twitter:image:alt" content="{esc(alt, quote=True)}">', '<!-- SOCIAL:END -->'])
+    social.extend(['<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{esc(urljoin(url, "assets/social-card-x-v3.png"), quote=True)}">', f'<meta name="twitter:image:alt" content="{esc(alt, quote=True)}">', '<!-- SOCIAL:END -->'])
     source = source.replace('</head>', '\n'.join(social) + '\n</head>')
     (ROOT / 'index.html').write_text(source)
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {urljoin(url, "sitemap.xml")}\n')

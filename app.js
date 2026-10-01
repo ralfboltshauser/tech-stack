@@ -100,7 +100,7 @@ function setData(next) {
   categoryById = new Map(data.categories.map((c) => [c.id, c]));
   territoryById = new Map(data.territories.map((t) => [t.id, t]));
   if (selected && !toolById.has(selected)) selected = null;
-  document.title = 'Ralf’s Tech Stack+';
+  document.title = data.title;
   document.body.classList.add('map-ready');
   $('#directory').hidden = true;
   renderMap();
