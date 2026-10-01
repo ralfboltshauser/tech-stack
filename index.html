@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 <!-- SEO:START -->
 <link rel="canonical" href="https://tech.ralfboltshauser.com/">
 <meta property="og:url" content="https://tech.ralfboltshauser.com/">
@@ -243,11 +243,21 @@
  <p class="sr-only">The tools, people, and ideas behind what I build.</p>
 
  <div class="workspace" id="workspace">
+  <header class="map-intro" aria-label="About this collection">
+   <div class="map-intro-title">Ralf’s Tech Stack<span aria-hidden="true">+</span></div>
+   <p>Tools I think techies should know.</p>
+   <details id="finder" class="finder"><summary>Find tool <span aria-hidden="true">⌕</span></summary>
+    <div class="finder-panel"><label for="finder-search">Search the collection</label><input id="finder-search" type="search" autocomplete="off" placeholder="Name, category, or what it does…">
+     <div id="finder-territories" class="finder-territories" aria-label="Filter by area"></div>
+     <p id="finder-count" class="finder-count" role="status"></p><div id="finder-results" class="finder-results"></div>
+    </div>
+   </details>
+  </header>
   <section id="map-view" aria-label="Interactive ecosystem map">
    <div id="viewport" tabindex="0" aria-label="Map canvas. Use arrow keys to pan, plus and minus to zoom, zero to fit."><div id="world"><svg id="edges" width="1500" height="1110" aria-hidden="true"></svg><div id="regions"></div></div></div>
    <div class="map-footer"><div class="zoom-controls"><button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-level" aria-label="Zoom level">100%</output><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Fit map</button></div><span class="connection-key">Drag / scroll to pan · pinch to zoom</span></div>
   </section>
-  <aside class="no-selection" id="inspector" aria-label="Selected tool details" aria-live="polite"></aside>
+  <aside class="no-selection" id="inspector" tabindex="-1" aria-labelledby="inspector-heading" aria-live="polite"></aside>
  </div>
-</main><script src="app.js?v=6"></script>
+</main><script src="app.js?v=7"></script>
 </body></html>

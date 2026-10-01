@@ -10,6 +10,8 @@ const esc = (s) =>
   );
 let data, toolById, categoryById, territoryById;
 let selected = null;
+let selectedFromFinder = false;
+let finderTerritory = 'all';
 let scale = 1,
   panX = 20,
   panY = 20,
@@ -104,6 +106,7 @@ function setData(next) {
   $('#directory').hidden = true;
   renderMap();
   renderSelection();
+  renderFinder();
   requestAnimationFrame(() => {
     applyTransform();
     drawEdges();
@@ -114,13 +117,93 @@ function toolIcon(t) {
     ? `<img src="${esc(t.icon)}" alt=""><span class="icon-fallback">${esc(t.mark || t.name.slice(0, 2))}</span>`
     : esc(t.mark || t.name.slice(0, 2));
 }
+function finderMatches(query, territoryId) {
+  const term = query.trim().toLocaleLowerCase();
+  return data.tools.filter((tool) => {
+    const category = categoryById.get(tool.category);
+    const territory = territoryById.get(category.territory);
+    if (territoryId !== 'all' && territory.id !== territoryId) return false;
+    return [tool.name, tool.type, tool.purpose, category.name, territory.name]
+      .join(' ')
+      .toLocaleLowerCase()
+      .includes(term);
+  });
+}
+function renderFinder() {
+  if (!data) return;
+  if (finderTerritory !== 'all' && !territoryById.has(finderTerritory))
+    finderTerritory = 'all';
+  const filters = $('#finder-territories');
+  filters.innerHTML = [
+    `<button type="button" data-territory="all" aria-pressed="${finderTerritory === 'all'}">All</button>`,
+    ...data.territories.map((territory) =>
+      `<button type="button" data-territory="${esc(territory.id)}" aria-pressed="${finderTerritory === territory.id}">${esc(territory.name)}</button>`),
+  ].join('');
+  const results = finderMatches($('#finder-search').value, finderTerritory);
+  $('#finder-count').textContent = `${results.length} of ${data.tools.length} entries`;
+  const groups = new Map();
+  for (const tool of results) {
+    const category = categoryById.get(tool.category);
+    if (!groups.has(category.id)) groups.set(category.id, { category, tools: [] });
+    groups.get(category.id).tools.push(tool);
+  }
+  $('#finder-results').innerHTML = results.length
+    ? [...groups.values()].map(({ category, tools }) =>
+      `<section><h2>${esc(category.name)}</h2>${tools.map((tool) =>
+        `<div class="finder-result"><button type="button" data-find-tool="${esc(tool.id)}"><strong>${esc(tool.name)}</strong><small>${esc(tool.type || 'Tool')}</small></button>${tool.url ? `<a href="${esc(tool.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${esc(tool.name)} website (opens in a new tab)">↗</a>` : ''}</div>`).join('')}</section>`).join('')
+    : '<p class="finder-empty">No matches. Try a name, category, or task.</p>';
+}
+function showToolFromFinder(id) {
+  const node = [...document.querySelectorAll('#regions [data-tool]')]
+    .find((item) => item.dataset.tool === id);
+  if (!node) return;
+  $('#finder').open = false;
+  selectTool(id);
+  selectedFromFinder = true;
+  if (scale < 0.72) {
+    scale = 0.72;
+    applyTransform();
+  }
+  const rect = node.getBoundingClientRect();
+  const targetX = viewport.clientWidth > 760 ? (viewport.clientWidth - 280) / 2 : viewport.clientWidth / 2;
+  const targetY = viewport.clientWidth > 760 ? viewport.clientHeight / 2 : viewport.clientHeight * 0.3;
+  panX += targetX - (rect.left + rect.width / 2);
+  panY += targetY - (rect.top + rect.height / 2);
+  applyTransform();
+  $('#inspector').focus({ preventScroll: true });
+  drawEdges();
+}
+$('#finder').addEventListener('toggle', () => {
+  if ($('#finder').open) $('#finder-search').focus();
+});
+$('#finder-search').addEventListener('input', renderFinder);
+$('#finder-territories').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-territory]');
+  if (!button) return;
+  finderTerritory = button.dataset.territory;
+  renderFinder();
+  [...$('#finder-territories').querySelectorAll('[data-territory]')]
+    .find((item) => item.dataset.territory === finderTerritory)?.focus();
+});
+$('#finder-results').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-find-tool]');
+  if (button) showToolFromFinder(button.dataset.findTool);
+});
+$('#finder').addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    event.stopPropagation();
+    $('#finder').open = false;
+    $('#finder summary').focus();
+  }
+});
 function nodeMarkup(t) {
   const button = `<button class="node${t.id === selected ? ' selected' : ''}" data-tool="${esc(t.id)}" aria-pressed="${t.id === selected}" aria-label="${esc(t.name)}: ${esc(t.type || 'Tool')}"><span class="mark" aria-hidden="true">${toolIcon(t)}</span><span><strong>${esc(t.name)}</strong><small>${esc(t.type || 'Tool')}</small></span></button>`;
   return `<div class="tool-card map-card">${button}${t.url ? `<a class="tool-website" href="${esc(t.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${esc(t.name)} website (opens in a new tab)" title="Visit ${esc(t.name)}">↗</a>` : ''}</div>`;
 }
 function websiteLink(t) {
   return t.url
-    ? `<div class="landing-links"><a class="official" href="${esc(t.url)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div>`
+    ? `<div class="landing-links"><a class="official" href="${esc(t.url)}" target="_blank" rel="noopener noreferrer">Visit ${esc(t.name)} ↗</a></div>`
     : '';
 }
 
@@ -186,6 +269,7 @@ function renderMap() {
 }
 function clearToolSelection() {
   selected = null;
+  selectedFromFinder = false;
   if (document.activeElement?.closest('[data-tool]'))
     document.activeElement.blur();
   renderSelection();
@@ -193,6 +277,7 @@ function clearToolSelection() {
 function selectTool(id) {
   if (!toolById.has(id)) return;
   selected = id;
+  selectedFromFinder = false;
   renderSelection();
 }
 function renderSelection() {
@@ -205,7 +290,7 @@ function renderSelection() {
   $('#inspector').classList.toggle('no-selection', !t);
   if (!t) {
     $('#inspector').innerHTML =
-      '<div class="eyebrow">EXPLORE THE COLLECTION</div><h2>Select a tool</h2><p class="detail-body">See the job it does, a concrete example, and the tools it connects to.</p>';
+      '<div class="eyebrow">EXPLORE THE COLLECTION</div><h2 id="inspector-heading">Select a tool</h2><p class="detail-body">See the job it does, a concrete example, and the tools it connects to.</p>';
     drawEdges();
     return;
   }
@@ -215,7 +300,7 @@ function renderSelection() {
       (r) => r.from === selected || r.to === selected,
     );
   $('#inspector').innerHTML =
-    `<div class="inspector-top"><span>${esc(territory.name.toUpperCase())} / ${territory.exploration ? 'EXPLORATION' : territory.id === 'learning' ? 'SOURCE' : 'TOOL'}</span><button id="clear-selection" aria-label="Clear tool selection">×</button></div><div class="inspector-mark" aria-hidden="true">${toolIcon(t)}</div><h2>${esc(t.name)}</h2><p class="type">${esc(t.type || 'Tool')} · ${esc(cat.name)}</p>${websiteLink(t)}<div class="detail-label">${territory.id === 'learning' ? 'ABOUT THIS SOURCE' : 'THE JOB IT DOES'}</div><p class="detail-body">${esc(t.purpose)}</p>${t.example ? `<div class="detail-label">FOR EXAMPLE</div><div class="example">${esc(t.example)}</div>` : ''}${t.distinction ? `<div class="detail-label">WHERE IT FITS</div><p class="detail-body">${esc(t.distinction)}</p>` : ''}${
+    `<div class="inspector-top"><span>${esc(territory.name.toUpperCase())} / ${territory.exploration ? 'EXPLORATION' : territory.id === 'learning' ? 'SOURCE' : 'TOOL'}</span><button id="clear-selection" aria-label="Clear tool selection">×</button></div><div class="inspector-mark" aria-hidden="true">${toolIcon(t)}</div><h2 id="inspector-heading">${esc(t.name)}</h2><p class="type">${esc(t.type || 'Tool')} · ${esc(cat.name)}</p>${websiteLink(t)}<div class="detail-label">${territory.id === 'learning' ? 'ABOUT THIS SOURCE' : 'THE JOB IT DOES'}</div><p class="detail-body">${esc(t.purpose)}</p>${t.example ? `<div class="detail-label">FOR EXAMPLE</div><div class="example">${esc(t.example)}</div>` : ''}${t.distinction ? `<div class="detail-label">WHERE IT FITS</div><p class="detail-body">${esc(t.distinction)}</p>` : ''}${
       relations.length
         ? `<div class="detail-label">CONNECTIONS</div>${relations
             .map((r) => {
@@ -225,7 +310,12 @@ function renderSelection() {
             .join('')}`
         : ''
     }<p class="scope-note">Tools are grouped by their main job. A category does not imply that its tools are interchangeable.</p>`;
-  $('#clear-selection').onclick = clearToolSelection;
+  $('#clear-selection').onclick = () => {
+    const returnToFinder = selectedFromFinder;
+    clearToolSelection();
+    (returnToFinder ? $('#finder summary') : viewport).focus({ preventScroll: true });
+  };
+  $('#inspector').scrollTop = 0;
   drawEdges();
 }
 function drawEdges() {
@@ -551,8 +641,9 @@ document.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && selected) {
+    const returnToFinder = selectedFromFinder;
     clearToolSelection();
-    viewport.focus({ preventScroll: true });
+    (returnToFinder ? $('#finder summary') : viewport).focus({ preventScroll: true });
   }
 });
 // Clean up links shared before the map became the only page.
