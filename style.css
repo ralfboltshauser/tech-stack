@@ -163,6 +163,7 @@ main {
 }
 .finder-territories button {
   flex: none;
+  min-width: 44px;
   min-height: 44px;
   padding: 8px 11px;
   border: 1px solid #e0e0e4;
