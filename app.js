@@ -334,12 +334,11 @@ function drawEdges() {
     '<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" style="fill:#9696b3;stroke:none"/></marker></defs>';
   if (!selected) return;
   const selectedNode = $(`#regions [data-tool="${selected}"]`);
-  if (!selectedNode || selectedNode.parentElement.classList.contains('dimmed'))
-    return;
+  if (!selectedNode) return;
   const worldRect = world.getBoundingClientRect();
   const box = (id) => {
     const n = $(`#regions [data-tool="${id}"]`);
-    if (!n || n.parentElement.classList.contains('dimmed')) return null;
+    if (!n) return null;
     const r = n.getBoundingClientRect();
     return {
       x: (r.x - worldRect.x) / scale,
