@@ -631,13 +631,16 @@ document.addEventListener('click', (e) => {
   const rel = e.target.closest('[data-related]');
   if (rel) {
     selectTool(rel.dataset.related);
+    $('#inspector').focus({ preventScroll: true });
     return;
   }
   if (
     e.target.closest('#viewport') &&
     !e.target.closest('a,button,input,textarea,select')
-  )
+  ) {
     clearToolSelection();
+    viewport.focus({ preventScroll: true });
+  }
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && selected) {

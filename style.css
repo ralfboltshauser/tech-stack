@@ -58,6 +58,7 @@ a,
 input,
 summary {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 button,
 summary {
@@ -132,7 +133,6 @@ main {
   list-style: none;
 }
 .finder summary::-webkit-details-marker { display: none; }
-.finder summary:hover { border-color: #9899a3; }
 .finder[open] summary { border-color: #777983; }
 .finder[open] summary { margin-top: 12px; }
 .finder summary span { font-size: 23px; line-height: 16px; }
@@ -170,7 +170,6 @@ main {
   background: #fff;
   font-size: 12px;
 }
-.finder-territories button:hover { border-color: #999aa4; }
 .finder-territories button[aria-pressed="true"] { border-color: #292a2f; background: #292a2f; color: #fff; }
 .finder-count { margin: 8px 0 !important; font: 11px var(--mono) !important; }
 .finder-results {
@@ -199,7 +198,6 @@ main {
   background: transparent;
   text-align: left;
 }
-.finder-result button:hover strong { text-decoration: underline; }
 .finder-result strong { display: block; font-size: 13px; font-weight: 500; }
 .finder-result small { display: block; color: #62636a; font-size: 11px; }
 .finder-result a {
@@ -212,7 +210,6 @@ main {
   font-size: 17px;
   text-decoration: none;
 }
-.finder-result a:hover { color: var(--blue); background: #f2f2f7; }
 .finder-empty { margin: 12px 0 !important; font-size: 12px !important; }
 /* The canvas is the entire surface; the map provides its own hierarchy. */
 #map-view {
@@ -333,11 +330,6 @@ main {
     background-color 0.15s,
     opacity 0.15s;
 }
-.node:hover {
-  border-color: #bcbcc6;
-  background: #fefefe;
-  box-shadow: 0 2px 6px #00000007;
-}
 .node.selected {
   border-color: #797bd0;
   background: #f8f8ff;
@@ -406,8 +398,11 @@ main {
     color 0.15s,
     background-color 0.15s;
 }
-.tool-website:hover,
 .tool-website:focus-visible {
+  background: #ededf1;
+  color: var(--ink);
+}
+.tool-website:active {
   background: #ededf1;
   color: var(--ink);
 }
@@ -459,14 +454,14 @@ main {
   font-size: 17px;
   line-height: 1;
 }
-.zoom-controls button:hover {
-  background: #f0f0f3;
-}
 .zoom-controls output {
   font: 10px var(--mono);
   color: var(--muted);
   width: 42px;
   text-align: center;
+}
+.zoom-controls button:active {
+  background: #e8e8ec;
 }
 .zoom-controls #fit {
   font-size: 11px;
@@ -526,8 +521,8 @@ main {
   color: var(--muted);
   flex: none;
 }
-.inspector-top button:hover {
-  background: #f1f1f4;
+.inspector-top button:active {
+  background: #e8e8ec;
   color: var(--ink);
 }
 .inspector-mark {
@@ -576,9 +571,6 @@ main {
   text-decoration: none;
   box-shadow: 0 1px 2px #00000015;
 }
-.official:hover {
-  background: #3b3b3f;
-}
 .detail-label {
   font: 9px/15px var(--mono);
   letter-spacing: 0.6px;
@@ -619,9 +611,6 @@ main {
   font-weight: 500;
   color: var(--blue);
 }
-.relation:hover b {
-  text-decoration: underline;
-}
 .scope-note {
   display: none;
 }
@@ -661,22 +650,50 @@ main {
 }
 @media (pointer: coarse) {
   .zoom-controls button {
-    min-width: 36px;
-    min-height: 36px;
+    min-width: 44px;
+    min-height: 44px;
   }
   .inspector-top button {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
+  }
+  .official {
+    display: grid;
+    place-items: center;
+    min-height: 44px;
   }
   .tool-website {
-    width: 30px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     right: 1px;
     top: 1px;
+    justify-items: end;
+    align-items: start;
+    padding: 4px 11px 0 0;
   }
   .node {
-    padding-right: 31px;
+    gap: 8px;
+    padding-right: 45px;
   }
+  .node .mark {
+    width: 28px;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .finder summary:hover { border-color: #9899a3; }
+  .finder-territories button:hover { border-color: #999aa4; }
+  .finder-result button:hover strong { text-decoration: underline; }
+  .finder-result a:hover { color: var(--blue); background: #f2f2f7; }
+  .node:hover {
+    border-color: #bcbcc6;
+    background: #fefefe;
+    box-shadow: 0 2px 6px #00000007;
+  }
+  .tool-website:hover { background: #ededf1; color: var(--ink); }
+  .zoom-controls button:hover { background: #f0f0f3; }
+  .inspector-top button:hover { background: #f1f1f4; color: var(--ink); }
+  .official:hover { background: #3b3b3f; }
+  .relation:hover b { text-decoration: underline; }
 }
 @media (prefers-reduced-motion: reduce) {
   * {
