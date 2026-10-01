@@ -1417,6 +1417,18 @@
       "distinction": "A way to describe and reason about architecture, independent of drawing tools or frameworks. A C4 container is an application or data store, not necessarily a Docker container. Use the levels that help explain your system.",
       "url": "https://c4model.com/",
       "icon": "assets/icons/c4-model.svg"
+    },
+    {
+      "id": "roadmap-sh",
+      "category": "resources",
+      "name": "roadmap.sh",
+      "mark": "rm",
+      "type": "Developer learning paths",
+      "purpose": "Explore visual learning paths for development roles and technologies, with links to guides and practice projects.",
+      "example": "Open the frontend or backend roadmap to see how topics connect and choose what to learn next.",
+      "distinction": "A learning resource rather than an application framework. Use its roadmaps for orientation and adapt the path to the project you want to build.",
+      "url": "https://roadmap.sh/",
+      "icon": "assets/icons/roadmap-sh.png"
     }
   ],
   "relations": [
