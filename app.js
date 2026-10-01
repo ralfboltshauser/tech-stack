@@ -555,7 +555,10 @@ document.addEventListener('keydown', (e) => {
     viewport.focus({ preventScroll: true });
   }
 });
-if (location.hash !== '#map') history.replaceState(null, '', '#map');
+// Clean up links shared before the map became the only page.
+if (location.hash === '#map') {
+  history.replaceState(null, '', location.pathname + location.search);
+}
 let previousCanvasSize = null;
 new ResizeObserver(() => {
   const width = viewport.clientWidth,
