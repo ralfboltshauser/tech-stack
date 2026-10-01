@@ -1,0 +1,13 @@
+{
+  "name": "ralf-tech-stack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The tools, people, and ideas behind what I build.",
+  "scripts": {
+    "test": "node --check app.js && node tests/canvas-gestures.test.cjs && node tests/publication.test.cjs",
+    "build": "python3 scripts/build.py && npm test && python3 scripts/package-site.py"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

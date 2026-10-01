@@ -1,0 +1,1710 @@
+{
+  "version": 1,
+  "title": "Ralf’s Tech Stack+",
+  "territories": [
+    {
+      "id": "product",
+      "name": "App experience",
+      "description": "Interfaces, interaction & content",
+      "lane": 0,
+      "columns": 1,
+      "color": "#347e6b",
+      "background": "#edf6f1"
+    },
+    {
+      "id": "business",
+      "name": "Business & customers",
+      "description": "Payments, communication & growth",
+      "lane": 0,
+      "columns": 1,
+      "color": "#a56c32",
+      "background": "#fbf3e8"
+    },
+    {
+      "id": "backend",
+      "name": "Data & app logic",
+      "description": "Persistence, identity & behavior",
+      "lane": 1,
+      "columns": 1,
+      "color": "#397f91",
+      "background": "#edf6f8"
+    },
+    {
+      "id": "ai",
+      "name": "AI capabilities",
+      "description": "Models, web context, voice & avatars",
+      "lane": 1,
+      "columns": 1,
+      "color": "#95639b",
+      "background": "#f7eff8"
+    },
+    {
+      "id": "platform",
+      "name": "Hosting & infrastructure",
+      "description": "Deploy, connect & operate",
+      "lane": 2,
+      "columns": 1,
+      "color": "#416fc1",
+      "background": "#edf2fc"
+    },
+    {
+      "id": "observability",
+      "name": "System health",
+      "description": "Understand running services",
+      "lane": 2,
+      "columns": 1,
+      "color": "#b36a28",
+      "background": "#fbf2e8"
+    },
+    {
+      "id": "workshop",
+      "name": "Development workflow",
+      "description": "Write, organize & validate code",
+      "lane": 3,
+      "columns": 1,
+      "color": "#8963ac",
+      "background": "#f4eef9"
+    },
+    {
+      "id": "workspace",
+      "name": "Personal workspace",
+      "description": "Machines & everyday tools",
+      "lane": 4,
+      "columns": 1,
+      "color": "#687c54",
+      "background": "#f2f5ec"
+    },
+    {
+      "id": "learning",
+      "name": "Learning & inspiration",
+      "description": "People, ideas & events I follow",
+      "lane": 4,
+      "columns": 1,
+      "color": "#9b6c53",
+      "background": "#faf3ee"
+    },
+    {
+      "id": "sidequests",
+      "name": "Side quests",
+      "description": "Explorations, outside the core stack",
+      "lane": 5,
+      "columns": 1,
+      "color": "#777394",
+      "background": "#f3f1f7",
+      "exploration": true
+    }
+  ],
+  "categories": [
+    {
+      "id": "web",
+      "territory": "product",
+      "name": "Build web apps",
+      "question": "What renders and organizes the web app?"
+    },
+    {
+      "id": "interface",
+      "territory": "product",
+      "name": "Style & localize interfaces",
+      "question": "How does the interface look, move and speak?"
+    },
+    {
+      "id": "mobile",
+      "territory": "product",
+      "name": "Build mobile apps",
+      "question": "How do I build for iOS and Android?"
+    },
+    {
+      "id": "visuals",
+      "territory": "product",
+      "name": "Create 3D experiences",
+      "question": "How do I render interactive 3D scenes?"
+    },
+    {
+      "id": "content",
+      "territory": "product",
+      "name": "Manage content",
+      "question": "How do editors publish content?"
+    },
+    {
+      "id": "business",
+      "territory": "business",
+      "name": "Payments & transactional email",
+      "question": "How does the app charge and send messages?"
+    },
+    {
+      "id": "analytics",
+      "territory": "business",
+      "name": "Product insights & sales",
+      "question": "How do I understand usage and find customers?"
+    },
+    {
+      "id": "data",
+      "territory": "backend",
+      "name": "Databases & backend services",
+      "question": "Where do application records live?"
+    },
+    {
+      "id": "data-access",
+      "territory": "backend",
+      "name": "Access & synchronize data",
+      "question": "How does code query and fetch records?"
+    },
+    {
+      "id": "auth",
+      "territory": "backend",
+      "name": "Accounts & authentication",
+      "question": "Who is signed in?"
+    },
+    {
+      "id": "storage",
+      "territory": "backend",
+      "name": "Store files",
+      "question": "Where do uploads and media live?"
+    },
+    {
+      "id": "logic",
+      "territory": "backend",
+      "name": "Structure application logic",
+      "question": "How do I compose behavior and handle failure?"
+    },
+    {
+      "id": "ai",
+      "territory": "ai",
+      "name": "Models & external knowledge",
+      "question": "How does the app call models and search the web?"
+    },
+    {
+      "id": "ai-conversations",
+      "territory": "ai",
+      "name": "AI interfaces & chat bots",
+      "question": "How do people interact with an AI assistant?"
+    },
+    {
+      "id": "voice",
+      "territory": "ai",
+      "name": "Voice & avatars",
+      "question": "How does the experience speak and appear?"
+    },
+    {
+      "id": "deploy",
+      "territory": "platform",
+      "name": "Deploy & provision services",
+      "question": "How do I publish apps and set up providers?"
+    },
+    {
+      "id": "containers",
+      "territory": "platform",
+      "name": "Servers & containers",
+      "question": "What runs the app beneath deployment?"
+    },
+    {
+      "id": "networking",
+      "territory": "platform",
+      "name": "Domains & networks",
+      "question": "How do I name services and connect machines?"
+    },
+    {
+      "id": "observability-basics",
+      "territory": "observability",
+      "name": "Monitor & troubleshoot",
+      "question": "Is the system healthy, and what happened?"
+    },
+    {
+      "id": "code",
+      "territory": "workshop",
+      "name": "Coding agents",
+      "question": "What helps me investigate and change code?"
+    },
+    {
+      "id": "agent-skills",
+      "territory": "workshop",
+      "name": "Agent skills",
+      "question": "What reusable instructions guide an agent’s work?"
+    },
+    {
+      "id": "agent-devtools",
+      "territory": "workshop",
+      "name": "Agent feedback & interaction",
+      "question": "How can agents inspect and use the running app?"
+    },
+    {
+      "id": "runtime",
+      "territory": "workshop",
+      "name": "Runtime & repository tooling",
+      "question": "How do I run code and coordinate packages?"
+    },
+    {
+      "id": "code-quality",
+      "territory": "workshop",
+      "name": "Checks & testing",
+      "question": "How do I catch problems before shipping?"
+    },
+    {
+      "id": "security-testing",
+      "territory": "workshop",
+      "name": "Security testing",
+      "question": "Where could the app expose data or trust the wrong input?"
+    },
+    {
+      "id": "collaboration",
+      "territory": "workshop",
+      "name": "Code collaboration & planning",
+      "question": "How do I share changes and track the work?"
+    },
+    {
+      "id": "email",
+      "territory": "workspace",
+      "name": "Personal & business inboxes",
+      "question": "Where does my own domain email live?"
+    },
+    {
+      "id": "workspace",
+      "territory": "workspace",
+      "name": "Desktop & system tools",
+      "question": "How do I work with and set up my machines?"
+    },
+    {
+      "id": "personal-communication",
+      "territory": "workspace",
+      "name": "Messages & calendar",
+      "question": "How do I organize conversations and my day?"
+    },
+    {
+      "id": "credentials",
+      "territory": "workspace",
+      "name": "Passwords & credentials",
+      "question": "Where do I manage my own logins and secrets?"
+    },
+    {
+      "id": "hardware",
+      "territory": "workspace",
+      "name": "Computers & peripherals",
+      "question": "What hardware do I use to build and work?"
+    },
+    {
+      "id": "youtube",
+      "territory": "learning",
+      "name": "YouTube channels",
+      "question": "Who do I watch for ideas and explanations?"
+    },
+    {
+      "id": "newsletters",
+      "territory": "learning",
+      "name": "Newsletters & events",
+      "question": "Where do I find news and things to attend?"
+    },
+    {
+      "id": "resources",
+      "territory": "learning",
+      "name": "Resources",
+      "question": "Where can I discover useful tools and learning material?"
+    },
+    {
+      "id": "explorations",
+      "territory": "sidequests",
+      "name": "Off the beaten path",
+      "question": "Interesting tools I’m exploring."
+    }
+  ],
+  "tools": [
+    {
+      "id": "react",
+      "category": "web",
+      "name": "React",
+      "mark": "Re",
+      "type": "UI library",
+      "purpose": "Build interfaces out of reusable components that update as data changes.",
+      "example": "A message list that updates when a new reply arrives.",
+      "distinction": "Next.js builds on React. They are different layers, rather than equivalent alternatives.",
+      "url": "https://react.dev",
+      "icon": "assets/icons/react.svg"
+    },
+    {
+      "id": "nextjs",
+      "category": "web",
+      "name": "Next.js",
+      "mark": "N",
+      "type": "Web framework",
+      "purpose": "Build a web application with pages, routing, server rendering and server-side code.",
+      "example": "A paid app with a public homepage, dashboard and server endpoints.",
+      "distinction": "Uses React for interfaces. It does not require Vercel; other deployment setups are possible.",
+      "url": "https://nextjs.org",
+      "icon": "assets/icons/nextjs.svg"
+    },
+    {
+      "id": "shadcn",
+      "category": "interface",
+      "name": "shadcn/ui",
+      "mark": "sh",
+      "type": "Component collection",
+      "purpose": "Start with useful interface component code that you can own and adapt.",
+      "example": "Add a dialog, dropdown or form without designing every interaction from scratch.",
+      "distinction": "Provides components; Tailwind handles styling. They commonly work together.",
+      "url": "https://ui.shadcn.com",
+      "icon": "assets/icons/shadcn.svg"
+    },
+    {
+      "id": "tailwind",
+      "category": "interface",
+      "name": "Tailwind CSS",
+      "mark": "Tw",
+      "type": "CSS framework",
+      "purpose": "Style layouts and interface elements with utility classes.",
+      "example": "Set a dashboard’s spacing, responsive columns and colors.",
+      "distinction": "Styles the interface; it does not implement application behavior.",
+      "url": "https://tailwindcss.com",
+      "icon": "assets/icons/tailwind.svg"
+    },
+    {
+      "id": "framer-motion",
+      "category": "interface",
+      "name": "Framer Motion",
+      "mark": "FM",
+      "type": "React UI animation",
+      "purpose": "Animate React interfaces with transitions, gestures and coordinated layout changes.",
+      "example": "Animate a card expanding, a dialog entering or items rearranging in a list.",
+      "distinction": "Now called Motion for React. It adds animation to React interfaces; it is separate from the Framer website builder.",
+      "url": "https://motion.dev/",
+      "icon": "assets/icons/motion.svg"
+    },
+    {
+      "id": "intl",
+      "category": "interface",
+      "name": "next-intl",
+      "mark": "i18n",
+      "type": "Internationalization",
+      "purpose": "Add translated messages and locale-aware formatting to Next.js applications.",
+      "example": "Offer a dashboard in German and English with appropriate number and date formatting.",
+      "url": "https://next-intl.dev",
+      "icon": "assets/icons/intl.svg"
+    },
+    {
+      "id": "react-native",
+      "category": "mobile",
+      "name": "React Native",
+      "mark": "RN",
+      "type": "Native app UI",
+      "purpose": "Use React to build interfaces backed by native platform components on iOS and Android.",
+      "example": "Build a mobile app with native screens, buttons and device interactions.",
+      "distinction": "Uses React concepts, but native components differ from browser HTML elements. Expo provides a framework around React Native.",
+      "url": "https://reactnative.dev/",
+      "icon": "assets/icons/react.svg"
+    },
+    {
+      "id": "expo",
+      "category": "mobile",
+      "name": "Expo",
+      "mark": "Ex",
+      "type": "React Native framework",
+      "purpose": "Build React Native apps with routing, native modules and development tooling.",
+      "example": "Create an iOS and Android app with navigation, camera access and a shared codebase.",
+      "distinction": "Builds on React Native. Expo Application Services (EAS) add optional services such as cloud builds and app submission.",
+      "url": "https://expo.dev/",
+      "icon": "assets/icons/expo.svg"
+    },
+    {
+      "id": "threejs",
+      "category": "visuals",
+      "name": "Three.js",
+      "mark": "3D",
+      "type": "3D graphics library",
+      "purpose": "Create and render interactive 3D scenes in the browser with cameras, lighting and materials.",
+      "example": "Let someone rotate a 3D product model on a website.",
+      "distinction": "Handles 3D scenes; it is not a general UI framework and does not require React. Motion focuses on interface animation.",
+      "url": "https://threejs.org/",
+      "icon": "assets/icons/threedotjs.svg"
+    },
+    {
+      "id": "react-three-fiber",
+      "category": "visuals",
+      "name": "React Three Fiber",
+      "mark": "R3F",
+      "type": "React renderer for Three.js",
+      "purpose": "Build Three.js scenes using React components, props and state.",
+      "example": "Create an interactive 3D product viewer whose colors and camera respond to React UI controls.",
+      "distinction": "Uses Three.js underneath rather than replacing it. React describes and updates the scene; Three.js provides the 3D graphics functionality.",
+      "url": "https://r3f.docs.pmnd.rs/",
+      "icon": "assets/icons/react.svg"
+    },
+    {
+      "id": "payload",
+      "category": "content",
+      "name": "Payload CMS",
+      "mark": "Py",
+      "type": "Headless CMS",
+      "purpose": "Give editors an admin interface for managing structured content, and make that content available to your application.",
+      "example": "Let someone update articles, landing-page copy and media without editing the website code.",
+      "distinction": "A CMS manages content and editing workflows. Your frontend controls how that content is presented; Payload is built on Next.js.",
+      "url": "https://payloadcms.com/",
+      "icon": "assets/icons/payload.svg"
+    },
+    {
+      "id": "stripe",
+      "category": "business",
+      "name": "Stripe",
+      "mark": "S",
+      "type": "Payments & billing",
+      "purpose": "Accept customer payments and manage billing flows.",
+      "example": "Sell a recurring subscription to your application.",
+      "distinction": "Customer payments are a separate job from provisioning services through Stripe Projects.",
+      "url": "https://stripe.com",
+      "icon": "assets/icons/stripe.svg"
+    },
+    {
+      "id": "resend",
+      "category": "business",
+      "name": "Resend",
+      "mark": "Rs",
+      "type": "Application email",
+      "purpose": "Send emails from application code.",
+      "example": "Send a welcome message or order confirmation after a user action.",
+      "distinction": "Application email delivery serves a different primary need from hosting your personal mailboxes.",
+      "url": "https://resend.com",
+      "icon": "assets/icons/resend.svg"
+    },
+    {
+      "id": "posthog",
+      "category": "analytics",
+      "name": "PostHog",
+      "mark": "Ph",
+      "type": "Product analytics",
+      "purpose": "Understand how people use your product and where they encounter friction.",
+      "example": "See how many people move from signing up to completing their first task.",
+      "url": "https://posthog.com",
+      "icon": "assets/icons/posthog.svg"
+    },
+    {
+      "id": "apollo",
+      "category": "analytics",
+      "name": "Apollo.io",
+      "mark": "Ap",
+      "type": "Sales prospecting & outreach",
+      "purpose": "Find business contacts and companies, enrich prospect information and organize sales outreach.",
+      "example": "Research companies that could benefit from a product and organize a list of potential customers.",
+      "distinction": "A sales tool around the business, not an application framework. Unrelated to Apollo GraphQL.",
+      "url": "https://www.apollo.io/",
+      "icon": "assets/icons/apollo.svg"
+    },
+    {
+      "id": "migadu",
+      "category": "email",
+      "name": "Migadu",
+      "mark": "Mi",
+      "type": "Domain email hosting",
+      "purpose": "Host email addresses and mailboxes for your domains.",
+      "example": "Receive and send personal correspondence at your own domain.",
+      "distinction": "Mailbox hosting differs from Resend’s primary application-email role.",
+      "url": "https://migadu.com",
+      "icon": "assets/icons/migadu.ico"
+    },
+    {
+      "id": "neon",
+      "category": "data",
+      "name": "Neon",
+      "mark": "Ne",
+      "type": "Managed PostgreSQL",
+      "purpose": "Host the database that persists your application’s information.",
+      "example": "Keep users, conversations and subscription records between visits.",
+      "distinction": "PostgreSQL is the underlying database technology; Neon provides a managed service around it.",
+      "url": "https://neon.com",
+      "icon": "assets/icons/neon.svg"
+    },
+    {
+      "id": "supabase",
+      "category": "data",
+      "name": "Supabase",
+      "mark": "Su",
+      "type": "Backend platform",
+      "purpose": "Combine a Postgres database with services for sign-in, file storage, realtime updates and backend functions.",
+      "example": "Build a shared app with user accounts, saved records and uploaded files.",
+      "distinction": "Its database overlaps with Neon; its auth and storage services overlap with roles served by Better Auth and R2. These are separate capabilities, not automatic drop-in replacements.",
+      "url": "https://supabase.com/",
+      "icon": "assets/icons/supabase.svg"
+    },
+    {
+      "id": "drizzle",
+      "category": "data-access",
+      "name": "Drizzle",
+      "mark": "Dr",
+      "type": "TypeScript ORM",
+      "purpose": "Describe database schemas and query SQL databases from TypeScript.",
+      "example": "Read a customer’s orders from PostgreSQL hosted by Neon.",
+      "distinction": "Runs in your application’s data-access layer; it does not host the database.",
+      "url": "https://orm.drizzle.team",
+      "icon": "assets/icons/drizzle.svg"
+    },
+    {
+      "id": "query",
+      "category": "data-access",
+      "name": "TanStack Query",
+      "mark": "TQ",
+      "type": "Server-state library",
+      "purpose": "Fetch, cache and synchronize server data in the interface.",
+      "example": "Refresh an order list after a purchase without manually coordinating every request.",
+      "distinction": "Manages the UI’s view of remote data. It is not a database or an SQL query builder.",
+      "url": "https://tanstack.com/query/latest",
+      "icon": "assets/icons/query.svg"
+    },
+    {
+      "id": "better-auth",
+      "category": "auth",
+      "name": "Better Auth",
+      "mark": "BA",
+      "type": "Authentication framework",
+      "purpose": "Add user accounts, sign-in methods and session management to an application.",
+      "example": "Let people sign in to a Next.js dashboard and maintain their session.",
+      "distinction": "Authentication establishes who a user is. Your application still needs authorization rules for what that user may access.",
+      "url": "https://www.better-auth.com",
+      "icon": "assets/icons/better-auth.svg"
+    },
+    {
+      "id": "clerk",
+      "category": "auth",
+      "name": "Clerk",
+      "mark": "Cl",
+      "type": "Managed authentication",
+      "purpose": "Add sign-up, sign-in, sessions and user management with hosted services and ready-made UI components.",
+      "example": "Add a sign-in screen and account menu to a Next.js app, including organization membership for teams.",
+      "distinction": "Clerk operates the authentication service. Better Auth is a framework integrated into your own backend. Both solve sign-in and session needs with different operating models.",
+      "url": "https://clerk.com/",
+      "icon": "assets/icons/clerk.svg"
+    },
+    {
+      "id": "r2",
+      "category": "storage",
+      "name": "Cloudflare R2",
+      "mark": "R2",
+      "type": "Object storage",
+      "purpose": "Store and retrieve file contents such as images, PDFs, video and audio.",
+      "example": "Keep uploaded audio in R2 while Neon stores its owner, filename and other structured records.",
+      "distinction": "Object storage holds files; a relational database organizes records and relationships. R2 and Neon can complement each other.",
+      "url": "https://www.cloudflare.com/developer-platform/products/r2/",
+      "icon": "assets/icons/r2.svg"
+    },
+    {
+      "id": "effect",
+      "category": "logic",
+      "name": "Effect",
+      "mark": "Ef",
+      "type": "TypeScript toolkit",
+      "purpose": "Structure programs with explicit error handling, concurrency and resource lifetimes.",
+      "example": "Coordinate several service calls, handle failures and release resources reliably.",
+      "distinction": "Can support application logic across layers; its placement here describes its main job.",
+      "url": "https://effect.website",
+      "icon": "assets/icons/effect.svg"
+    },
+    {
+      "id": "aisdk",
+      "category": "ai",
+      "name": "AI SDK",
+      "mark": "AI",
+      "type": "AI integration toolkit",
+      "purpose": "Connect application code to AI model providers and build interactions such as streaming responses.",
+      "example": "Stream an AI reply into your app’s chat interface.",
+      "distinction": "The SDK is integration code, not the AI model. A model/provider is an additional choice.",
+      "url": "https://ai-sdk.dev",
+      "icon": "assets/icons/aisdk.svg"
+    },
+    {
+      "id": "vercel-ai-gateway",
+      "category": "ai",
+      "name": "Vercel AI Gateway",
+      "mark": "AG",
+      "type": "AI model gateway",
+      "purpose": "Access models from multiple providers through a shared API with routing and usage tracking.",
+      "example": "Use a model through the AI SDK and configure fallback providers for model requests.",
+      "distinction": "AI SDK is the application library; AI Gateway is a service that routes requests to model providers.",
+      "url": "https://vercel.com/ai-gateway",
+      "icon": "assets/icons/vercel.svg"
+    },
+    {
+      "id": "exa",
+      "category": "ai",
+      "name": "Exa",
+      "mark": "Ex",
+      "type": "Web search & content API",
+      "purpose": "Give applications and AI agents access to web search results and page content.",
+      "example": "Let a research assistant find relevant webpages and retrieve their contents as evidence.",
+      "distinction": "Supplies external information for a model to use. A model gateway routes model calls; these serve different parts of an AI workflow.",
+      "url": "https://exa.ai/",
+      "icon": "assets/icons/exa.png"
+    },
+    {
+      "id": "elevenlabs",
+      "category": "voice",
+      "name": "ElevenLabs",
+      "mark": "11",
+      "type": "Voice & audio service",
+      "purpose": "Add voice and audio capabilities to a product.",
+      "example": "Turn an AI tutor’s text response into spoken audio.",
+      "url": "https://elevenlabs.io",
+      "icon": "assets/icons/elevenlabs.svg"
+    },
+    {
+      "id": "keyframe",
+      "category": "voice",
+      "name": "Keyframe Labs",
+      "mark": "Kf",
+      "type": "Interactive avatars",
+      "purpose": "Give an AI experience a real-time, lifelike avatar.",
+      "example": "Pair a conversational model and a voice service with a visual tutor.",
+      "distinction": "An avatar is one part of the experience; the conversational model and voice can come from other providers.",
+      "url": "https://keyframelabs.com",
+      "icon": "assets/icons/keyframe.ico"
+    },
+    {
+      "id": "vercel",
+      "category": "deploy",
+      "name": "Vercel",
+      "mark": "▲",
+      "type": "Deployment platform",
+      "purpose": "Deploy and run web applications through a managed platform.",
+      "example": "Publish a Next.js application and preview changes before a release.",
+      "distinction": "Bundles multiple operational responsibilities. Replacing it with your own platform requires more than an orchestrator.",
+      "url": "https://vercel.com",
+      "icon": "assets/icons/vercel.svg"
+    },
+    {
+      "id": "coolify",
+      "category": "deploy",
+      "name": "Coolify",
+      "mark": "Co",
+      "type": "Self-hosted deployment platform",
+      "purpose": "Deploy and manage applications, databases and services on servers you control.",
+      "example": "Deploy a GitHub project to a Hetzner server with a dashboard for domains and deployments.",
+      "distinction": "Offers a deployment platform on your own infrastructure. It overlaps with parts of Vercel, while server maintenance remains your responsibility.",
+      "url": "https://coolify.io/",
+      "icon": "assets/icons/coolify.png"
+    },
+    {
+      "id": "projects",
+      "category": "deploy",
+      "name": "Stripe Projects",
+      "mark": "SP",
+      "type": "Service provisioning",
+      "purpose": "Provision supported third-party services and manage their credentials and provider billing.",
+      "example": "Set up a supported hosting or database service from a project workflow.",
+      "distinction": "Coordinates providers; it is neither a database itself nor your app’s customer payment flow.",
+      "url": "https://projects.dev",
+      "icon": "assets/icons/projects.svg"
+    },
+    {
+      "id": "hetzner",
+      "category": "containers",
+      "name": "Hetzner",
+      "mark": "Hz",
+      "type": "Cloud & dedicated servers",
+      "purpose": "Rent cloud virtual machines or dedicated servers to run applications and other workloads.",
+      "example": "Run a Docker-based application on a cloud server, or use several machines for a Kubernetes cluster.",
+      "distinction": "Provides infrastructure. You still choose and operate the deployment setup, application services and monitoring; this is a different layer from a managed app platform such as Vercel.",
+      "url": "https://www.hetzner.com",
+      "icon": "assets/icons/hetzner.svg"
+    },
+    {
+      "id": "docker",
+      "category": "containers",
+      "name": "Docker",
+      "mark": "Do",
+      "type": "Container tooling",
+      "purpose": "Build container images and run applications in isolated containers with their dependencies.",
+      "example": "Package a service into an image, then run it locally or publish it for deployment.",
+      "distinction": "Docker builds and runs containers. Kubernetes orchestrates containerized workloads across a cluster; it does not require Docker Engine.",
+      "url": "https://www.docker.com",
+      "icon": "assets/icons/docker.svg"
+    },
+    {
+      "id": "kubernetes",
+      "category": "containers",
+      "name": "Kubernetes",
+      "mark": "K8",
+      "type": "Container orchestration",
+      "purpose": "Schedule and manage containerized workloads across a cluster.",
+      "example": "Run and scale several application services on infrastructure you control.",
+      "distinction": "Can underpin an alternative to Vercel. Infrastructure, builds, routing and other operations still need a solution.",
+      "url": "https://kubernetes.io",
+      "icon": "assets/icons/kubernetes.svg"
+    },
+    {
+      "id": "cloudflare",
+      "category": "networking",
+      "name": "Cloudflare",
+      "mark": "Cf",
+      "type": "Network & cloud platform",
+      "purpose": "Provide services for DNS, delivery, security and compute.",
+      "example": "Manage a domain’s DNS, protect traffic or run code with Workers.",
+      "distinction": "This name covers many products. It may complement Vercel or overlap with it depending on which services you choose.",
+      "url": "https://www.cloudflare.com",
+      "icon": "assets/icons/cloudflare.svg"
+    },
+    {
+      "id": "tailscale",
+      "category": "networking",
+      "name": "Tailscale",
+      "mark": "Ts",
+      "type": "Private networking",
+      "purpose": "Connect your devices and servers through an encrypted private network with access controls.",
+      "example": "Reach your Linux workstation or a private service on a Hetzner server while away from home.",
+      "distinction": "Connects machines; it does not host your app or replace the public deployment platform.",
+      "url": "https://tailscale.com/",
+      "icon": "assets/icons/tailscale.svg"
+    },
+    {
+      "id": "grafana",
+      "category": "observability-basics",
+      "name": "Grafana",
+      "mark": "Gr",
+      "type": "Monitoring dashboards",
+      "purpose": "See how your systems are doing through dashboards and charts.",
+      "example": "Watch request counts, error rates and CPU usage in one place.",
+      "distinction": "Grafana displays data from tools such as Prometheus; it is not the tool collecting every measurement.",
+      "url": "https://grafana.com/oss/grafana/",
+      "icon": "assets/icons/grafana.svg"
+    },
+    {
+      "id": "prometheus",
+      "category": "observability-basics",
+      "name": "Prometheus",
+      "mark": "Pr",
+      "type": "Metrics monitoring",
+      "purpose": "Collect and store measurements about running systems over time.",
+      "example": "Track CPU usage or how many requests fail each minute.",
+      "distinction": "Prometheus handles measurements. Grafana can turn those measurements into dashboards.",
+      "url": "https://prometheus.io/",
+      "icon": "assets/icons/prometheus.svg"
+    },
+    {
+      "id": "otel",
+      "category": "observability-basics",
+      "name": "OpenTelemetry (OTel)",
+      "mark": "Op",
+      "type": "Telemetry instrumentation",
+      "purpose": "Help your application report what it is doing using standard telemetry tools.",
+      "example": "Record how long a request takes and send that information to a monitoring system.",
+      "distinction": "OTel helps produce and transport telemetry; it is not a dashboard or a complete monitoring service.",
+      "url": "https://opentelemetry.io/",
+      "icon": "assets/icons/otel.svg"
+    },
+    {
+      "id": "elk",
+      "category": "observability-basics",
+      "name": "Elastic Stack (ELK)",
+      "mark": "El",
+      "type": "Log search & investigation",
+      "purpose": "Collect, search and explore logs to understand what happened in an application.",
+      "example": "Find the error messages recorded when a request failed.",
+      "distinction": "ELK stands for Elasticsearch (search and storage), Logstash (data processing) and Kibana (exploration). Shown as one stack to keep the overview simple.",
+      "url": "https://www.elastic.co/elastic-stack",
+      "icon": "assets/icons/elk.svg"
+    },
+    {
+      "id": "omarchy",
+      "category": "workspace",
+      "name": "Omarchy",
+      "mark": "Om",
+      "type": "Linux environment",
+      "purpose": "Provide a configured Linux desktop and development environment.",
+      "example": "Use a Linux workstation as the place where you write code and organize work.",
+      "url": "https://omarchy.org",
+      "icon": "assets/icons/omarchy.svg"
+    },
+    {
+      "id": "raycast",
+      "category": "workspace",
+      "name": "Raycast",
+      "mark": "Ry",
+      "type": "Launcher & productivity",
+      "purpose": "Access applications, commands and everyday workflows quickly.",
+      "example": "Use a keyboard-driven command to open an app or perform a frequent action.",
+      "distinction": "Listed as part of the broader ecosystem; this does not imply it runs on the Omarchy workstation.",
+      "url": "https://raycast.com",
+      "icon": "assets/icons/raycast.svg"
+    },
+    {
+      "id": "ventoy",
+      "category": "workspace",
+      "name": "Ventoy",
+      "mark": "Ve",
+      "type": "Multiboot USB tool",
+      "purpose": "Prepare a USB drive that can boot multiple operating-system installers and recovery images from one menu.",
+      "example": "Keep Linux installers and rescue tools on one USB drive, then choose which image to boot when starting a computer.",
+      "distinction": "Helps boot installation or recovery media. It is not an operating system itself; after setting up Ventoy, you can copy supported image files onto the drive.",
+      "url": "https://www.ventoy.net/",
+      "icon": "assets/icons/ventoy.png"
+    },
+    {
+      "id": "glove",
+      "category": "hardware",
+      "name": "Glove80",
+      "mark": "G80",
+      "type": "Split keyboard",
+      "purpose": "Provide the physical keyboard you use to interact with your workstation.",
+      "example": "Type and use shortcuts on an ergonomic split keyboard.",
+      "url": "https://www.moergo.com/pages/glove80",
+      "icon": "assets/icons/glove80-generated.png"
+    },
+    {
+      "id": "screen",
+      "category": "hardware",
+      "name": "Samsung ultrawide",
+      "mark": "UW",
+      "type": "Display",
+      "purpose": "Provide a wide physical workspace for the applications you use.",
+      "example": "Keep code, a browser and reference material visible at once.",
+      "distinction": "The exact monitor model is not specified in this collection.",
+      "icon": "assets/icons/screen.svg"
+    },
+    {
+      "id": "codex",
+      "category": "code",
+      "name": "Codex",
+      "mark": "Cx",
+      "type": "Coding agent",
+      "purpose": "Help carry out software development tasks, from implementation to investigating code.",
+      "example": "Ask an agent to implement and verify a feature in your project.",
+      "distinction": "A tool used while building software, rather than a feature automatically shipped inside the product.",
+      "url": "https://openai.com/codex/",
+      "icon": "assets/icons/codex.svg"
+    },
+    {
+      "id": "claude",
+      "category": "code",
+      "name": "Claude Code",
+      "mark": "Cc",
+      "type": "Coding agent",
+      "purpose": "Help explore, modify and work with a software project.",
+      "example": "Investigate a bug or refactor a module with a coding agent.",
+      "distinction": "Overlaps with Codex in coding-agent work; either may fit a development task.",
+      "url": "https://claude.com/product/claude-code",
+      "icon": "assets/icons/claude.svg"
+    },
+    {
+      "id": "pi",
+      "category": "code",
+      "name": "Pi",
+      "mark": "Pi",
+      "type": "Extensible agent harness",
+      "purpose": "Use a minimal coding agent harness that can be adapted to your own development workflows.",
+      "example": "Customize an agent with extensions and tools to work the way your project needs.",
+      "distinction": "The harness connects a model to tools and a working session. Pi emphasizes a small, customizable foundation for agent workflows.",
+      "url": "https://pi.dev/",
+      "icon": "assets/icons/pi.svg"
+    },
+    {
+      "id": "fx",
+      "category": "code",
+      "name": "fx",
+      "mark": "fx",
+      "type": "Vercel Labs coding agent",
+      "purpose": "Work with a coding agent through a lightweight, shell-like CLI, or embed its harness in another system.",
+      "example": "Ask the agent to investigate a repository interactively, or call it from a script for a focused coding task.",
+      "distinction": "An experimental Vercel Labs agent with support for different model providers. It is the coding harness; AI Gateway is one service it can use to access models.",
+      "url": "https://fx.sh/",
+      "icon": "assets/icons/fx.png"
+    },
+    {
+      "id": "agentation",
+      "category": "agent-devtools",
+      "name": "Agentation",
+      "mark": "Ag",
+      "type": "Visual feedback for agents",
+      "purpose": "Turn annotations on a webpage into structured feedback that a coding agent can act on.",
+      "example": "Click a misaligned button, describe the change and give the agent the element context.",
+      "distinction": "You point out what should change. Agentation supplies context; the coding agent makes the code changes.",
+      "url": "https://www.agentation.com/",
+      "icon": "assets/icons/agentation.png"
+    },
+    {
+      "id": "d3k",
+      "category": "agent-devtools",
+      "name": "d3k (dev3000)",
+      "mark": "d3k",
+      "type": "Local debugging runtime",
+      "purpose": "Give a coding agent a shared timeline of dev-server logs, browser errors, network activity and screenshots.",
+      "example": "Reproduce a broken checkout locally so the agent can connect the visible failure with relevant logs.",
+      "distinction": "A Vercel Labs development tool. It helps investigate a running local app; Grafana and Prometheus serve a different monitoring role.",
+      "url": "https://dev3000.ai/",
+      "icon": "assets/icons/d3k.svg"
+    },
+    {
+      "id": "agent-browser",
+      "category": "agent-devtools",
+      "name": "agent-browser",
+      "mark": "Ab",
+      "type": "Browser control for agents",
+      "purpose": "Let an AI agent inspect and interact with websites through a browser automation CLI.",
+      "example": "Have an agent open a page, fill a form and check what happens after submission.",
+      "distinction": "Focuses on agent-driven browser interaction. Playwright also automates browsers and provides a framework for repeatable test suites.",
+      "url": "https://agent-browser.dev/",
+      "icon": "assets/icons/agent-browser.ico"
+    },
+    {
+      "id": "agent-device",
+      "category": "agent-devtools",
+      "name": "agent-device",
+      "mark": "Ad",
+      "type": "App & device control for agents",
+      "purpose": "Let a coding agent inspect and interact with running apps on devices, simulators and emulators.",
+      "example": "Have an agent open an iOS or Android app, tap through a flow and inspect the resulting screen.",
+      "distinction": "Made by Callstack. Especially useful for mobile app verification; agent-browser focuses on the browser.",
+      "url": "https://agent-device.dev/",
+      "icon": "assets/icons/agent-device.svg"
+    },
+    {
+      "id": "bun",
+      "category": "runtime",
+      "name": "Bun",
+      "mark": "Bn",
+      "type": "Runtime & tooling",
+      "purpose": "Run JavaScript and TypeScript, install packages, and provide test and build tooling.",
+      "example": "Install dependencies and run a project locally.",
+      "distinction": "Can also be used as a production runtime; tools can have roles in more than one territory.",
+      "url": "https://bun.sh",
+      "icon": "assets/icons/bun.svg"
+    },
+    {
+      "id": "bun-workspaces",
+      "category": "runtime",
+      "name": "Bun workspaces",
+      "mark": "Bw",
+      "type": "Workspace package management",
+      "purpose": "Manage and link multiple local packages in one repository through Bun’s package manager.",
+      "example": "Keep a web app, mobile app and shared utilities together, with local packages depending on one another.",
+      "distinction": "A feature of Bun, not a separate runtime. Workspaces organize packages and dependencies; Nx or Turborepo can add task graphs and build caching.",
+      "url": "https://bun.sh/docs/pm/workspaces",
+      "icon": "assets/icons/bun.svg"
+    },
+    {
+      "id": "nx",
+      "category": "runtime",
+      "name": "Nx",
+      "mark": "Nx",
+      "type": "Build system & monorepo tools",
+      "purpose": "Coordinate builds, tests and other tasks using a project graph and cached task results.",
+      "example": "When a shared package changes, run the checks affected by that change across your apps.",
+      "distinction": "Overlaps with Turborepo in task orchestration and caching. Also offers plugins and generators; package installation remains the package manager’s job.",
+      "url": "https://nx.dev/",
+      "icon": "assets/icons/nx.svg"
+    },
+    {
+      "id": "turborepo",
+      "category": "runtime",
+      "name": "Turborepo",
+      "mark": "Tu",
+      "type": "Monorepo task runner",
+      "purpose": "Run tasks across JavaScript and TypeScript packages in dependency order and reuse cached results.",
+      "example": "Build shared packages before the Next.js app that uses them, skipping work whose inputs have not changed.",
+      "distinction": "Overlaps with Nx in builds and task caching. Works alongside package-manager workspaces; it is distinct from the Turbopack bundler.",
+      "url": "https://turborepo.com/",
+      "icon": "assets/icons/turborepo.svg"
+    },
+    {
+      "id": "husky",
+      "category": "code-quality",
+      "name": "Husky",
+      "mark": "Hu",
+      "type": "Git hook tooling",
+      "purpose": "Run project commands automatically at Git events such as committing or pushing.",
+      "example": "Run a lint command before a commit and stop the commit when that check fails.",
+      "distinction": "Runs checks you configure; it is not a linter itself. Local hooks can be bypassed, so required checks also belong in CI.",
+      "url": "https://typicode.github.io/husky/",
+      "icon": "assets/icons/husky.svg"
+    },
+    {
+      "id": "lint-staged",
+      "category": "code-quality",
+      "name": "lint-staged",
+      "mark": "Ls",
+      "type": "Checks on staged files",
+      "purpose": "Run configured commands, such as formatters and linters, on matching files staged for a Git commit.",
+      "example": "Have Husky call lint-staged before committing, then format and lint the staged TypeScript files.",
+      "distinction": "Husky triggers the Git hook; lint-staged selects files and runs commands. The formatter or linter performs the actual checks. Whole-project checks still belong in CI.",
+      "url": "https://github.com/lint-staged/lint-staged",
+      "icon": "assets/icons/lint-staged.svg"
+    },
+    {
+      "id": "jscpd",
+      "category": "code-quality",
+      "name": "jscpd",
+      "mark": "Cp",
+      "type": "Duplicate code detection",
+      "purpose": "Find repeated blocks of source code and report duplication.",
+      "example": "Flag copied logic across files during a code-quality check or CI run.",
+      "distinction": "Detects textual duplication, not whether the program behaves correctly. A repeated block is a review prompt, not automatically a reason to refactor.",
+      "url": "https://github.com/kucherenko/jscpd",
+      "icon": "assets/icons/jscpd.svg"
+    },
+    {
+      "id": "playwright",
+      "category": "code-quality",
+      "name": "Playwright",
+      "mark": "Pw",
+      "type": "Browser testing",
+      "purpose": "Automate a real browser to check complete user interactions across Chromium, Firefox and WebKit.",
+      "example": "Test that a user can sign in, upload a file and complete an important workflow.",
+      "distinction": "Exercises the running application through a browser. Code-level tests cover smaller pieces of logic; the two approaches complement each other.",
+      "url": "https://playwright.dev",
+      "icon": "assets/icons/playwright.svg"
+    },
+    {
+      "id": "github",
+      "category": "collaboration",
+      "name": "GitHub",
+      "mark": "GH",
+      "type": "Code hosting & collaboration",
+      "purpose": "Host Git repositories and collaborate through pull requests, code reviews and issues.",
+      "example": "Share a project, review a proposed change and merge it into the main branch.",
+      "distinction": "Git tracks version history; GitHub hosts repositories and adds collaboration tools. GitHub issues overlap with some work tracked in Linear.",
+      "url": "https://github.com/",
+      "icon": "assets/icons/github.svg"
+    },
+    {
+      "id": "linear",
+      "category": "collaboration",
+      "name": "Linear",
+      "mark": "Li",
+      "type": "Issue & project tracking",
+      "purpose": "Organize issues, projects and priorities so a team can plan and track work.",
+      "example": "Track a feature from idea through implementation and completion.",
+      "distinction": "Tracks the work to be done; GitHub hosts and reviews the code implementing it. Their issue-tracking features overlap.",
+      "url": "https://linear.app/",
+      "icon": "assets/icons/linear.svg"
+    },
+    {
+      "id": "composio",
+      "category": "explorations",
+      "name": "Composio",
+      "mark": "Co",
+      "type": "Agent integrations",
+      "purpose": "Connect AI agents to external applications, with tools and authentication for using those services.",
+      "example": "Give an agent access to connected work apps through a common integration layer.",
+      "distinction": "Overlaps with Executor in connecting agents to external tools; the products have different integration and execution approaches.",
+      "url": "https://composio.dev/",
+      "icon": "assets/icons/composio.png"
+    },
+    {
+      "id": "agentmail",
+      "category": "explorations",
+      "name": "AgentMail",
+      "mark": "Am",
+      "type": "Email inbox API for agents",
+      "purpose": "Give AI agents dedicated email inboxes they can create and operate through an API.",
+      "example": "Give a support agent its own address to receive messages, read attachments and reply in the same conversation.",
+      "distinction": "Provides email inbox infrastructure for agents. Composio connects agents to many external apps; AgentMail focuses specifically on email.",
+      "url": "https://www.agentmail.to/",
+      "icon": "assets/icons/agentmail.ico"
+    },
+    {
+      "id": "executor",
+      "category": "explorations",
+      "name": "Executor",
+      "mark": "Ex",
+      "type": "MCP gateway",
+      "purpose": "Expose connected MCP servers, OpenAPI services and GraphQL APIs to agents through a shared gateway.",
+      "example": "Connect work tools once and make them available to coding agents through one MCP endpoint.",
+      "distinction": "A gateway to tools, rather than the coding agent itself. Listed here as an exploration, not a core dependency.",
+      "url": "https://executor.sh/",
+      "icon": "assets/icons/executor.png"
+    },
+    {
+      "id": "dataforseo",
+      "category": "explorations",
+      "name": "DataForSEO",
+      "mark": "Da",
+      "type": "SEO data APIs",
+      "purpose": "Retrieve search and SEO data programmatically to build research and analysis tools.",
+      "example": "Build a small tool that compares search results and keyword data.",
+      "distinction": "Provides data APIs; you build the interface and analysis around them.",
+      "url": "https://dataforseo.com/",
+      "icon": "assets/icons/dataforseo.png"
+    },
+    {
+      "id": "beeper",
+      "category": "personal-communication",
+      "name": "Beeper",
+      "mark": "Be",
+      "type": "Unified messaging",
+      "purpose": "Bring conversations from supported messaging services into one application.",
+      "example": "Read and reply to chats from several networks without switching between their apps.",
+      "distinction": "A personal messaging client. It connects to existing chat networks rather than providing messaging infrastructure for your own product.",
+      "url": "https://www.beeper.com/",
+      "icon": "assets/icons/beeper.png"
+    },
+    {
+      "id": "notion-calendar",
+      "category": "personal-communication",
+      "name": "Notion Calendar",
+      "mark": "NC",
+      "type": "Calendar & scheduling",
+      "purpose": "View connected calendars and organize meetings, events and time alongside Notion.",
+      "example": "See your schedule in one place and block out time for focused work.",
+      "distinction": "A calendar application for managing your day; Linear tracks project work and issues.",
+      "url": "https://www.notion.com/product/calendar",
+      "icon": "assets/icons/notion-calendar.svg"
+    },
+    {
+      "id": "1password",
+      "category": "credentials",
+      "name": "1Password",
+      "mark": "1P",
+      "type": "Password manager",
+      "purpose": "Store and organize passwords, passkeys and other sensitive credentials in vaults.",
+      "example": "Generate a unique password for a new service and fill it when signing in.",
+      "distinction": "Manages the credentials you use. Clerk and Better Auth implement sign-in for users of the apps you build.",
+      "url": "https://1password.com/",
+      "icon": "assets/icons/1password.svg"
+    },
+    {
+      "id": "ghostty",
+      "category": "workspace",
+      "name": "Ghostty",
+      "mark": "Gh",
+      "type": "Terminal emulator",
+      "purpose": "Provide a terminal interface for shells and command-line programs.",
+      "example": "Run Bun, Git or a coding agent in a terminal window.",
+      "distinction": "The terminal displays and interacts with programs. Your shell interprets commands, and tools such as Bun or Pi do their own work inside it.",
+      "url": "https://ghostty.org/",
+      "icon": "assets/icons/ghostty.svg"
+    },
+    {
+      "id": "fireship",
+      "category": "youtube",
+      "name": "Fireship",
+      "mark": "Fi",
+      "type": "YouTube · code & tech news",
+      "purpose": "Short programming explainers, developer news and technology commentary.",
+      "url": "https://www.youtube.com/@Fireship",
+      "icon": "assets/icons/fireship.jpg"
+    },
+    {
+      "id": "theo",
+      "category": "youtube",
+      "name": "Theo — t3.gg",
+      "mark": "Th",
+      "type": "YouTube · web development",
+      "purpose": "Commentary on web development, TypeScript, frameworks and developer tools.",
+      "url": "https://www.youtube.com/@t3dotgg",
+      "icon": "assets/icons/theo.jpg"
+    },
+    {
+      "id": "y-combinator",
+      "category": "youtube",
+      "name": "Y Combinator",
+      "mark": "YC",
+      "type": "YouTube · startups",
+      "purpose": "Talks, interviews and advice about building startups, making products and working with customers.",
+      "url": "https://www.youtube.com/@ycombinator",
+      "icon": "assets/icons/y-combinator.jpg"
+    },
+    {
+      "id": "nate-b-jones",
+      "category": "youtube",
+      "name": "Nate B Jones",
+      "mark": "Na",
+      "type": "YouTube · AI & strategy",
+      "purpose": "Analysis and discussion of AI developments and their practical implications.",
+      "url": "https://www.youtube.com/@NateBJones",
+      "icon": "assets/icons/nate-b-jones.jpg"
+    },
+    {
+      "id": "two-minute-papers",
+      "category": "youtube",
+      "name": "Two Minute Papers",
+      "mark": "Tw",
+      "type": "YouTube · research explained",
+      "purpose": "Accessible explanations of research in AI, computer graphics and related fields.",
+      "url": "https://www.youtube.com/@TwoMinutePapers",
+      "icon": "assets/icons/two-minute-papers.jpg"
+    },
+    {
+      "id": "alex-hormozi",
+      "category": "youtube",
+      "name": "Alex Hormozi",
+      "mark": "Al",
+      "type": "YouTube · business & growth",
+      "purpose": "Business education and commentary on offers, sales and growing a company.",
+      "url": "https://www.youtube.com/@AlexHormozi",
+      "icon": "assets/icons/alex-hormozi.jpg"
+    },
+    {
+      "id": "tldr",
+      "category": "newsletters",
+      "name": "TLDR",
+      "mark": "TL",
+      "type": "Newsletter · technology",
+      "purpose": "Read concise technology news summaries and follow links to the original stories.",
+      "url": "https://tldr.tech/",
+      "icon": "assets/icons/tldr.svg"
+    },
+    {
+      "id": "luma",
+      "category": "newsletters",
+      "name": "Luma",
+      "mark": "Lu",
+      "type": "Events & community updates",
+      "purpose": "Discover events and follow calendars to keep up with communities and upcoming gatherings.",
+      "example": "Follow a community calendar and get updates about upcoming meetups.",
+      "distinction": "An events platform, grouped here with newsletters as a source of updates and discovery.",
+      "url": "https://luma.com/",
+      "icon": "assets/icons/luma.png"
+    },
+    {
+      "id": "theprimeagen",
+      "category": "youtube",
+      "name": "ThePrimeagen",
+      "mark": "Th",
+      "type": "YouTube · programming",
+      "purpose": "Programming discussions, development workflows and software engineering commentary.",
+      "url": "https://www.youtube.com/@ThePrimeagen",
+      "icon": "assets/icons/theprimeagen.jpg"
+    },
+    {
+      "id": "framework-laptop",
+      "category": "hardware",
+      "name": "Framework Laptop",
+      "mark": "Fw",
+      "type": "Laptop",
+      "purpose": "Provide a portable computer for development and everyday work.",
+      "example": "Write code, run local projects and take your development setup with you.",
+      "distinction": "The physical laptop, separate from the operating system and tools installed on it. The exact model is not specified here.",
+      "url": "https://frame.work/",
+      "icon": "assets/icons/framework.svg"
+    },
+    {
+      "id": "mx-master-3s",
+      "category": "hardware",
+      "name": "MX Master 3S",
+      "mark": "MX",
+      "type": "Logitech wireless mouse",
+      "purpose": "Navigate, select and scroll through applications with a wireless mouse.",
+      "example": "Move between code, browser tabs and documents, using the main scroll wheel and thumb wheel.",
+      "url": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
+      "icon": "assets/icons/mx-master-3s-generated.png"
+    },
+    {
+      "id": "matt-pocock-skills",
+      "category": "agent-skills",
+      "name": "Matt Pocock’s Skills",
+      "mark": "MP",
+      "type": "Engineering skills",
+      "purpose": "Give coding agents reusable workflows for planning, investigating and changing software.",
+      "example": "Use a skill to question a feature idea or break a refactor into small steps.",
+      "distinction": "A collection of instructions used by an agent, rather than a separate coding agent or model.",
+      "url": "https://github.com/mattpocock/skills",
+      "icon": "assets/icons/mattpocock.png"
+    },
+    {
+      "id": "corey-haines-marketing-skills",
+      "category": "agent-skills",
+      "name": "Marketing Skills",
+      "mark": "CH",
+      "type": "By Corey Haines",
+      "purpose": "Give agents workflows for copywriting, SEO, conversion optimization and marketing.",
+      "example": "Review a landing page’s copy and identify ways to improve its signup flow.",
+      "distinction": "Reusable marketing instructions for compatible agents, including Claude Code and Codex. The agent applies them to your product context.",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "icon": "assets/icons/coreyhaines31.png"
+    },
+    {
+      "id": "vercel-domains",
+      "category": "networking",
+      "name": "Vercel Domains",
+      "mark": "▲",
+      "type": "Domain registration",
+      "purpose": "Find, buy and manage domain names. This is where I buy all my domains.",
+      "example": "Register a domain for a new project and connect it to the deployed app.",
+      "distinction": "Registration gives you the domain name. Hosting runs the app, while DNS points the name to its destination.",
+      "url": "https://vercel.com/domains",
+      "icon": "assets/icons/vercel.svg"
+    },
+    {
+      "id": "vercel-chat-sdk",
+      "category": "ai-conversations",
+      "name": "Vercel Chat SDK",
+      "mark": "▲",
+      "type": "Multi-platform chat bots",
+      "purpose": "Build bots that receive and respond to messages across chat platforms through a shared TypeScript API.",
+      "example": "Use shared bot logic for an assistant in Slack and Discord.",
+      "distinction": "Connects a bot to messaging platforms. AI SDK handles model interactions; AI Elements provides React interface components.",
+      "url": "https://chat-sdk.dev/",
+      "icon": "assets/icons/vercel.svg"
+    },
+    {
+      "id": "vercel-ai-elements",
+      "category": "ai-conversations",
+      "name": "Vercel AI Elements",
+      "mark": "▲",
+      "type": "AI interface components",
+      "purpose": "Build AI interfaces with customizable React components for conversations, prompts and model output.",
+      "example": "Render streaming responses and tool calls in an AI SDK chatbot.",
+      "distinction": "Provides interface components built on shadcn/ui. AI SDK handles AI behavior and state; Chat SDK connects bots to external chat platforms.",
+      "url": "https://elements.ai-sdk.dev/",
+      "icon": "assets/icons/vercel.svg"
+    },
+    {
+      "id": "21st-dev",
+      "category": "interface",
+      "name": "21st.dev",
+      "mark": "21",
+      "type": "UI components & inspiration",
+      "purpose": "Discover React components, templates and themes to adapt for your own interface.",
+      "example": "Find a hero section or pricing layout and bring its component code into a project.",
+      "distinction": "A community collection of interface designs and code, rather than a framework that runs your app.",
+      "url": "https://21st.dev/",
+      "icon": "assets/icons/21st-dev.ico"
+    },
+    {
+      "id": "tweakcn",
+      "category": "interface",
+      "name": "tweakcn",
+      "mark": "tw",
+      "type": "Visual theme editor",
+      "purpose": "Visually customize themes for shadcn/ui interfaces.",
+      "example": "Try a new color palette and export the theme into your app.",
+      "distinction": "Changes the styling of your components; shadcn/ui supplies the components themselves.",
+      "url": "https://tweakcn.com/",
+      "icon": "assets/icons/tweakcn.ico"
+    },
+    {
+      "id": "burp-suite",
+      "category": "security-testing",
+      "name": "Burp Suite",
+      "mark": "Bu",
+      "type": "Web security testing",
+      "purpose": "Inspect, modify and replay web traffic to investigate security weaknesses in applications and APIs.",
+      "example": "Test whether your app correctly rejects a request for another user’s private record.",
+      "distinction": "Tests security behavior through HTTP traffic. Playwright checks browser flows; Burp helps investigate how the app handles unexpected or manipulated requests. Automated scanning depends on the Burp edition.",
+      "url": "https://portswigger.net/burp",
+      "icon": "assets/icons/burp-suite.png"
+    },
+    {
+      "id": "awesome",
+      "category": "resources",
+      "name": "Awesome",
+      "mark": "A",
+      "type": "Curated lists by Sindre Sorhus",
+      "purpose": "Find topic-specific collections of tools, libraries and learning resources through an index of curated lists.",
+      "example": "Explore lists for self-hosting, React or developer tools when researching a new project.",
+      "distinction": "A directory of curated lists. Follow a topic to discover individual projects and resources.",
+      "url": "https://github.com/sindresorhus/awesome",
+      "icon": "assets/icons/github.svg"
+    }
+  ],
+  "relations": [
+    {
+      "from": "nextjs",
+      "to": "react",
+      "label": "builds on"
+    },
+    {
+      "from": "shadcn",
+      "to": "tailwind",
+      "label": "styles with"
+    },
+    {
+      "from": "intl",
+      "to": "nextjs",
+      "label": "adds localization to"
+    },
+    {
+      "from": "drizzle",
+      "to": "neon",
+      "label": "can query"
+    },
+    {
+      "from": "nextjs",
+      "to": "vercel",
+      "label": "can deploy to"
+    },
+    {
+      "from": "keyframe",
+      "to": "elevenlabs",
+      "label": "can pair with"
+    },
+    {
+      "from": "codex",
+      "to": "claude",
+      "label": "overlaps with",
+      "kind": "overlap"
+    },
+    {
+      "from": "kubernetes",
+      "to": "vercel",
+      "label": "part of an alternative to",
+      "kind": "overlap"
+    },
+    {
+      "from": "better-auth",
+      "to": "nextjs",
+      "label": "can add sign-in to"
+    },
+    {
+      "from": "r2",
+      "to": "cloudflare",
+      "label": "is a service from"
+    },
+    {
+      "from": "playwright",
+      "to": "nextjs",
+      "label": "can test apps built with"
+    },
+    {
+      "from": "docker",
+      "to": "kubernetes",
+      "label": "can build images for"
+    },
+    {
+      "from": "docker",
+      "to": "hetzner",
+      "label": "can run on servers from"
+    },
+    {
+      "from": "kubernetes",
+      "to": "hetzner",
+      "label": "can run on servers from"
+    },
+    {
+      "from": "grafana",
+      "to": "prometheus",
+      "label": "can query"
+    },
+    {
+      "from": "payload",
+      "to": "nextjs",
+      "label": "is built on"
+    },
+    {
+      "from": "linear",
+      "to": "github",
+      "label": "overlaps in issue tracking with",
+      "kind": "overlap"
+    },
+    {
+      "from": "composio",
+      "to": "executor",
+      "label": "overlaps in agent integrations with",
+      "kind": "overlap"
+    },
+    {
+      "to": "codex",
+      "label": "can provide visual feedback to",
+      "from": "agentation"
+    },
+    {
+      "to": "claude",
+      "label": "can provide debugging context to",
+      "from": "d3k"
+    },
+    {
+      "to": "playwright",
+      "label": "overlaps in browser automation with",
+      "from": "agent-browser",
+      "kind": "overlap"
+    },
+    {
+      "to": "agent-browser",
+      "label": "overlaps in agent-driven interaction with",
+      "from": "agent-device",
+      "kind": "overlap"
+    },
+    {
+      "from": "supabase",
+      "to": "neon",
+      "label": "overlaps in Postgres hosting with",
+      "kind": "overlap"
+    },
+    {
+      "from": "supabase",
+      "to": "better-auth",
+      "label": "overlaps in authentication with",
+      "kind": "overlap"
+    },
+    {
+      "from": "supabase",
+      "to": "r2",
+      "label": "overlaps in file storage with",
+      "kind": "overlap"
+    },
+    {
+      "from": "expo",
+      "to": "react-native",
+      "label": "builds on"
+    },
+    {
+      "from": "react-native",
+      "to": "react",
+      "label": "uses"
+    },
+    {
+      "from": "framer-motion",
+      "to": "react",
+      "label": "animates interfaces built with"
+    },
+    {
+      "from": "agent-device",
+      "to": "react-native",
+      "label": "can verify apps built with"
+    },
+    {
+      "from": "clerk",
+      "to": "better-auth",
+      "label": "overlaps in authentication with",
+      "kind": "overlap"
+    },
+    {
+      "from": "clerk",
+      "to": "supabase",
+      "label": "overlaps with its authentication service",
+      "kind": "overlap"
+    },
+    {
+      "from": "clerk",
+      "to": "nextjs",
+      "label": "can add sign-in to"
+    },
+    {
+      "from": "react-three-fiber",
+      "to": "threejs",
+      "label": "renders scenes with"
+    },
+    {
+      "from": "react-three-fiber",
+      "to": "react",
+      "label": "uses components from"
+    },
+    {
+      "from": "coolify",
+      "to": "hetzner",
+      "label": "can deploy to servers from"
+    },
+    {
+      "from": "coolify",
+      "to": "docker",
+      "label": "deploys using"
+    },
+    {
+      "from": "coolify",
+      "to": "vercel",
+      "label": "overlaps in app deployment with",
+      "kind": "overlap"
+    },
+    {
+      "from": "vercel-ai-gateway",
+      "to": "aisdk",
+      "label": "can be accessed through"
+    },
+    {
+      "from": "husky",
+      "to": "jscpd",
+      "label": "can run checks with"
+    },
+    {
+      "from": "nx",
+      "to": "turborepo",
+      "label": "overlaps in task orchestration with",
+      "kind": "overlap"
+    },
+    {
+      "from": "bun-workspaces",
+      "to": "bun",
+      "label": "is a feature of"
+    },
+    {
+      "from": "turborepo",
+      "to": "bun-workspaces",
+      "label": "can coordinate tasks across"
+    },
+    {
+      "from": "nx",
+      "to": "bun-workspaces",
+      "label": "can coordinate tasks across"
+    },
+    {
+      "from": "husky",
+      "to": "lint-staged",
+      "label": "can run before a commit"
+    },
+    {
+      "from": "pi",
+      "to": "codex",
+      "label": "overlaps in coding-agent work with",
+      "kind": "overlap"
+    },
+    {
+      "from": "fx",
+      "to": "pi",
+      "label": "overlaps in coding-agent work with",
+      "kind": "overlap"
+    },
+    {
+      "from": "fx",
+      "to": "vercel-ai-gateway",
+      "label": "can access models through"
+    },
+    {
+      "from": "vercel-domains",
+      "to": "vercel",
+      "label": "names apps hosted on"
+    },
+    {
+      "from": "tweakcn",
+      "to": "shadcn",
+      "label": "themes"
+    },
+    {
+      "from": "vercel-ai-elements",
+      "to": "shadcn",
+      "label": "builds on"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "saas",
+      "name": "A paid web app",
+      "tools": [
+        "react",
+        "nextjs",
+        "shadcn",
+        "tailwind",
+        "drizzle",
+        "neon",
+        "stripe",
+        "resend",
+        "posthog",
+        "vercel",
+        "better-auth",
+        "playwright"
+      ],
+      "description": "One possible selection: build the interface, add sign-in, save records, take payments, send email, test user journeys and deploy. This is an example selection, not a complete production architecture."
+    },
+    {
+      "id": "ai",
+      "name": "An AI conversation app",
+      "tools": [
+        "react",
+        "nextjs",
+        "aisdk",
+        "elevenlabs",
+        "keyframe",
+        "drizzle",
+        "neon",
+        "vercel"
+      ],
+      "description": "A possible combination for a conversational experience, with optional voice and an avatar. The underlying AI model/provider is an additional choice; voice and avatar services are not required for text chat."
+    },
+    {
+      "id": "desk",
+      "name": "My everyday workspace",
+      "tools": [
+        "codex",
+        "claude",
+        "bun",
+        "omarchy",
+        "raycast",
+        "migadu",
+        "glove",
+        "screen"
+      ],
+      "description": "The environment around the work: coding agents, a runtime, desktop tools, email and hardware. This is an ecosystem across setups, not a claim that every tool runs on the same operating system."
+    }
+  ]
+}
