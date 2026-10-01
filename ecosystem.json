@@ -1387,6 +1387,18 @@
       "distinction": "A directory of curated lists. Follow a topic to discover individual projects and resources.",
       "url": "https://github.com/sindresorhus/awesome",
       "icon": "assets/icons/github.svg"
+    },
+    {
+      "id": "pwa-today",
+      "category": "resources",
+      "name": "What PWA Can Do Today",
+      "mark": "PWA",
+      "type": "Progressive Web App demos",
+      "purpose": "Explore how Progressive Web Apps can add app-like features to websites, including installation, offline use and notifications.",
+      "example": "Try the demos on your phone to see which features your browser supports before choosing how to build an app.",
+      "distinction": "A PWA is an approach to building web apps, not a framework. Capabilities depend on the browser, operating system and implementation; the site also demonstrates web APIs that do not require PWA installation.",
+      "url": "https://whatpwacando.today/",
+      "icon": "assets/icons/pwa-today.png"
     }
   ],
   "relations": [
