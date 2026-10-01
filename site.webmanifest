@@ -1,7 +1,7 @@
 {
-  "name": "Ralf\u2019s Tech Stack+",
-  "short_name": "Stack+",
-  "description": "The tools, people, and ideas behind what I build.",
+  "name": "Ralf’s Tech Stack",
+  "short_name": "Tech Stack",
+  "description": "Tools I think techies should know.",
   "lang": "en",
   "start_url": "./",
   "display": "browser",

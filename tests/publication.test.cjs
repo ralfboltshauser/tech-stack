@@ -15,12 +15,35 @@ for (const tool of data.tools) {
   if (tool.icon?.startsWith('assets/')) assert(fs.existsSync(path.join(root, tool.icon)), `${tool.id}: missing icon`);
 }
 const html = read('index.html');
+const site = JSON.parse(read('site.json'));
+const manifest = JSON.parse(read('site.webmanifest'));
+assert.equal(site.title, 'Ralf’s Tech Stack');
+assert.equal(site.description, 'Tools I think techies should know.');
+assert.equal(data.title, site.title);
+assert.equal(manifest.name, site.title);
+assert.equal(manifest.description, site.description);
+for (const titleTag of [
+  `<title>${site.title}</title>`,
+  `<meta name="application-name" content="${site.title}">`,
+  `<meta property="og:site_name" content="${site.title}">`,
+  `<meta property="og:title" content="${site.title}">`,
+  `<meta name="twitter:title" content="${site.title}">`,
+  `<h1>${site.title}</h1>`,
+]) assert(html.includes(titleTag), `missing title: ${titleTag}`);
+for (const descriptionTag of [
+  `<meta name="description" content="${site.description}">`,
+  `<meta property="og:description" content="${site.description}">`,
+  `<meta name="twitter:description" content="${site.description}">`,
+  `<p>${site.description}</p>`,
+]) assert(html.includes(descriptionTag), `missing description: ${descriptionTag}`);
 const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+assert.equal(schema.name, site.title);
+assert.equal(schema.description, site.description);
 assert.equal(schema.mainEntity.numberOfItems, data.tools.length);
 assert.deepEqual(schema.mainEntity.itemListElement.map(x => x.item.name), data.tools.map(t => t.name));
-const url = JSON.parse(read('site.json')).url;
+const url = site.url;
 assert(html.includes(`rel="canonical" href="${url}"`));
-assert(html.includes(`content="${url}assets/social-card-v2.png"`));
+assert(html.includes(`content="${url}assets/social-card-v3.png"`));
 assert(read('sitemap.xml').includes(`<loc>${url}</loc>`));
 assert(read('robots.txt').includes(`${url}sitemap.xml`));
 assert(!/website-form|link-editor|data-panel|guide-tool/.test(source));
@@ -30,9 +53,9 @@ console.log(`Passed: ${data.tools.length} valid entries, local icons, public lin
 
 // Validate image dimensions from PNG headers, without adding test dependencies.
 for (const [name, width, height] of [
-  ['social-card-v2.png', 1200, 630],
-  ['social-card-x-v2.png', 1200, 600],
-  ['social-card-square-v2.png', 1200, 1200],
+  ['social-card-v3.png', 1200, 630],
+  ['social-card-x-v3.png', 1200, 600],
+  ['social-card-square-v3.png', 1200, 1200],
 ]) {
   const png = fs.readFileSync(path.join(root, 'assets', name));
   assert.equal(png.subarray(1, 4).toString(), 'PNG');

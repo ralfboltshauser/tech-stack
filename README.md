@@ -1,6 +1,6 @@
-# Ralf’s Tech Stack+
+# Ralf’s Tech Stack
 
-A fullscreen, pannable collection of the tools, people, and ideas behind what I build. Plain HTML, CSS and JavaScript; no runtime dependencies or account system.
+A fullscreen, pannable index of tools I think techies should know. Plain HTML, CSS and JavaScript; no runtime dependencies or account system.
 
 ## Preview
 
