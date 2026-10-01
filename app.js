@@ -488,7 +488,7 @@ viewport.addEventListener('pointerdown', (e) => {
     (e.button !== 0 && e.button !== 1)
   )
     return;
-  e.preventDefault();
+  if (e.pointerType !== 'touch') e.preventDefault();
   suppressCanvasClick = false;
   if (e.pointerType === 'touch') {
     touches.set(e.pointerId, { x: e.clientX, y: e.clientY });

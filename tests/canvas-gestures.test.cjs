@@ -30,6 +30,12 @@ assert(Math.abs((250-40-run('panY'))/run('scale')-wy)<1e-9);
 const before=run('scale');handlers.pointerdown(e({pointerType:'touch',clientX:100}));handlers.pointerdown(e({pointerType:'touch',pointerId:2,clientX:200}));
 handlers.pointermove(e({pointerType:'touch',pointerId:2,clientX:250}));assert(Math.abs(run('scale')-before*1.5)<1e-9);
 handlers.pointerup(e({pointerType:'touch',pointerId:2}));const start=run('panX');handlers.pointermove(e({pointerType:'touch',clientX:125}));assert.equal(run('panX'),start+25);handlers.pointerup(e());
+// WebKit must receive an uncancelled touch start to synthesize a tap click.
+const touchTapDown=e({pointerType:'touch'});handlers.pointerdown(touchTapDown);assert(!touchTapDown.prevented);
+handlers.pointerup(e({pointerType:'touch'}));const touchTap=e();handlers.click(touchTap);assert(!touchTap.prevented);
+// Movement still claims the touch gesture and suppresses a trailing click.
+handlers.pointerdown(e({pointerType:'touch'}));const touchDrag=e({pointerType:'touch',clientX:130});handlers.pointermove(touchDrag);assert(touchDrag.prevented);
+handlers.pointerup(e({pointerType:'touch'}));const touchDragClick=e();handlers.click(touchDragClick);assert(touchDragClick.prevented&&touchDragClick.stopped);
 // Landing links are not captured as map drags.
 const link=e({target:{closest:()=>({tagName:'A'})}});handlers.pointerdown(link);assert(!link.prevented);
 const selection=e();handlers.selectstart(selection);assert(selection.prevented);
