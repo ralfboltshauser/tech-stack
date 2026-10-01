@@ -11,6 +11,7 @@ const esc = (s) =>
 let data, toolById, categoryById, territoryById;
 let selected = null;
 let selectedFromFinder = false;
+let selectionKeyboardOrigin = null;
 let finderTerritory = 'all';
 let scale = 1,
   panX = 20,
@@ -160,6 +161,7 @@ function showToolFromFinder(id) {
   $('#finder').open = false;
   selectTool(id);
   selectedFromFinder = true;
+  selectionKeyboardOrigin = null;
   if (scale < 0.72) {
     scale = 0.72;
     applyTransform();
@@ -270,9 +272,19 @@ function renderMap() {
 function clearToolSelection() {
   selected = null;
   selectedFromFinder = false;
+  selectionKeyboardOrigin = null;
   if (document.activeElement?.closest('[data-tool]'))
     document.activeElement.blur();
   renderSelection();
+}
+function clearSelectionAndRestoreFocus() {
+  const returnTo = selectedFromFinder
+    ? $('#finder summary')
+    : selectionKeyboardOrigin?.isConnected
+      ? selectionKeyboardOrigin
+      : viewport;
+  clearToolSelection();
+  returnTo.focus({ preventScroll: true });
 }
 function selectTool(id) {
   if (!toolById.has(id)) return;
@@ -311,9 +323,7 @@ function renderSelection() {
         : ''
     }<p class="scope-note">Tools are grouped by their main job. A category does not imply that its tools are interchangeable.</p>`;
   $('#clear-selection').onclick = () => {
-    const returnToFinder = selectedFromFinder;
-    clearToolSelection();
-    (returnToFinder ? $('#finder summary') : viewport).focus({ preventScroll: true });
+    clearSelectionAndRestoreFocus();
   };
   $('#inspector').scrollTop = 0;
   drawEdges();
@@ -626,6 +636,9 @@ document.addEventListener('click', (e) => {
   const node = e.target.closest('[data-tool]');
   if (node) {
     selectTool(node.dataset.tool);
+    selectionKeyboardOrigin = e.detail === 0 ? node : null;
+    if (selectionKeyboardOrigin)
+      $('#inspector').focus({ preventScroll: true });
     return;
   }
   const rel = e.target.closest('[data-related]');
@@ -644,9 +657,7 @@ document.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && selected) {
-    const returnToFinder = selectedFromFinder;
-    clearToolSelection();
-    (returnToFinder ? $('#finder summary') : viewport).focus({ preventScroll: true });
+    clearSelectionAndRestoreFocus();
   }
 });
 // Clean up links shared before the map became the only page.
