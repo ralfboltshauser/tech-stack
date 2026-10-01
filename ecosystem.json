@@ -501,7 +501,7 @@
       "example": "Receive and send personal correspondence at your own domain.",
       "distinction": "Mailbox hosting differs from Resend’s primary application-email role.",
       "url": "https://migadu.com",
-      "icon": "assets/icons/migadu.ico"
+      "icon": "assets/icons/migadu.webp"
     },
     {
       "id": "neon",
@@ -941,7 +941,7 @@
       "example": "Have an agent open a page, fill a form and check what happens after submission.",
       "distinction": "Focuses on agent-driven browser interaction. Playwright also automates browsers and provides a framework for repeatable test suites.",
       "url": "https://agent-browser.dev/",
-      "icon": "assets/icons/agent-browser.ico"
+      "icon": "assets/icons/agent-browser.webp"
     },
     {
       "id": "agent-device",
@@ -1097,7 +1097,7 @@
       "example": "Give a support agent its own address to receive messages, read attachments and reply in the same conversation.",
       "distinction": "Provides email inbox infrastructure for agents. Composio connects agents to many external apps; AgentMail focuses specifically on email.",
       "url": "https://www.agentmail.to/",
-      "icon": "assets/icons/agentmail.ico"
+      "icon": "assets/icons/agentmail.webp"
     },
     {
       "id": "executor",
@@ -1133,7 +1133,7 @@
       "example": "Read and reply to chats from several networks without switching between their apps.",
       "distinction": "A personal messaging client. It connects to existing chat networks rather than providing messaging infrastructure for your own product.",
       "url": "https://www.beeper.com/",
-      "icon": "assets/icons/beeper.png"
+      "icon": "assets/icons/beeper.webp"
     },
     {
       "id": "notion-calendar",
@@ -1179,7 +1179,7 @@
       "type": "YouTube · code & tech news",
       "purpose": "Short programming explainers, developer news and technology commentary.",
       "url": "https://www.youtube.com/@Fireship",
-      "icon": "assets/icons/fireship.jpg"
+      "icon": "assets/icons/fireship.webp"
     },
     {
       "id": "theo",
@@ -1189,7 +1189,7 @@
       "type": "YouTube · web development",
       "purpose": "Commentary on web development, TypeScript, frameworks and developer tools.",
       "url": "https://www.youtube.com/@t3dotgg",
-      "icon": "assets/icons/theo.jpg"
+      "icon": "assets/icons/theo.webp"
     },
     {
       "id": "y-combinator",
@@ -1199,7 +1199,7 @@
       "type": "YouTube · startups",
       "purpose": "Talks, interviews and advice about building startups, making products and working with customers.",
       "url": "https://www.youtube.com/@ycombinator",
-      "icon": "assets/icons/y-combinator.jpg"
+      "icon": "assets/icons/y-combinator.webp"
     },
     {
       "id": "nate-b-jones",
@@ -1209,7 +1209,7 @@
       "type": "YouTube · AI & strategy",
       "purpose": "Analysis and discussion of AI developments and their practical implications.",
       "url": "https://www.youtube.com/@NateBJones",
-      "icon": "assets/icons/nate-b-jones.jpg"
+      "icon": "assets/icons/nate-b-jones.webp"
     },
     {
       "id": "two-minute-papers",
@@ -1219,7 +1219,7 @@
       "type": "YouTube · research explained",
       "purpose": "Accessible explanations of research in AI, computer graphics and related fields.",
       "url": "https://www.youtube.com/@TwoMinutePapers",
-      "icon": "assets/icons/two-minute-papers.jpg"
+      "icon": "assets/icons/two-minute-papers.webp"
     },
     {
       "id": "alex-hormozi",
@@ -1229,7 +1229,7 @@
       "type": "YouTube · business & growth",
       "purpose": "Business education and commentary on offers, sales and growing a company.",
       "url": "https://www.youtube.com/@AlexHormozi",
-      "icon": "assets/icons/alex-hormozi.jpg"
+      "icon": "assets/icons/alex-hormozi.webp"
     },
     {
       "id": "tldr",
@@ -1251,7 +1251,7 @@
       "example": "Follow a community calendar and get updates about upcoming meetups.",
       "distinction": "An events platform, grouped here with newsletters as a source of updates and discovery.",
       "url": "https://luma.com/",
-      "icon": "assets/icons/luma.png"
+      "icon": "assets/icons/luma.webp"
     },
     {
       "id": "theprimeagen",
@@ -1261,7 +1261,7 @@
       "type": "YouTube · programming",
       "purpose": "Programming discussions, development workflows and software engineering commentary.",
       "url": "https://www.youtube.com/@ThePrimeagen",
-      "icon": "assets/icons/theprimeagen.jpg"
+      "icon": "assets/icons/theprimeagen.webp"
     },
     {
       "id": "framework-laptop",
@@ -1296,7 +1296,7 @@
       "example": "Use a skill to question a feature idea or break a refactor into small steps.",
       "distinction": "A collection of instructions used by an agent, rather than a separate coding agent or model.",
       "url": "https://github.com/mattpocock/skills",
-      "icon": "assets/icons/mattpocock.png"
+      "icon": "assets/icons/mattpocock.webp"
     },
     {
       "id": "corey-haines-marketing-skills",
@@ -1368,7 +1368,7 @@
       "example": "Try a new color palette and export the theme into your app.",
       "distinction": "Changes the styling of your components; shadcn/ui supplies the components themselves.",
       "url": "https://tweakcn.com/",
-      "icon": "assets/icons/tweakcn.ico"
+      "icon": "assets/icons/tweakcn.webp"
     },
     {
       "id": "burp-suite",
