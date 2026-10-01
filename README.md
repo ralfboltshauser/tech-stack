@@ -58,6 +58,8 @@ python3 scripts/set-public-url.py https://your-domain/
 
 Canonical links, absolute social-image URLs, the sitemap and collection structured data use `site.json`. The HTML includes the full collection for non-JavaScript readers and printing; the interactive map replaces it after successful loading. Fonts, icons and the social card are served locally.
 
+The Git icon is the [Git logomark](https://git-scm.com/downloads/logos) by Jason Long, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+
 Only `dist/` is published. Build scripts, tests, README and concept studies stay out of the deployment. Configure a new domain in Vercel separately if you change `site.json`.
 
 ## Social previews

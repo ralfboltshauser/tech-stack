@@ -248,8 +248,8 @@
     {
       "id": "collaboration",
       "territory": "workshop",
-      "name": "Code collaboration & planning",
-      "question": "How do I share changes and track the work?"
+      "name": "Version control & collaboration",
+      "question": "How do I track, share and plan code changes?"
     },
     {
       "id": "email",
@@ -1052,6 +1052,18 @@
       "icon": "assets/icons/playwright.svg"
     },
     {
+      "id": "git",
+      "category": "collaboration",
+      "name": "Git",
+      "mark": "Gi",
+      "type": "Version control",
+      "purpose": "Track changes to files as commits and branches, inspect their history and merge work together.",
+      "example": "Commit a change on a branch, compare it with main and merge it when ready.",
+      "distinction": "Git manages the repository and its history locally. GitHub hosts Git repositories and adds pull requests, reviews and issues.",
+      "url": "https://git-scm.com/",
+      "icon": "assets/icons/git.svg"
+    },
+    {
       "id": "github",
       "category": "collaboration",
       "name": "GitHub",
@@ -1513,6 +1525,11 @@
       "from": "payload",
       "to": "nextjs",
       "label": "is built on"
+    },
+    {
+      "from": "git",
+      "to": "github",
+      "label": "repositories can be hosted on"
     },
     {
       "from": "linear",
