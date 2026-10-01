@@ -10,9 +10,7 @@ const esc = (s) =>
   );
 let data, toolById, categoryById, territoryById;
 let selected = null;
-let selectedFromFinder = false;
 let selectionKeyboardOrigin = null;
-let finderTerritory = 'all';
 let scale = 1,
   panX = 20,
   panY = 20,
@@ -107,7 +105,6 @@ function setData(next) {
   $('#directory').hidden = true;
   renderMap();
   renderSelection();
-  renderFinder();
   requestAnimationFrame(() => {
     applyTransform();
     drawEdges();
@@ -118,87 +115,6 @@ function toolIcon(t) {
     ? `<img src="${esc(t.icon)}" alt="" width="25" height="25" loading="lazy" decoding="async"><span class="icon-fallback">${esc(t.mark || t.name.slice(0, 2))}</span>`
     : esc(t.mark || t.name.slice(0, 2));
 }
-function finderMatches(query, territoryId) {
-  const term = query.trim().toLocaleLowerCase();
-  return data.tools.filter((tool) => {
-    const category = categoryById.get(tool.category);
-    const territory = territoryById.get(category.territory);
-    if (territoryId !== 'all' && territory.id !== territoryId) return false;
-    return [tool.name, tool.type, tool.purpose, category.name, territory.name]
-      .join(' ')
-      .toLocaleLowerCase()
-      .includes(term);
-  });
-}
-function renderFinder() {
-  if (!data) return;
-  if (finderTerritory !== 'all' && !territoryById.has(finderTerritory))
-    finderTerritory = 'all';
-  const filters = $('#finder-territories');
-  filters.innerHTML = [
-    `<button type="button" data-territory="all" aria-pressed="${finderTerritory === 'all'}">All</button>`,
-    ...data.territories.map((territory) =>
-      `<button type="button" data-territory="${esc(territory.id)}" aria-pressed="${finderTerritory === territory.id}">${esc(territory.name)}</button>`),
-  ].join('');
-  const results = finderMatches($('#finder-search').value, finderTerritory);
-  $('#finder-count').textContent = `${results.length} of ${data.tools.length} entries`;
-  const groups = new Map();
-  for (const tool of results) {
-    const category = categoryById.get(tool.category);
-    if (!groups.has(category.id)) groups.set(category.id, { category, tools: [] });
-    groups.get(category.id).tools.push(tool);
-  }
-  $('#finder-results').innerHTML = results.length
-    ? [...groups.values()].map(({ category, tools }) =>
-      `<section><h2>${esc(category.name)}</h2>${tools.map((tool) =>
-        `<div class="finder-result"><button type="button" data-find-tool="${esc(tool.id)}"><strong>${esc(tool.name)}</strong><small>${esc(tool.type || 'Tool')}</small></button>${tool.url ? `<a href="${esc(tool.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${esc(tool.name)} website (opens in a new tab)">↗</a>` : ''}</div>`).join('')}</section>`).join('')
-    : '<p class="finder-empty">No matches. Try a name, category, or task.</p>';
-}
-function showToolFromFinder(id) {
-  const node = [...document.querySelectorAll('#regions [data-tool]')]
-    .find((item) => item.dataset.tool === id);
-  if (!node) return;
-  $('#finder').open = false;
-  selectTool(id);
-  selectedFromFinder = true;
-  selectionKeyboardOrigin = null;
-  if (scale < 0.72) {
-    scale = 0.72;
-    applyTransform();
-  }
-  const rect = node.getBoundingClientRect();
-  const targetX = viewport.clientWidth > 760 ? (viewport.clientWidth - 280) / 2 : viewport.clientWidth / 2;
-  const targetY = viewport.clientWidth > 760 ? viewport.clientHeight / 2 : viewport.clientHeight * 0.3;
-  panX += targetX - (rect.left + rect.width / 2);
-  panY += targetY - (rect.top + rect.height / 2);
-  applyTransform();
-  $('#inspector').focus({ preventScroll: true });
-  drawEdges();
-}
-$('#finder').addEventListener('toggle', () => {
-  if ($('#finder').open) $('#finder-search').focus();
-});
-$('#finder-search').addEventListener('input', renderFinder);
-$('#finder-territories').addEventListener('click', (event) => {
-  const button = event.target.closest('[data-territory]');
-  if (!button) return;
-  finderTerritory = button.dataset.territory;
-  renderFinder();
-  [...$('#finder-territories').querySelectorAll('[data-territory]')]
-    .find((item) => item.dataset.territory === finderTerritory)?.focus();
-});
-$('#finder-results').addEventListener('click', (event) => {
-  const button = event.target.closest('[data-find-tool]');
-  if (button) showToolFromFinder(button.dataset.findTool);
-});
-$('#finder').addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    event.stopPropagation();
-    $('#finder').open = false;
-    $('#finder summary').focus();
-  }
-});
 function nodeMarkup(t) {
   const button = `<button class="node${t.id === selected ? ' selected' : ''}" data-tool="${esc(t.id)}" aria-pressed="${t.id === selected}" aria-label="${esc(t.name)}: ${esc(t.type || 'Tool')}"><span class="mark" aria-hidden="true">${toolIcon(t)}</span><span><strong>${esc(t.name)}</strong><small>${esc(t.type || 'Tool')}</small></span></button>`;
   return `<div class="tool-card map-card">${button}${t.url ? `<a class="tool-website" href="${esc(t.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${esc(t.name)} website (opens in a new tab)" title="Visit ${esc(t.name)}">↗</a>` : ''}</div>`;
@@ -219,7 +135,7 @@ function renderMap() {
   let x = 32;
   for (const lane of lanes) {
     laneX[lane] = x;
-    laneY[lane] = 28;
+    laneY[lane] = 122;
     x +=
       Math.max(...core.filter((t) => t.lane === lane).map((t) => t.columns)) *
       484;
@@ -271,25 +187,21 @@ function renderMap() {
 }
 function clearToolSelection() {
   selected = null;
-  selectedFromFinder = false;
   selectionKeyboardOrigin = null;
   if (document.activeElement?.closest('[data-tool]'))
     document.activeElement.blur();
   renderSelection();
 }
 function clearSelectionAndRestoreFocus() {
-  const returnTo = selectedFromFinder
-    ? $('#finder summary')
-    : selectionKeyboardOrigin?.isConnected
-      ? selectionKeyboardOrigin
-      : viewport;
+  const returnTo = selectionKeyboardOrigin?.isConnected
+    ? selectionKeyboardOrigin
+    : viewport;
   clearToolSelection();
   returnTo.focus({ preventScroll: true });
 }
 function selectTool(id) {
   if (!toolById.has(id)) return;
   selected = id;
-  selectedFromFinder = false;
   renderSelection();
 }
 function renderSelection() {
