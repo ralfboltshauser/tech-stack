@@ -10,7 +10,7 @@ From this directory:
 python3 -m http.server 8765
 ```
 
-Open http://127.0.0.1:8765/. Use **Find** to search the collection or narrow it by area; choose a result to locate it on the map, or follow its arrow directly to the official website. Drag or scroll to pan, pinch or Ctrl-scroll to zoom. Select a card for details; click the background or press Escape to clear it. Keyboard users can Tab through tools, or focus the canvas and use arrow keys, +, − and 0 (fit).
+Open http://127.0.0.1:8765/. Drag or scroll to pan, pinch or Ctrl-scroll to zoom. Select a card for details, or use its arrow to visit the official website. Click the background or press Escape to clear the selection. Keyboard users can Tab through tools, or focus the canvas and use arrow keys, +, − and 0 (fit).
 
 ## Update the collection
 
