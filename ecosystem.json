@@ -846,7 +846,7 @@
       "purpose": "Provide the physical keyboard you use to interact with your workstation.",
       "example": "Type and use shortcuts on an ergonomic split keyboard.",
       "url": "https://www.moergo.com/pages/glove80",
-      "icon": "assets/icons/glove80-generated.png"
+      "icon": "assets/icons/glove80-generated.webp"
     },
     {
       "id": "screen",
@@ -857,7 +857,7 @@
       "purpose": "Provide a wide physical workspace for the applications you use.",
       "example": "Keep code, a browser and reference material visible at once.",
       "distinction": "The exact monitor model is not specified in this collection.",
-      "icon": "assets/icons/samsung-ultrawide-generated.png"
+      "icon": "assets/icons/samsung-ultrawide-generated.webp"
     },
     {
       "id": "codex",
@@ -1284,7 +1284,7 @@
       "purpose": "Navigate, select and scroll through applications with a wireless mouse.",
       "example": "Move between code, browser tabs and documents, using the main scroll wheel and thumb wheel.",
       "url": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
-      "icon": "assets/icons/mx-master-3s-generated.png"
+      "icon": "assets/icons/mx-master-3s-generated.webp"
     },
     {
       "id": "matt-pocock-skills",
