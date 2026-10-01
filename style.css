@@ -635,6 +635,12 @@ main {
   height: 24px;
 }
 @media (max-width: 760px) {
+  .connection-key {
+    display: block;
+    padding: 2px 5px 0;
+    color: var(--muted);
+    font: 10px/14px var(--mono);
+  }
   #inspector {
     top: auto;
     bottom: 66px;
