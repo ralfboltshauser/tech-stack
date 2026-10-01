@@ -391,7 +391,7 @@ main {
   display: grid;
   place-items: center;
   text-decoration: none;
-  color: #a1a1aa;
+  color: var(--muted);
   font-size: 14px;
   border-radius: 4px;
   z-index: 2;
