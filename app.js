@@ -611,7 +611,7 @@ window.builderAtlas = {
   selectTool,
   fit,
 };
-import('./atlas-atmosphere.js?v=2').then(({ createAtlasAtmosphere }) => {
+import('./atlas-atmosphere.js?v=3').then(({ createAtlasAtmosphere }) => {
   atmosphere = createAtlasAtmosphere(viewport);
 }).catch((error) => console.warn('Atlas hover animation unavailable.', error));
 reloadData();

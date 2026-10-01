@@ -332,15 +332,12 @@ main {
   z-index: 1;
 }
 .atlas-atmosphere {
-  position: fixed;
-  left: 16px;
-  bottom: 72px;
-  z-index: 14;
+  position: absolute;
+  left: calc(100% + 40px);
+  top: -30px;
+  width: 180px;
+  height: 180px;
   pointer-events: none;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--paper);
-  box-shadow: var(--shadow);
 }
 @media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
   .atlas-atmosphere { display: none; }

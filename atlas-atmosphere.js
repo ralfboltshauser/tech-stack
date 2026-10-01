@@ -73,10 +73,8 @@ export function createAtlasAtmosphere(viewport) {
     const dpr = Math.min(devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    viewport.append(canvas);
+    viewport.querySelector('.canvas-heading').append(canvas);
   }
 
   function draw(now) {
