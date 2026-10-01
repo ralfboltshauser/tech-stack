@@ -851,7 +851,7 @@
       "purpose": "Provide a wide physical workspace for the applications you use.",
       "example": "Keep code, a browser and reference material visible at once.",
       "distinction": "The exact monitor model is not specified in this collection.",
-      "icon": "assets/icons/screen.svg"
+      "icon": "assets/icons/samsung-ultrawide-generated.png"
     },
     {
       "id": "codex",
