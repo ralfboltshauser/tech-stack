@@ -483,13 +483,13 @@ viewport.addEventListener(
 viewport.addEventListener('selectstart', (e) => e.preventDefault());
 viewport.addEventListener('dragstart', (e) => e.preventDefault());
 viewport.addEventListener('pointerdown', (e) => {
+  suppressCanvasClick = false;
   if (
     e.target.closest('a,input,textarea,select') ||
     (e.button !== 0 && e.button !== 1)
   )
     return;
-  e.preventDefault();
-  suppressCanvasClick = false;
+  if (e.pointerType !== 'touch') e.preventDefault();
   if (e.pointerType === 'touch') {
     touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (touches.size > 1) {
