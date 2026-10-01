@@ -186,6 +186,7 @@ function renderMap() {
   $('#edges').setAttribute('height', worldHeight);
 }
 function clearToolSelection() {
+  $('#inspector').getAnimations().forEach((animation) => animation.cancel());
   selected = null;
   selectionKeyboardOrigin = null;
   if (document.activeElement?.closest('[data-tool]'))
@@ -204,6 +205,22 @@ function selectTool(id) {
   selected = id;
   renderSelection();
   keepSelectedToolVisible();
+}
+function revealInspector() {
+  const inspector = $('#inspector');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  inspector.animate(
+    reducedMotion
+      ? [{ opacity: 0 }, { opacity: 1 }]
+      : [
+          { opacity: 0, transform: 'translateY(8px)' },
+          { opacity: 1, transform: 'translateY(0)' },
+        ],
+    {
+      duration: reducedMotion ? 120 : 220,
+      easing: 'cubic-bezier(0.32, 0.72, 0, 1)',
+    },
+  );
 }
 function selectionPan(rect, panel, view, mobile) {
   const margin = 12;
@@ -585,7 +602,9 @@ document.addEventListener(
 document.addEventListener('click', (e) => {
   const node = e.target.closest('[data-tool]');
   if (node) {
+    const opening = !selected && e.detail > 0;
     selectTool(node.dataset.tool);
+    if (opening) revealInspector();
     selectionKeyboardOrigin = e.detail === 0 ? node : null;
     if (selectionKeyboardOrigin)
       $('#inspector').focus({ preventScroll: true });
