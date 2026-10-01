@@ -8,6 +8,6 @@
     "build": "python3 scripts/build.py && npm test && python3 scripts/package-site.py"
   },
   "engines": {
-    "node": ">=22"
+    "node": "22.x"
   }
 }

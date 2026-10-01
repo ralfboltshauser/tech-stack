@@ -48,7 +48,7 @@ npm ci
 npm run build
 ```
 
-This build requires Node.js 22+ and Python 3. No runtime dependencies or deployment secrets are needed in GitHub Actions; Vercel handles the Git integration directly.
+This build requires Node.js 22 and Python 3. No runtime dependencies or deployment secrets are needed in GitHub Actions; Vercel handles the Git integration directly.
 
 To change the public domain and regenerate sharing URLs:
 
