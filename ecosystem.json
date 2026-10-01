@@ -469,6 +469,18 @@
       "icon": "assets/icons/resend.svg"
     },
     {
+      "id": "cloudflare-email-sending",
+      "category": "business",
+      "name": "Cloudflare Email Sending",
+      "mark": "Cf",
+      "type": "Transactional email",
+      "purpose": "Send application emails through Cloudflare Email Service.",
+      "example": "Send an account verification or order confirmation from a Worker or an application using its API or SMTP.",
+      "distinction": "Email Sending is currently in beta and focuses on transactional messages. Cloudflare Email Routing handles incoming mail; Resend is another application-email provider.",
+      "url": "https://developers.cloudflare.com/email-service/",
+      "icon": "assets/icons/cloudflare.svg"
+    },
+    {
       "id": "posthog",
       "category": "analytics",
       "name": "PostHog",
@@ -514,6 +526,18 @@
       "distinction": "PostgreSQL is the underlying database technology; Neon provides a managed service around it.",
       "url": "https://neon.com",
       "icon": "assets/icons/neon.svg"
+    },
+    {
+      "id": "planetscale-postgres",
+      "category": "data",
+      "name": "PlanetScale Postgres",
+      "mark": "Ps",
+      "type": "Managed PostgreSQL",
+      "purpose": "Run a managed PostgreSQL database for application data.",
+      "example": "Store app records in a hosted Postgres cluster with backups and database branches for development.",
+      "distinction": "This is PlanetScale’s Postgres offering. PlanetScale also offers a separate MySQL-based database product; Neon is another managed Postgres provider.",
+      "url": "https://planetscale.com/postgres",
+      "icon": "assets/icons/planetscale.svg"
     },
     {
       "id": "supabase",
@@ -1441,278 +1465,6 @@
       "distinction": "A learning resource rather than an application framework. Use its roadmaps for orientation and adapt the path to the project you want to build.",
       "url": "https://roadmap.sh/",
       "icon": "assets/icons/roadmap-sh.png"
-    }
-  ],
-  "relations": [
-    {
-      "from": "nextjs",
-      "to": "react",
-      "label": "builds on"
-    },
-    {
-      "from": "shadcn",
-      "to": "tailwind",
-      "label": "styles with"
-    },
-    {
-      "from": "intl",
-      "to": "nextjs",
-      "label": "adds localization to"
-    },
-    {
-      "from": "drizzle",
-      "to": "neon",
-      "label": "can query"
-    },
-    {
-      "from": "nextjs",
-      "to": "vercel",
-      "label": "can deploy to"
-    },
-    {
-      "from": "keyframe",
-      "to": "elevenlabs",
-      "label": "can pair with"
-    },
-    {
-      "from": "codex",
-      "to": "claude",
-      "label": "overlaps with",
-      "kind": "overlap"
-    },
-    {
-      "from": "kubernetes",
-      "to": "vercel",
-      "label": "part of an alternative to",
-      "kind": "overlap"
-    },
-    {
-      "from": "better-auth",
-      "to": "nextjs",
-      "label": "can add sign-in to"
-    },
-    {
-      "from": "r2",
-      "to": "cloudflare",
-      "label": "is a service from"
-    },
-    {
-      "from": "playwright",
-      "to": "nextjs",
-      "label": "can test apps built with"
-    },
-    {
-      "from": "docker",
-      "to": "kubernetes",
-      "label": "can build images for"
-    },
-    {
-      "from": "docker",
-      "to": "hetzner",
-      "label": "can run on servers from"
-    },
-    {
-      "from": "kubernetes",
-      "to": "hetzner",
-      "label": "can run on servers from"
-    },
-    {
-      "from": "grafana",
-      "to": "prometheus",
-      "label": "can query"
-    },
-    {
-      "from": "payload",
-      "to": "nextjs",
-      "label": "is built on"
-    },
-    {
-      "from": "git",
-      "to": "github",
-      "label": "repositories can be hosted on"
-    },
-    {
-      "from": "linear",
-      "to": "github",
-      "label": "overlaps in issue tracking with",
-      "kind": "overlap"
-    },
-    {
-      "from": "composio",
-      "to": "executor",
-      "label": "overlaps in agent integrations with",
-      "kind": "overlap"
-    },
-    {
-      "to": "codex",
-      "label": "can provide visual feedback to",
-      "from": "agentation"
-    },
-    {
-      "to": "claude",
-      "label": "can provide debugging context to",
-      "from": "d3k"
-    },
-    {
-      "to": "playwright",
-      "label": "overlaps in browser automation with",
-      "from": "agent-browser",
-      "kind": "overlap"
-    },
-    {
-      "to": "agent-browser",
-      "label": "overlaps in agent-driven interaction with",
-      "from": "agent-device",
-      "kind": "overlap"
-    },
-    {
-      "from": "supabase",
-      "to": "neon",
-      "label": "overlaps in Postgres hosting with",
-      "kind": "overlap"
-    },
-    {
-      "from": "supabase",
-      "to": "better-auth",
-      "label": "overlaps in authentication with",
-      "kind": "overlap"
-    },
-    {
-      "from": "supabase",
-      "to": "r2",
-      "label": "overlaps in file storage with",
-      "kind": "overlap"
-    },
-    {
-      "from": "expo",
-      "to": "react-native",
-      "label": "builds on"
-    },
-    {
-      "from": "react-native",
-      "to": "react",
-      "label": "uses"
-    },
-    {
-      "from": "framer-motion",
-      "to": "react",
-      "label": "animates interfaces built with"
-    },
-    {
-      "from": "agent-device",
-      "to": "react-native",
-      "label": "can verify apps built with"
-    },
-    {
-      "from": "clerk",
-      "to": "better-auth",
-      "label": "overlaps in authentication with",
-      "kind": "overlap"
-    },
-    {
-      "from": "clerk",
-      "to": "supabase",
-      "label": "overlaps with its authentication service",
-      "kind": "overlap"
-    },
-    {
-      "from": "clerk",
-      "to": "nextjs",
-      "label": "can add sign-in to"
-    },
-    {
-      "from": "react-three-fiber",
-      "to": "threejs",
-      "label": "renders scenes with"
-    },
-    {
-      "from": "react-three-fiber",
-      "to": "react",
-      "label": "uses components from"
-    },
-    {
-      "from": "coolify",
-      "to": "hetzner",
-      "label": "can deploy to servers from"
-    },
-    {
-      "from": "coolify",
-      "to": "docker",
-      "label": "deploys using"
-    },
-    {
-      "from": "coolify",
-      "to": "vercel",
-      "label": "overlaps in app deployment with",
-      "kind": "overlap"
-    },
-    {
-      "from": "vercel-ai-gateway",
-      "to": "aisdk",
-      "label": "can be accessed through"
-    },
-    {
-      "from": "husky",
-      "to": "jscpd",
-      "label": "can run checks with"
-    },
-    {
-      "from": "nx",
-      "to": "turborepo",
-      "label": "overlaps in task orchestration with",
-      "kind": "overlap"
-    },
-    {
-      "from": "bun-workspaces",
-      "to": "bun",
-      "label": "is a feature of"
-    },
-    {
-      "from": "turborepo",
-      "to": "bun-workspaces",
-      "label": "can coordinate tasks across"
-    },
-    {
-      "from": "nx",
-      "to": "bun-workspaces",
-      "label": "can coordinate tasks across"
-    },
-    {
-      "from": "husky",
-      "to": "lint-staged",
-      "label": "can run before a commit"
-    },
-    {
-      "from": "pi",
-      "to": "codex",
-      "label": "overlaps in coding-agent work with",
-      "kind": "overlap"
-    },
-    {
-      "from": "fx",
-      "to": "pi",
-      "label": "overlaps in coding-agent work with",
-      "kind": "overlap"
-    },
-    {
-      "from": "fx",
-      "to": "vercel-ai-gateway",
-      "label": "can access models through"
-    },
-    {
-      "from": "vercel-domains",
-      "to": "vercel",
-      "label": "names apps hosted on"
-    },
-    {
-      "from": "tweakcn",
-      "to": "shadcn",
-      "label": "themes"
-    },
-    {
-      "from": "vercel-ai-elements",
-      "to": "shadcn",
-      "label": "builds on"
     }
   ],
   "scenarios": [

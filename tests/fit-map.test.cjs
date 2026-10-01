@@ -3,7 +3,7 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const source = readFileSync(require('node:path').join(__dirname, '../app.js'), 'utf8');
 const viewport = { clientWidth: 320, clientHeight: 700 };
-const context = vm.createContext({ viewport, applyTransform() {}, drawEdges() {}, Math });
+const context = vm.createContext({ viewport, applyTransform() {}, Math });
 vm.runInContext('let scale = 1, panX = 20, panY = 20, worldWidth = 5200, worldHeight = 3900, selected = null;', context);
 vm.runInContext(source.slice(source.indexOf('function fitBounds()'), source.indexOf("$('#zoom-in').onclick")), context);
 const value = (name) => vm.runInContext(name, context);

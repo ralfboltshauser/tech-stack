@@ -28,7 +28,6 @@ function validate(d) {
     'territories',
     'categories',
     'tools',
-    'relations',
     'scenarios',
   ])
     if (!Array.isArray(d[key])) apiError(`Missing array: ${key}`);
@@ -81,13 +80,6 @@ function validate(d) {
     if (t.url && !/^https:\/\//i.test(t.url))
       apiError(`Tool URLs must start with https://: ${t.id}`);
   }
-  for (const r of d.relations)
-    if (
-      !toolIds.has(r.from) ||
-      !toolIds.has(r.to) ||
-      typeof r.label !== 'string'
-    )
-      apiError('A relationship has an unknown tool or missing label.');
   for (const s of d.scenarios)
     if (!Array.isArray(s.tools) || s.tools.some((id) => !toolIds.has(id)))
       apiError(`Unknown tool in project: ${s.id}`);
@@ -126,6 +118,7 @@ function websiteLink(t) {
 function renderMap() {
   const groups = $('#regions');
   groups.innerHTML = '';
+  $('.canvas-heading').dataset.summary = `A personal index of ${data.tools.length} tools · ${data.territories.length} areas`;
   const core = data.territories.filter((t) => !t.exploration);
   const lanes = [...new Set(core.map((t) => t.lane))].sort((a, b) => a - b),
     laneX = {},
@@ -133,7 +126,7 @@ function renderMap() {
   let x = 32;
   for (const lane of lanes) {
     laneX[lane] = x;
-    laneY[lane] = 122;
+    laneY[lane] = 154;
     x +=
       Math.max(...core.filter((t) => t.lane === lane).map((t) => t.columns)) *
       484;
@@ -145,11 +138,19 @@ function renderMap() {
     const exploratory = territory.exploration === true;
     let y = exploratory ? 220 : laneY[territory.lane],
       gx = exploratory ? explorationX : laneX[territory.lane];
+    const fieldTop = y + 52;
+    const field = document.createElement('div');
+    field.className = 'territory-field';
+    field.style.cssText = `left:${gx - 16}px;top:${fieldTop}px;width:${exploratory ? 412 : territory.columns * 484 - 24}px;--territory-color:${territory.color}`;
+    groups.append(field);
     const title = document.createElement('div');
     title.className =
       'territory-title' + (exploratory ? ' exploration-title' : '');
     title.style.cssText = `left:${gx}px;top:${y}px;--region-color:${territory.color}`;
-    title.innerHTML = `${esc(territory.name.toUpperCase())}<span>${esc(territory.description || '')}</span>`;
+    const count = data.tools.filter((tool) =>
+      data.categories.some((category) => category.id === tool.category && category.territory === territory.id),
+    ).length;
+    title.innerHTML = `<strong>${esc(territory.name)}</strong><small>${count} tools</small><span>${esc(territory.description || '')}</span>`;
     groups.append(title);
     y += 58;
     const cats = data.categories.filter((c) => c.territory === territory.id);
@@ -158,8 +159,8 @@ function renderMap() {
       cats.slice(i, i + territory.columns).forEach((cat, j) => {
         const tools = data.tools.filter((t) => t.category === cat.id),
           height = exploratory
-            ? 110 + tools.length * 72
-            : 96 + Math.ceil(tools.length / 2) * 76;
+            ? 60 + tools.length * 72
+            : 60 + Math.ceil(tools.length / 2) * 76;
         const group = document.createElement('section');
         group.className =
           'map-group' + (exploratory ? ' exploration-group' : '');
@@ -169,19 +170,18 @@ function renderMap() {
         groups.append(group);
         rowHeight = Math.max(rowHeight, group.offsetHeight, height);
       });
-      y += rowHeight + 34;
+      y += rowHeight + 12;
     }
+    field.style.height = `${y - fieldTop + 16}px`;
     if (exploratory) {
       explorationBottom = Math.max(explorationBottom, y + 15);
       worldWidth = Math.max(worldWidth, gx + territory.columns * 484);
       explorationX += territory.columns * 484 + 160;
-    } else laneY[territory.lane] = y + 15;
+    } else laneY[territory.lane] = y + 48;
   }
   worldHeight = Math.max(0, explorationBottom, ...Object.values(laneY)) + 10;
   world.style.width = worldWidth + 'px';
   world.style.height = worldHeight + 'px';
-  $('#edges').setAttribute('width', worldWidth);
-  $('#edges').setAttribute('height', worldHeight);
 }
 function clearToolSelection() {
   $('#inspector').getAnimations().forEach((animation) => animation.cancel());
@@ -258,107 +258,38 @@ function keepSelectedToolVisible() {
   applyTransform();
 }
 function renderSelection() {
+  const selectedTool = toolById.get(selected);
+  const selectedTerritory = selectedTool && territoryById.get(categoryById.get(selectedTool.category).territory);
   document.querySelectorAll('[data-tool]').forEach((n) => {
     const yes = n.dataset.tool === selected;
     n.classList.toggle('selected', yes);
+    if (yes) n.style.setProperty('--selected-color', selectedTerritory.color);
+    else n.style.removeProperty('--selected-color');
     n.setAttribute('aria-pressed', String(yes));
   });
   const t = toolById.get(selected);
   $('#inspector').classList.toggle('no-selection', !t);
   if (!t) {
     $('#inspector').innerHTML =
-      '<div class="eyebrow">EXPLORE THE COLLECTION</div><h2 id="inspector-heading">Select a tool</h2><p class="detail-body">See the job it does, a concrete example, and the tools it connects to.</p>';
-    drawEdges();
+      '<div class="eyebrow">EXPLORE THE COLLECTION</div><h2 id="inspector-heading">Select a tool</h2><p class="detail-body">See the job it does and a concrete example.</p>';
     return;
   }
   const cat = categoryById.get(t.category),
-    territory = territoryById.get(cat.territory),
-    relations = data.relations.filter(
-      (r) => r.from === selected || r.to === selected,
-    );
+    territory = territoryById.get(cat.territory);
   $('#inspector').innerHTML =
-    `<div class="inspector-top"><span>${esc(territory.name.toUpperCase())} / ${territory.exploration ? 'EXPLORATION' : territory.id === 'learning' ? 'SOURCE' : 'TOOL'}</span><button id="clear-selection" aria-label="Clear tool selection">×</button></div><div class="inspector-mark" aria-hidden="true">${toolIcon(t)}</div><h2 id="inspector-heading">${esc(t.name)}</h2><p class="type">${esc(t.type || 'Tool')} · ${esc(cat.name)}</p>${websiteLink(t)}<div class="detail-label">${territory.id === 'learning' ? 'ABOUT THIS SOURCE' : 'THE JOB IT DOES'}</div><p class="detail-body">${esc(t.purpose)}</p>${t.example ? `<div class="detail-label">FOR EXAMPLE</div><div class="example">${esc(t.example)}</div>` : ''}${t.distinction ? `<div class="detail-label">WHERE IT FITS</div><p class="detail-body">${esc(t.distinction)}</p>` : ''}${
-      relations.length
-        ? `<div class="detail-label">CONNECTIONS</div>${relations
-            .map((r) => {
-              const other = r.from === selected ? r.to : r.from;
-              return `<button class="relation" data-related="${esc(other)}"><span>${esc(toolById.get(r.from).name)} ${esc(r.label)}</span><b>${esc(toolById.get(r.to).name)} ↗</b></button>`;
-            })
-            .join('')}`
-        : ''
-    }<p class="scope-note">Tools are grouped by their main job. A category does not imply that its tools are interchangeable.</p>`;
+    `<div class="inspector-top"><span>${esc(territory.name.toUpperCase())} / ${territory.exploration ? 'EXPLORATION' : territory.id === 'learning' ? 'SOURCE' : 'TOOL'}</span><button id="clear-selection" aria-label="Clear tool selection">×</button></div><div class="inspector-mark" aria-hidden="true">${toolIcon(t)}</div><h2 id="inspector-heading">${esc(t.name)}</h2><p class="type">${esc(t.type || 'Tool')} · ${esc(cat.name)}</p>${websiteLink(t)}<div class="detail-label">${territory.id === 'learning' ? 'ABOUT THIS SOURCE' : 'THE JOB IT DOES'}</div><p class="detail-body">${esc(t.purpose)}</p>${t.example ? `<div class="detail-label">FOR EXAMPLE</div><div class="example">${esc(t.example)}</div>` : ''}${t.distinction ? `<div class="detail-label">WHERE IT FITS</div><p class="detail-body">${esc(t.distinction)}</p>` : ''}<p class="scope-note">Tools are grouped by their main job. A category does not imply that its tools are interchangeable.</p>`;
   $('#clear-selection').onclick = () => {
     clearSelectionAndRestoreFocus();
   };
   $('#inspector').scrollTop = 0;
-  drawEdges();
-}
-function drawEdges() {
-  const svg = $('#edges');
-  svg.innerHTML =
-    '<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" style="fill:#9696b3;stroke:none"/></marker></defs>';
-  if (!selected) return;
-  const selectedNode = $(`#regions [data-tool="${selected}"]`);
-  if (!selectedNode) return;
-  const worldRect = world.getBoundingClientRect();
-  const box = (id) => {
-    const n = $(`#regions [data-tool="${id}"]`);
-    if (!n) return null;
-    const r = n.getBoundingClientRect();
-    return {
-      x: (r.x - worldRect.x) / scale,
-      y: (r.y - worldRect.y) / scale,
-      w: r.width / scale,
-      h: r.height / scale,
-    };
-  };
-  for (const r of data.relations.filter(
-    (r) => r.from === selected || r.to === selected,
-  )) {
-    const a = box(r.from),
-      b = box(r.to);
-    if (!a || !b) continue;
-    let ax = a.x + a.w / 2,
-      ay = a.y + a.h / 2,
-      bx = b.x + b.w / 2,
-      by = b.y + b.h / 2,
-      path;
-    const ga = $(`#regions [data-tool="${r.from}"]`).closest('.map-group'),
-      gb = $(`#regions [data-tool="${r.to}"]`).closest('.map-group');
-    if (ga !== gb) {
-      const forward = gb.offsetLeft > ga.offsetLeft,
-        sign = forward ? 1 : -1;
-      ax += (sign * a.w) / 2;
-      bx -= (sign * b.w) / 2;
-      const exit = forward
-        ? ga.offsetLeft + ga.offsetWidth + 17
-        : ga.offsetLeft - 17;
-      const enter = forward
-        ? gb.offsetLeft - 17
-        : gb.offsetLeft + gb.offsetWidth + 17;
-      const routeY = Math.min(ga.offsetTop, gb.offsetTop) - 16;
-      path = `M${ax},${ay} H${exit} V${routeY} H${enter} V${by} H${bx}`;
-    } else if (Math.abs(ax - bx) > Math.abs(ay - by)) {
-      const sign = bx > ax ? 1 : -1;
-      ax += (sign * a.w) / 2;
-      bx -= (sign * b.w) / 2;
-      const offset = Math.max(35, Math.abs(bx - ax) * 0.45);
-      path = `M${ax},${ay} C${ax + sign * offset},${ay} ${bx - sign * offset},${by} ${bx},${by}`;
-    } else {
-      const sign = by > ay ? 1 : -1;
-      ay += (sign * a.h) / 2;
-      by -= (sign * b.h) / 2;
-      const offset = Math.max(35, Math.abs(by - ay) * 0.45);
-      path = `M${ax},${ay} C${ax},${ay + sign * offset} ${bx},${by - sign * offset} ${bx},${by}`;
-    }
-    svg.insertAdjacentHTML(
-      'beforeend',
-      `<path d="${path}" marker-end="url(#arrow)" ${r.kind === 'overlap' ? 'stroke-dasharray="6 5"' : ''}/>`,
-    );
-  }
 }
 function applyTransform() {
   world.style.transform = `translate(${panX}px,${panY}px) scale(${scale})`;
+  viewport.style.setProperty('--grid-x', `${panX}px`);
+  viewport.style.setProperty('--grid-y', `${panY}px`);
+  viewport.style.setProperty('--major-step', `${120 * scale}px`);
+  viewport.style.setProperty('--minor-step', `${24 * scale}px`);
+  viewport.classList.toggle('show-minor-grid', scale >= 0.5);
   $('#zoom-level').textContent = Math.round(scale * 100) + '%';
 }
 function fitBounds() {
@@ -382,14 +313,13 @@ function fit() {
   panX = 22 + (availableWidth - worldWidth * scale) / 2;
   panY = top + (availableHeight - worldHeight * scale) / 2;
   applyTransform();
-  drawEdges();
 }
 function zoom(
   factor,
   x = viewport.clientWidth / 2,
   y = viewport.clientHeight / 2,
 ) {
-  const next = Math.min(4, Math.max(minimumScale(), scale * factor));
+  const next = Math.min(16, Math.max(minimumScale(), scale * factor));
   panX = x - ((x - panX) * next) / scale;
   panY = y - ((y - panY) * next) / scale;
   scale = next;
@@ -449,6 +379,7 @@ viewport.addEventListener('selectstart', (e) => e.preventDefault());
 viewport.addEventListener('dragstart', (e) => e.preventDefault());
 viewport.addEventListener('pointerdown', (e) => {
   suppressCanvasClick = false;
+  if (document.activeElement === viewport) viewport.blur();
   if (
     e.target.closest('a,input,textarea,select') ||
     (e.button !== 0 && e.button !== 1)
@@ -480,7 +411,7 @@ function moveCanvasPointer(e) {
     const [a, b] = [...touches.values()],
       r = viewport.getBoundingClientRect();
     scale = Math.min(
-      4,
+      16,
       Math.max(
         minimumScale(),
         (pinch.scale * Math.hypot(b.x - a.x, b.y - a.y)) / pinch.distance,
@@ -608,18 +539,12 @@ document.addEventListener('click', (e) => {
       $('#inspector').focus({ preventScroll: true });
     return;
   }
-  const rel = e.target.closest('[data-related]');
-  if (rel) {
-    selectTool(rel.dataset.related);
-    $('#inspector').focus({ preventScroll: true });
-    return;
-  }
   if (
     e.target.closest('#viewport') &&
     !e.target.closest('a,button,input,textarea,select')
   ) {
     clearToolSelection();
-    viewport.focus({ preventScroll: true });
+    if (e.detail > 0 && document.activeElement === viewport) viewport.blur();
   }
 });
 document.addEventListener('keydown', (e) => {
@@ -678,11 +603,6 @@ window.builderAtlas = {
   addTerritory: (territory) => {
     const next = structuredClone(data);
     next.territories.push(territory);
-    setData(next);
-  },
-  addRelation: (relation) => {
-    const next = structuredClone(data);
-    next.relations.push(relation);
     setData(next);
   },
   selectTool,

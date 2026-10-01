@@ -26,12 +26,11 @@ node tests/publication.test.cjs
 - `territories` define the broad areas. `lane` positions the column; `columns` controls category columns within it. `exploration: true` places an area beyond the core map.
 - `categories` belong to a territory and explain a job through a name and question.
 - `tools` belong to a category. Keep IDs stable, add an HTTPS `url`, a local `icon` under `assets/`, and a short `purpose`. `example` and `distinction` explain where a tool fits.
-- `relations` connect tool IDs with a label. They appear when a tool is selected.
 - `scenarios` are retained data for future extensions, currently not displayed.
 
 Array order controls reading order within each territory and category. The map loads the JSON directly. Rebuilding keeps the no-JavaScript directory and structured data in sync.
 
-For local experiments, `window.builderAtlas` exposes `getData()`, `setData(data)`, `addTool(tool)`, `addCategory(category)`, `addTerritory(territory)`, `addRelation(relation)`, `selectTool(id)` and `fit()`. Changes are in-memory only. There are no visitor-facing editing controls and no server-side writes.
+For local experiments, `window.builderAtlas` exposes `getData()`, `setData(data)`, `addTool(tool)`, `addCategory(category)`, `addTerritory(territory)`, `selectTool(id)` and `fit()`. Changes are in-memory only. There are no visitor-facing editing controls and no server-side writes.
 
 ## Deployment
 

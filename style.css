@@ -99,8 +99,20 @@ main {
   touch-action: none;
   overscroll-behavior: none;
   background-color: var(--paper);
-  background-image: radial-gradient(#d9d9de 0.65px, transparent 0.65px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(#bfc2c9 0.9px, transparent 1px);
+  background-size: var(--major-step, 120px) var(--major-step, 120px);
+  background-position: var(--grid-x, 0px) var(--grid-y, 0px);
+}
+#viewport.show-minor-grid {
+  background-image:
+    radial-gradient(#bfc2c9 0.9px, transparent 1px),
+    radial-gradient(#d9dbe0 0.55px, transparent 0.7px);
+  background-size:
+    var(--major-step) var(--major-step),
+    var(--minor-step) var(--minor-step);
+  background-position:
+    var(--grid-x) var(--grid-y),
+    var(--grid-x) var(--grid-y);
 }
 #viewport,
 #viewport * {
@@ -122,7 +134,6 @@ main {
   position: absolute;
   transform-origin: 0 0;
   transform: translate(20px, 20px) scale(1);
-  will-change: transform;
 }
 .canvas-heading {
   position: absolute;
@@ -140,6 +151,16 @@ main {
   letter-spacing: -0.055em;
   font-kerning: normal;
 }
+.canvas-heading::after {
+  content: attr(data-summary);
+  display: block;
+  width: max-content;
+  margin-top: 16px;
+  padding-top: 9px;
+  border-top: 1px solid #c8c8ce;
+  color: #666871;
+  font: 10px/16px var(--mono);
+}
 .canvas-heading p {
   margin: 4px 0 0;
   color: #55565e;
@@ -154,18 +175,29 @@ main {
   width: 444px;
   display: block;
   font: 500 12px/17px var(--mono);
-  letter-spacing: 0.8px;
+  letter-spacing: 0;
   color: var(--ink) !important;
-  padding-left: 16px;
+  padding-left: 19px;
+  z-index: 2;
+}
+.territory-title strong {
+  font: 600 16px/19px Geist, sans-serif;
+  letter-spacing: -0.35px;
+}
+.territory-title small {
+  margin-left: 10px;
+  color: var(--region-color);
+  font: 11px/17px var(--mono);
+  white-space: nowrap;
 }
 .territory-title::before {
   content: '';
   position: absolute;
   left: 0;
   top: 4px;
-  width: 7px;
-  height: 7px;
-  border-radius: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
   background: var(--region-color, #86838e);
 }
 .territory-title span {
@@ -177,16 +209,18 @@ main {
   letter-spacing: 0;
   color: var(--muted);
 }
+.territory-field {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--territory-color) 26%, white);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--territory-color) 7%, white);
+  pointer-events: none;
+}
 .map-group {
   position: absolute;
   width: 444px;
-  padding: 18px;
-  border: 1px solid var(--group-line, #e3e3e6);
-  border-radius: 14px;
-  background: var(--group-bg, #fafafb);
-  box-shadow:
-    0 2px 3px #00000002,
-    0 8px 24px #00000002;
+  padding: 10px 18px 0;
+  z-index: 1;
 }
 .map-group h2 {
   margin: 0 0 3px;
@@ -223,16 +257,12 @@ main {
   border-radius: 9px;
   background: #fff;
   box-shadow: 0 1px 2px #00000004;
-  transition:
-    border-color 0.15s,
-    box-shadow 0.15s,
-    background-color 0.15s;
 }
 .node.selected {
-  border-color: #797bd0;
-  background: #f8f8ff;
+  border-color: var(--selected-color, #797bd0);
+  background: color-mix(in srgb, var(--selected-color, #797bd0) 6%, white);
   box-shadow:
-    0 0 0 3px #6366c512,
+    0 0 0 3px color-mix(in srgb, var(--selected-color, #797bd0) 12%, transparent),
     0 2px 5px #00000005;
 }
 .node .mark {
@@ -301,20 +331,6 @@ main {
   position: relative;
   z-index: 1;
 }
-#edges {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: visible;
-}
-#edges path {
-  fill: none;
-  stroke: #9696b3;
-  stroke-width: 1.5;
-  stroke-linejoin: round;
-  opacity: 0.7;
-}
 /* Compact floating controls match the quiet chrome of the detail panel. */
 .map-footer {
   position: fixed;
@@ -358,7 +374,7 @@ main {
   border-left: 1px solid var(--line);
   border-radius: 0 5px 5px 0;
 }
-.connection-key {
+.pan-hint {
   display: none;
 }
 #inspector {
@@ -479,26 +495,6 @@ main {
   font-size: 12px;
   line-height: 1.5;
 }
-.relation {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 10px 0;
-  border: 0;
-  border-bottom: 1px solid #ededf0;
-  background: transparent;
-  font-size: 12px;
-}
-.relation span {
-  display: block;
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 3px;
-}
-.relation b {
-  font-weight: 500;
-  color: var(--blue);
-}
 .scope-note {
   display: none;
 }
@@ -507,9 +503,6 @@ main {
 }
 .map-group.exploration-group {
   width: 380px;
-  border-style: dashed;
-  background: #f8f8fa;
-  box-shadow: none;
 }
 .exploration-group .node-grid {
   grid-template-columns: 1fr;
@@ -523,7 +516,7 @@ main {
   height: 24px;
 }
 @media (max-width: 760px) {
-  .connection-key {
+  .pan-hint {
     display: block;
     padding: 2px 5px 0;
     color: var(--muted);
@@ -574,7 +567,7 @@ main {
   }
 }
 @media (hover: hover) and (pointer: fine) {
-  .node:hover {
+  .node:hover:not(.selected) {
     border-color: #bcbcc6;
     background: #fefefe;
     box-shadow: 0 2px 6px #00000007;
@@ -583,7 +576,6 @@ main {
   .zoom-controls button:hover { background: #f0f0f3; }
   .inspector-top button:hover { background: #f1f1f4; color: var(--ink); }
   .official:hover { background: #3b3b3f; }
-  .relation:hover b { text-decoration: underline; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .zoom-controls button,
