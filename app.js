@@ -101,14 +101,12 @@ function setData(next) {
   territoryById = new Map(data.territories.map((t) => [t.id, t]));
   if (selected && !toolById.has(selected)) selected = null;
   if (data.title) document.title = data.title;
-  document.body.classList.add('map-ready');
-  $('#directory').hidden = true;
   renderMap();
+  applyTransform();
   renderSelection();
-  requestAnimationFrame(() => {
-    applyTransform();
-    drawEdges();
-  });
+  document.body.classList.add('map-ready');
+  document.documentElement.classList.remove('map-loading');
+  $('#directory').hidden = true;
 }
 function toolIcon(t) {
   return t.icon
@@ -654,6 +652,7 @@ async function reloadData() {
     setData(await response.json());
   } catch (error) {
     document.body.classList.remove('map-ready');
+    document.documentElement.classList.remove('map-loading');
     $('#directory').hidden = false;
     const notice = document.createElement('p');
     notice.setAttribute('role', 'alert');

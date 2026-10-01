@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+document.documentElement.classList.add('map-loading');
+window.addEventListener('error', function (event) {
+  if (event.target === window || event.target.tagName === 'SCRIPT')
+    document.documentElement.classList.remove('map-loading');
+}, true);
+</script>
 <title>Ralf’s Tech Stack</title>
 <meta name="description" content="Tools I think techies should know.">
 <meta name="author" content="Ralf">
@@ -19,7 +26,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 <!-- SEO:START -->
 <link rel="canonical" href="https://tech.ralfboltshauser.com/">
 <meta property="og:url" content="https://tech.ralfboltshauser.com/">
@@ -246,5 +253,5 @@
   </section>
   <aside class="no-selection" id="inspector" tabindex="-1" aria-labelledby="inspector-heading" aria-live="polite"></aside>
  </div>
-</main><script src="app.js?v=17"></script>
+</main><script src="app.js?v=18"></script>
 </body></html>
