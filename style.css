@@ -328,8 +328,7 @@ main {
   transition:
     border-color 0.15s,
     box-shadow 0.15s,
-    background-color 0.15s,
-    opacity 0.15s;
+    background-color 0.15s;
 }
 .node.selected {
   border-color: #797bd0;
@@ -337,13 +336,6 @@ main {
   box-shadow:
     0 0 0 3px #6366c512,
     0 2px 5px #00000005;
-}
-.node.related {
-  border-color: #ababcf;
-}
-.node.dimmed,
-.tool-card.dimmed {
-  opacity: 0.28;
 }
 .node .mark {
   display: grid;
