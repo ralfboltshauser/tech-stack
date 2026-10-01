@@ -100,7 +100,7 @@ function setData(next) {
   categoryById = new Map(data.categories.map((c) => [c.id, c]));
   territoryById = new Map(data.territories.map((t) => [t.id, t]));
   if (selected && !toolById.has(selected)) selected = null;
-  document.title = data.title;
+  if (data.title) document.title = data.title;
   document.body.classList.add('map-ready');
   $('#directory').hidden = true;
   renderMap();
