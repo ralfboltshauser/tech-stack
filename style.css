@@ -131,6 +131,13 @@ main {
   white-space: nowrap;
   pointer-events: none;
 }
+body.map-ready .canvas-heading {
+  animation: canvas-heading-in 300ms cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+@keyframes canvas-heading-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .canvas-heading h1 {
   margin: 0;
   font-size: 36px;
@@ -584,7 +591,24 @@ main {
   .official:hover { background: #3b3b3f; }
   .relation:hover b { text-decoration: underline; }
 }
+@media (prefers-reduced-motion: no-preference) {
+  .zoom-controls button,
+  .inspector-top button {
+    transition: scale 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .zoom-controls button:active:not(:focus-visible),
+  .inspector-top button:active:not(:focus-visible) {
+    scale: 0.97;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
+  body.map-ready .canvas-heading {
+    animation: canvas-heading-fade 150ms ease-out both;
+  }
+  @keyframes canvas-heading-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
   * {
     transition: none !important;
     scroll-behavior: auto !important;
