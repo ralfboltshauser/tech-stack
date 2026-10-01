@@ -39,8 +39,17 @@ def build():
     source = re.sub(r'<!-- SEO:START -->.*?<!-- SEO:END -->\s*', '', source, flags=re.S)
     metadata = f'<!-- SEO:START -->\n<link rel="canonical" href="{esc(url, quote=True)}">\n<meta property="og:url" content="{esc(url, quote=True)}">\n<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace("<", chr(92)+"u003c")}</script>\n<!-- SEO:END -->\n'
     source = source.replace('</head>', metadata+'</head>')
-    image = esc(urljoin(url, 'assets/social-card.png'), quote=True)
-    source = re.sub(r'(<meta\s+(?:property="og:image"|name="twitter:image")\s+content=")[^"]*(")', lambda m: m[1]+image+m[2], source)
+    # Keep image metadata in server-rendered HTML; social crawlers need no JS.
+    source = re.sub(r'<!-- SOCIAL:START -->.*?<!-- SOCIAL:END -->\s*', '', source, flags=re.S)
+    source = re.sub(r'<meta\s+(?:property="og:image[^\"]*"|name="twitter:(?:image[^\"]*|card)")[^>]*>\s*', '', source)
+    alt = 'Ralf’s Tech Stack+ with a small map of Next.js, shadcn/ui, Vercel, Cloudflare, Codex and GitHub.'
+    social = ['<!-- SOCIAL:START -->']
+    for filename, width, height in [('social-card-v2.png', 1200, 630), ('social-card-square-v2.png', 1200, 1200)]:
+        image_url = esc(urljoin(url, 'assets/' + filename), quote=True)
+        for key, value in [('image', image_url), ('image:secure_url', image_url), ('image:type', 'image/png'), ('image:width', width), ('image:height', height), ('image:alt', esc(alt, quote=True))]:
+            social.append(f'<meta property="og:{key}" content="{value}">')
+    social.extend(['<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{esc(urljoin(url, "assets/social-card-x-v2.png"), quote=True)}">', f'<meta name="twitter:image:alt" content="{esc(alt, quote=True)}">', '<!-- SOCIAL:END -->'])
+    source = source.replace('</head>', '\n'.join(social) + '\n</head>')
     (ROOT / 'index.html').write_text(source)
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {urljoin(url, "sitemap.xml")}\n')
     (ROOT / 'sitemap.xml').write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>{esc(url)}</loc></url></urlset>\n')
