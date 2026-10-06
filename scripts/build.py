@@ -30,7 +30,8 @@ def build():
                 name = esc(tool['name'])
                 if tool.get('url'):
                     name = f'<a href="{esc(tool["url"], quote=True)}">{name}</a>'
-                directory.append(f'<li>{name}<p>{esc(tool["purpose"])}</p></li>')
+                note = f'<p><strong>Why I keep this here</strong><br>{esc(tool["personalNote"])}</p>' if tool.get('personalNote') else ''
+                directory.append(f'<li>{name}<p>{esc(tool["purpose"])}</p>{note}</li>')
             directory.append('</ul>')
         directory.append('</section>')
     directory.append('</div>')

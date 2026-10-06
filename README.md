@@ -27,7 +27,7 @@ node tests/publication.test.cjs
 
 - `territories` define the broad areas. `lane` positions the column; `columns` controls category columns within it. `exploration: true` places an area beyond the core map.
 - `categories` belong to a territory and explain a job through a name and question.
-- `tools` belong to a category. Keep IDs stable, add an HTTPS `url`, a local `icon` under `assets/`, and a short `purpose`. `example` and `distinction` explain where a tool fits.
+- `tools` belong to a category. Keep IDs stable, add an HTTPS `url`, a local `icon` under `assets/`, and a short `purpose`. `example` and `distinction` explain where a tool fits. Optional `personalNote` holds Ralf’s first-person reason for keeping it in the collection.
 - `scenarios` are retained data for future extensions, currently not displayed.
 
 Array order controls reading order within each territory and category. The map loads the JSON directly. Rebuilding keeps the no-JavaScript directory and structured data in sync.

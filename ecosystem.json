@@ -323,7 +323,8 @@
       "example": "A message list that updates when a new reply arrives.",
       "distinction": "Next.js builds on React. They are different layers, rather than equivalent alternatives.",
       "url": "https://react.dev",
-      "icon": "assets/icons/react.svg"
+      "icon": "assets/icons/react.svg",
+      "personalNote": "The ecosystem is the biggest reason I use React. It is great to work with, and the more people build around it, the more valuable it gets."
     },
     {
       "id": "nextjs",
@@ -335,7 +336,8 @@
       "example": "A paid app with a public homepage, dashboard and server endpoints.",
       "distinction": "Uses React for interfaces. It does not require Vercel; other deployment setups are possible.",
       "url": "https://nextjs.org",
-      "icon": "assets/icons/nextjs.svg"
+      "icon": "assets/icons/nextjs.svg",
+      "personalNote": "I like having the full stack in one codebase. My coding agents can work across the frontend and backend together, and I can carry types through the application."
     },
     {
       "id": "shadcn",
@@ -347,7 +349,8 @@
       "example": "Add a dialog, dropdown or form without designing every interaction from scratch.",
       "distinction": "Provides components; Tailwind handles styling. They commonly work together.",
       "url": "https://ui.shadcn.com",
-      "icon": "assets/icons/shadcn.svg"
+      "icon": "assets/icons/shadcn.svg",
+      "personalNote": "AI works really well with these components, and the code lives in my own codebase. That makes it easy to adapt."
     },
     {
       "id": "tailwind",
@@ -359,7 +362,8 @@
       "example": "Set a dashboard’s spacing, responsive columns and colors.",
       "distinction": "Styles the interface; it does not implement application behavior.",
       "url": "https://tailwindcss.com",
-      "icon": "assets/icons/tailwind.svg"
+      "icon": "assets/icons/tailwind.svg",
+      "personalNote": "For me, Tailwind makes large codebases much more maintainable than ordinary CSS."
     },
     {
       "id": "framer-motion",
@@ -371,7 +375,8 @@
       "example": "Animate a card expanding, a dialog entering or items rearranging in a list.",
       "distinction": "Now called Motion for React. It adds animation to React interfaces; it is separate from the Framer website builder.",
       "url": "https://motion.dev/",
-      "icon": "assets/icons/motion.svg"
+      "icon": "assets/icons/motion.svg",
+      "personalNote": "One of the best React animation libraries in my opinion. It fits really well into my shadcn/ui and Next.js projects."
     },
     {
       "id": "intl",
@@ -382,7 +387,8 @@
       "purpose": "Add translated messages and locale-aware formatting to Next.js applications.",
       "example": "Offer a dashboard in German and English with appropriate number and date formatting.",
       "url": "https://next-intl.dev",
-      "icon": "assets/icons/intl.svg"
+      "icon": "assets/icons/intl.svg",
+      "personalNote": "My default for internationalisation in Next.js. I like the way it is designed."
     },
     {
       "id": "react-native",
@@ -394,7 +400,8 @@
       "example": "Build a mobile app with native screens, buttons and device interactions.",
       "distinction": "Uses React concepts, but native components differ from browser HTML elements. Expo provides a framework around React Native.",
       "url": "https://reactnative.dev/",
-      "icon": "assets/icons/react.svg"
+      "icon": "assets/icons/react.svg",
+      "personalNote": "I choose it for the ecosystem and the ability to build for iOS and Android without writing the whole app twice. I also like that it renders native components, with their accessibility capabilities to build on."
     },
     {
       "id": "expo",
@@ -406,7 +413,8 @@
       "example": "Create an iOS and Android app with navigation, camera access and a shared codebase.",
       "distinction": "Builds on React Native. Expo Application Services (EAS) add optional services such as cloud builds and app submission.",
       "url": "https://expo.dev/",
-      "icon": "assets/icons/expo.svg"
+      "icon": "assets/icons/expo.svg",
+      "personalNote": "My choice alongside React Native for cross-platform mobile apps. I want one shared app and access to that ecosystem, instead of maintaining separate native implementations."
     },
     {
       "id": "threejs",
@@ -418,7 +426,8 @@
       "example": "Let someone rotate a 3D product model on a website.",
       "distinction": "Handles 3D scenes; it is not a general UI framework and does not require React. Motion focuses on interface animation.",
       "url": "https://threejs.org/",
-      "icon": "assets/icons/threedotjs.svg"
+      "icon": "assets/icons/threedotjs.svg",
+      "personalNote": "Models are surprisingly good at building 3D experiences. I like having a way to go beyond ordinary interfaces."
     },
     {
       "id": "react-three-fiber",
@@ -430,7 +439,8 @@
       "example": "Create an interactive 3D product viewer whose colors and camera respond to React UI controls.",
       "distinction": "Uses Three.js underneath rather than replacing it. React describes and updates the scene; Three.js provides the 3D graphics functionality.",
       "url": "https://r3f.docs.pmnd.rs/",
-      "icon": "assets/icons/react.svg"
+      "icon": "assets/icons/react.svg",
+      "personalNote": "I like exploring 3D experiences with coding agents. This brings that work into React and lets me go beyond ordinary interfaces."
     },
     {
       "id": "payload",
@@ -442,7 +452,8 @@
       "example": "Let someone update articles, landing-page copy and media without editing the website code.",
       "distinction": "A CMS manages content and editing workflows. Your frontend controls how that content is presented; Payload is built on Next.js.",
       "url": "https://payloadcms.com/",
-      "icon": "assets/icons/payload.svg"
+      "icon": "assets/icons/payload.svg",
+      "personalNote": "I like keeping the CMS in a TypeScript stack and carrying its types into the app. It is a good fit for working with coding agents."
     },
     {
       "id": "stripe",
@@ -454,7 +465,8 @@
       "example": "Sell a recurring subscription to your application.",
       "distinction": "Customer payments are a separate job from provisioning services through Stripe Projects.",
       "url": "https://stripe.com",
-      "icon": "assets/icons/stripe.svg"
+      "icon": "assets/icons/stripe.svg",
+      "personalNote": "My default for payments. Its scale and range of features mean I can usually find what I need for the use case."
     },
     {
       "id": "resend",
@@ -466,7 +478,8 @@
       "example": "Send a welcome message or order confirmation after a user action.",
       "distinction": "Application email delivery serves a different primary need from hosting your personal mailboxes.",
       "url": "https://resend.com",
-      "icon": "assets/icons/resend.svg"
+      "icon": "assets/icons/resend.svg",
+      "personalNote": "The developer experience is so fucking great. Setup is fast, and it just works for me."
     },
     {
       "id": "cloudflare-email-sending",
@@ -489,7 +502,8 @@
       "purpose": "Understand how people use your product and where they encounter friction.",
       "example": "See how many people move from signing up to completing their first task.",
       "url": "https://posthog.com",
-      "icon": "assets/icons/posthog.svg"
+      "icon": "assets/icons/posthog.svg",
+      "personalNote": "I like having analytics, user identification and funnels together. I use it to understand what people are doing, including during betas."
     },
     {
       "id": "apollo",
@@ -501,7 +515,8 @@
       "example": "Research companies that could benefit from a product and organize a list of potential customers.",
       "distinction": "A sales tool around the business, not an application framework. Unrelated to Apollo GraphQL.",
       "url": "https://www.apollo.io/",
-      "icon": "assets/icons/apollo.svg"
+      "icon": "assets/icons/apollo.svg",
+      "personalNote": "The biggest database of business emails and phone numbers I know. That is why it is here."
     },
     {
       "id": "migadu",
@@ -513,7 +528,8 @@
       "example": "Receive and send personal correspondence at your own domain.",
       "distinction": "Mailbox hosting differs from Resend’s primary application-email role.",
       "url": "https://migadu.com",
-      "icon": "assets/icons/migadu.webp"
+      "icon": "assets/icons/migadu.webp",
+      "personalNote": "I like being able to have lots of mailboxes for very little money."
     },
     {
       "id": "neon",
@@ -525,7 +541,8 @@
       "example": "Keep users, conversations and subscription records between visits.",
       "distinction": "PostgreSQL is the underlying database technology; Neon provides a managed service around it.",
       "url": "https://neon.com",
-      "icon": "assets/icons/neon.svg"
+      "icon": "assets/icons/neon.svg",
+      "personalNote": "I like how quickly I can get started and how many projects I have been able to run on the free tier."
     },
     {
       "id": "planetscale-postgres",
@@ -549,7 +566,8 @@
       "example": "Build a shared app with user accounts, saved records and uploaded files.",
       "distinction": "Its database overlaps with Neon; its auth and storage services overlap with roles served by Better Auth and R2. These are separate capabilities, not automatic drop-in replacements.",
       "url": "https://supabase.com/",
-      "icon": "assets/icons/supabase.svg"
+      "icon": "assets/icons/supabase.svg",
+      "personalNote": "Especially useful for mobile apps when I want a whole backend ready to go."
     },
     {
       "id": "drizzle",
@@ -561,7 +579,8 @@
       "example": "Read a customer’s orders from PostgreSQL hosted by Neon.",
       "distinction": "Runs in your application’s data-access layer; it does not host the database.",
       "url": "https://orm.drizzle.team",
-      "icon": "assets/icons/drizzle.svg"
+      "icon": "assets/icons/drizzle.svg",
+      "personalNote": "My favourite ORM for serverless projects."
     },
     {
       "id": "query",
@@ -573,7 +592,8 @@
       "example": "Refresh an order list after a purchase without manually coordinating every request.",
       "distinction": "Manages the UI’s view of remote data. It is not a database or an SQL query builder.",
       "url": "https://tanstack.com/query/latest",
-      "icon": "assets/icons/query.svg"
+      "icon": "assets/icons/query.svg",
+      "personalNote": "A go-to for production apps once fetching gets more involved. Pagination, caching and revalidation are the kinds of things I want help managing."
     },
     {
       "id": "better-auth",
@@ -585,7 +605,8 @@
       "example": "Let people sign in to a Next.js dashboard and maintain their session.",
       "distinction": "Authentication establishes who a user is. Your application still needs authorization rules for what that user may access.",
       "url": "https://www.better-auth.com",
-      "icon": "assets/icons/better-auth.svg"
+      "icon": "assets/icons/better-auth.svg",
+      "personalNote": "My choice when authentication gets sophisticated: anonymous sign-ups, different providers, custom plugins and rate limiting. I especially like keeping the auth data in my own database and having control over it."
     },
     {
       "id": "clerk",
@@ -597,7 +618,8 @@
       "example": "Add a sign-in screen and account menu to a Next.js app, including organization membership for teams.",
       "distinction": "Clerk operates the authentication service. Better Auth is a framework integrated into your own backend. Both solve sign-in and session needs with different operating models.",
       "url": "https://clerk.com/",
-      "icon": "assets/icons/clerk.svg"
+      "icon": "assets/icons/clerk.svg",
+      "personalNote": "My pick when I want authentication managed for me. I also like its payments integration."
     },
     {
       "id": "r2",
@@ -609,7 +631,8 @@
       "example": "Keep uploaded audio in R2 while Neon stores its owner, filename and other structured records.",
       "distinction": "Object storage holds files; a relational database organizes records and relationships. R2 and Neon can complement each other.",
       "url": "https://www.cloudflare.com/developer-platform/products/r2/",
-      "icon": "assets/icons/r2.svg"
+      "icon": "assets/icons/r2.svg",
+      "personalNote": "The lack of egress fees is the big draw for me. Super appealing for file storage."
     },
     {
       "id": "effect",
@@ -621,7 +644,8 @@
       "example": "Coordinate several service calls, handle failures and release resources reliably.",
       "distinction": "Can support application logic across layers; its placement here describes its main job.",
       "url": "https://effect.website",
-      "icon": "assets/icons/effect.svg"
+      "icon": "assets/icons/effect.svg",
+      "personalNote": "What excites me is making possible errors explicit in the types instead of leaving them implicit. That is the kind of discipline I want when building large TypeScript applications."
     },
     {
       "id": "aisdk",
@@ -633,7 +657,8 @@
       "example": "Stream an AI reply into your app’s chat interface.",
       "distinction": "The SDK is integration code, not the AI model. A model/provider is an additional choice.",
       "url": "https://ai-sdk.dev",
-      "icon": "assets/icons/aisdk.svg"
+      "icon": "assets/icons/aisdk.svg",
+      "personalNote": "It hits the right level of abstraction for the agentic systems I want to build."
     },
     {
       "id": "vercel-ai-gateway",
@@ -645,7 +670,8 @@
       "example": "Use a model through the AI SDK and configure fallback providers for model requests.",
       "distinction": "AI SDK is the application library; AI Gateway is a service that routes requests to model providers.",
       "url": "https://vercel.com/ai-gateway",
-      "icon": "assets/icons/vercel.svg"
+      "icon": "assets/icons/vercel.svg",
+      "personalNote": "I am already deep in the Vercel ecosystem. Having one API key for the models I use is convenient."
     },
     {
       "id": "exa",
@@ -657,7 +683,8 @@
       "example": "Let a research assistant find relevant webpages and retrieve their contents as evidence.",
       "distinction": "Supplies external information for a model to use. A model gateway routes model calls; these serve different parts of an AI workflow.",
       "url": "https://exa.ai/",
-      "icon": "assets/icons/exa.png"
+      "icon": "assets/icons/exa.png",
+      "personalNote": "Nice to have in the collection, although I am not using it much anymore."
     },
     {
       "id": "elevenlabs",
@@ -668,7 +695,8 @@
       "purpose": "Add voice and audio capabilities to a product.",
       "example": "Turn an AI tutor’s text response into spoken audio.",
       "url": "https://elevenlabs.io",
-      "icon": "assets/icons/elevenlabs.svg"
+      "icon": "assets/icons/elevenlabs.svg",
+      "personalNote": "In my opinion, the strongest overall audio offering: voices, audio models, agents and music. I like the breadth of it."
     },
     {
       "id": "keyframe",
@@ -680,7 +708,8 @@
       "example": "Pair a conversational model and a voice service with a visual tutor.",
       "distinction": "An avatar is one part of the experience; the conversational model and voice can come from other providers.",
       "url": "https://keyframelabs.com",
-      "icon": "assets/icons/keyframe.ico"
+      "icon": "assets/icons/keyframe.ico",
+      "personalNote": "A fun option for hackathons."
     },
     {
       "id": "vercel",
@@ -692,7 +721,20 @@
       "example": "Publish a Next.js application and preview changes before a release.",
       "distinction": "Bundles multiple operational responsibilities. Replacing it with your own platform requires more than an orchestrator.",
       "url": "https://vercel.com",
-      "icon": "assets/icons/vercel.svg"
+      "icon": "assets/icons/vercel.svg",
+      "personalNote": "I can deploy quickly and give my coding agent CLI access to handle deployments too."
+    },
+    {
+      "id": "railway",
+      "category": "deploy",
+      "name": "Railway",
+      "mark": "Rw",
+      "type": "Deployment platform",
+      "purpose": "Deploy applications, APIs, workers and databases on a shared platform.",
+      "example": "Run a backend API, a background worker and PostgreSQL together in one project.",
+      "distinction": "Runs services from code or container images. Database templates are unmanaged; you remain responsible for backups, security and maintenance.",
+      "url": "https://railway.com",
+      "icon": "assets/icons/railway.png"
     },
     {
       "id": "coolify",
@@ -704,7 +746,8 @@
       "example": "Deploy a GitHub project to a Hetzner server with a dashboard for domains and deployments.",
       "distinction": "Offers a deployment platform on your own infrastructure. It overlaps with parts of Vercel, while server maintenance remains your responsibility.",
       "url": "https://coolify.io/",
-      "icon": "assets/icons/coolify.png"
+      "icon": "assets/icons/coolify.png",
+      "personalNote": "I like it for self-hosted side projects. I do not use it for production apps."
     },
     {
       "id": "projects",
@@ -716,7 +759,8 @@
       "example": "Set up a supported hosting or database service from a project workflow.",
       "distinction": "Coordinates providers; it is neither a database itself nor your app’s customer payment flow.",
       "url": "https://projects.dev",
-      "icon": "assets/icons/projects.svg"
+      "icon": "assets/icons/projects.svg",
+      "personalNote": "I like giving an agent a way to spin up its own infrastructure."
     },
     {
       "id": "hetzner",
@@ -728,7 +772,8 @@
       "example": "Run a Docker-based application on a cloud server, or use several machines for a Kubernetes cluster.",
       "distinction": "Provides infrastructure. You still choose and operate the deployment setup, application services and monitoring; this is a different layer from a managed app platform such as Vercel.",
       "url": "https://www.hetzner.com",
-      "icon": "assets/icons/hetzner.svg"
+      "icon": "assets/icons/hetzner.svg",
+      "personalNote": "Price is what drew me to Hetzner. It has been good value for me, although I would check current prices before choosing again."
     },
     {
       "id": "docker",
@@ -740,7 +785,8 @@
       "example": "Package a service into an image, then run it locally or publish it for deployment.",
       "distinction": "Docker builds and runs containers. Kubernetes orchestrates containerized workloads across a cluster; it does not require Docker Engine.",
       "url": "https://www.docker.com",
-      "icon": "assets/icons/docker.svg"
+      "icon": "assets/icons/docker.svg",
+      "personalNote": "A no-brainer in my stack. I do not have much to add."
     },
     {
       "id": "kubernetes",
@@ -752,7 +798,8 @@
       "example": "Run and scale several application services on infrastructure you control.",
       "distinction": "Can underpin an alternative to Vercel. Infrastructure, builds, routing and other operations still need a solution.",
       "url": "https://kubernetes.io",
-      "icon": "assets/icons/kubernetes.svg"
+      "icon": "assets/icons/kubernetes.svg",
+      "personalNote": "An obvious inclusion for me. I do not have much to add."
     },
     {
       "id": "cloudflare",
@@ -764,7 +811,8 @@
       "example": "Manage a domain’s DNS, protect traffic or run code with Workers.",
       "distinction": "This name covers many products. It may complement Vercel or overlap with it depending on which services you choose.",
       "url": "https://www.cloudflare.com",
-      "icon": "assets/icons/cloudflare.svg"
+      "icon": "assets/icons/cloudflare.svg",
+      "personalNote": "An obvious inclusion in my stack. I do not have much to add."
     },
     {
       "id": "tailscale",
@@ -776,7 +824,8 @@
       "example": "Reach your Linux workstation or a private service on a Hetzner server while away from home.",
       "distinction": "Connects machines; it does not host your app or replace the public deployment platform.",
       "url": "https://tailscale.com/",
-      "icon": "assets/icons/tailscale.svg"
+      "icon": "assets/icons/tailscale.svg",
+      "personalNote": "Incredibly easy to set up. The user experience is excellent, and it gets the job done."
     },
     {
       "id": "grafana",
@@ -788,7 +837,8 @@
       "example": "Watch request counts, error rates and CPU usage in one place.",
       "distinction": "Grafana displays data from tools such as Prometheus; it is not the tool collecting every measurement.",
       "url": "https://grafana.com/oss/grafana/",
-      "icon": "assets/icons/grafana.svg"
+      "icon": "assets/icons/grafana.svg",
+      "personalNote": "Part of my go-to monitoring stack for self-hosted systems. I want to understand what is running and have enough visibility to troubleshoot it properly."
     },
     {
       "id": "prometheus",
@@ -800,7 +850,8 @@
       "example": "Track CPU usage or how many requests fail each minute.",
       "distinction": "Prometheus handles measurements. Grafana can turn those measurements into dashboards.",
       "url": "https://prometheus.io/",
-      "icon": "assets/icons/prometheus.svg"
+      "icon": "assets/icons/prometheus.svg",
+      "personalNote": "Part of my go-to monitoring stack for self-hosted systems. I want to understand what is running and have enough visibility to troubleshoot it properly."
     },
     {
       "id": "otel",
@@ -812,7 +863,8 @@
       "example": "Record how long a request takes and send that information to a monitoring system.",
       "distinction": "OTel helps produce and transport telemetry; it is not a dashboard or a complete monitoring service.",
       "url": "https://opentelemetry.io/",
-      "icon": "assets/icons/otel.svg"
+      "icon": "assets/icons/otel.svg",
+      "personalNote": "Part of my go-to monitoring stack for self-hosted systems. I want to understand what is running and have enough visibility to troubleshoot it properly."
     },
     {
       "id": "elk",
@@ -824,7 +876,8 @@
       "example": "Find the error messages recorded when a request failed.",
       "distinction": "ELK stands for Elasticsearch (search and storage), Logstash (data processing) and Kibana (exploration). Shown as one stack to keep the overview simple.",
       "url": "https://www.elastic.co/elastic-stack",
-      "icon": "assets/icons/elk.svg"
+      "icon": "assets/icons/elk.svg",
+      "personalNote": "Part of my go-to monitoring stack for self-hosted systems. I want to understand what is running and have enough visibility to troubleshoot it properly."
     },
     {
       "id": "omarchy",
@@ -835,7 +888,8 @@
       "purpose": "Provide a configured Linux desktop and development environment.",
       "example": "Use a Linux workstation as the place where you write code and organize work.",
       "url": "https://omarchy.org",
-      "icon": "assets/icons/omarchy.svg"
+      "icon": "assets/icons/omarchy.svg",
+      "personalNote": "My bet is that the momentum around Omarchy will build a huge ecosystem. That is the React effect I am interested in: the ecosystem can make something my best choice even when the underlying technology is not the deciding factor."
     },
     {
       "id": "raycast",
@@ -847,7 +901,8 @@
       "example": "Use a keyboard-driven command to open an app or perform a frequent action.",
       "distinction": "Listed as part of the broader ecosystem; this does not imply it runs on the Omarchy workstation.",
       "url": "https://raycast.com",
-      "icon": "assets/icons/raycast.svg"
+      "icon": "assets/icons/raycast.svg",
+      "personalNote": "A nice part of my Mac setup."
     },
     {
       "id": "ventoy",
@@ -859,7 +914,8 @@
       "example": "Keep Linux installers and rescue tools on one USB drive, then choose which image to boot when starting a computer.",
       "distinction": "Helps boot installation or recovery media. It is not an operating system itself; after setting up Ventoy, you can copy supported image files onto the drive.",
       "url": "https://www.ventoy.net/",
-      "icon": "assets/icons/ventoy.png"
+      "icon": "assets/icons/ventoy.png",
+      "personalNote": "Handy when I am booting lots of machines."
     },
     {
       "id": "glove",
@@ -870,7 +926,8 @@
       "purpose": "Provide the physical keyboard you use to interact with your workstation.",
       "example": "Type and use shortcuts on an ergonomic split keyboard.",
       "url": "https://www.moergo.com/pages/glove80",
-      "icon": "assets/icons/glove80-generated.webp"
+      "icon": "assets/icons/glove80-generated.webp",
+      "personalNote": "Part of my default hardware setup, alongside the Samsung ultrawide and MX Master."
     },
     {
       "id": "screen",
@@ -881,7 +938,8 @@
       "purpose": "Provide a wide physical workspace for the applications you use.",
       "example": "Keep code, a browser and reference material visible at once.",
       "distinction": "The exact monitor model is not specified in this collection.",
-      "icon": "assets/icons/samsung-ultrawide-generated.webp"
+      "icon": "assets/icons/samsung-ultrawide-generated.webp",
+      "personalNote": "Part of my default hardware setup, alongside the Glove80 and MX Master."
     },
     {
       "id": "codex",
@@ -929,7 +987,8 @@
       "example": "Ask the agent to investigate a repository interactively, or call it from a script for a focused coding task.",
       "distinction": "An experimental Vercel Labs agent with support for different model providers. It is the coding harness; AI Gateway is one service it can use to access models.",
       "url": "https://fx.sh/",
-      "icon": "assets/icons/fx.png"
+      "icon": "assets/icons/fx.png",
+      "personalNote": "I like how lightweight it is. I am more interested in building things around it than using it as my everyday coding agent."
     },
     {
       "id": "agentation",
@@ -941,7 +1000,8 @@
       "example": "Click a misaligned button, describe the change and give the agent the element context.",
       "distinction": "You point out what should change. Agentation supplies context; the coding agent makes the code changes.",
       "url": "https://www.agentation.com/",
-      "icon": "assets/icons/agentation.png"
+      "icon": "assets/icons/agentation.png",
+      "personalNote": "Great for annotating something buggy on a page and passing that feedback straight to a coding agent."
     },
     {
       "id": "d3k",
@@ -953,7 +1013,8 @@
       "example": "Reproduce a broken checkout locally so the agent can connect the visible failure with relevant logs.",
       "distinction": "A Vercel Labs development tool. It helps investigate a running local app; Grafana and Prometheus serve a different monitoring role.",
       "url": "https://dev3000.ai/",
-      "icon": "assets/icons/d3k.svg"
+      "icon": "assets/icons/d3k.svg",
+      "personalNote": "I want my agent to see browser and server output together. Having that feedback in one place helps close the debugging loop."
     },
     {
       "id": "agent-browser",
@@ -965,7 +1026,8 @@
       "example": "Have an agent open a page, fill a form and check what happens after submission.",
       "distinction": "Focuses on agent-driven browser interaction. Playwright also automates browsers and provides a framework for repeatable test suites.",
       "url": "https://agent-browser.dev/",
-      "icon": "assets/icons/agent-browser.webp"
+      "icon": "assets/icons/agent-browser.webp",
+      "personalNote": "I use it to make browser control and testing more token-efficient for coding agents."
     },
     {
       "id": "agent-device",
@@ -977,7 +1039,8 @@
       "example": "Have an agent open an iOS or Android app, tap through a flow and inspect the resulting screen.",
       "distinction": "Made by Callstack. Especially useful for mobile app verification; agent-browser focuses on the browser.",
       "url": "https://agent-device.dev/",
-      "icon": "assets/icons/agent-device.svg"
+      "icon": "assets/icons/agent-device.svg",
+      "personalNote": "I like giving agents a more token-efficient way to control and test applications on devices."
     },
     {
       "id": "bun",
@@ -989,7 +1052,8 @@
       "example": "Install dependencies and run a project locally.",
       "distinction": "Can also be used as a production runtime; tools can have roles in more than one territory.",
       "url": "https://bun.sh",
-      "icon": "assets/icons/bun.svg"
+      "icon": "assets/icons/bun.svg",
+      "personalNote": "I am a Bun fan. It is fast, and I now prefer its tooling over npm for my own projects."
     },
     {
       "id": "bun-workspaces",
@@ -1001,7 +1065,8 @@
       "example": "Keep a web app, mobile app and shared utilities together, with local packages depending on one another.",
       "distinction": "A feature of Bun, not a separate runtime. Workspaces organize packages and dependencies; Nx or Turborepo can add task graphs and build caching.",
       "url": "https://bun.sh/docs/pm/workspaces",
-      "icon": "assets/icons/bun.svg"
+      "icon": "assets/icons/bun.svg",
+      "personalNote": "My default for workspaces now. I have moved away from pnpm and usually pair Bun workspaces with Turborepo."
     },
     {
       "id": "nx",
@@ -1013,7 +1078,8 @@
       "example": "When a shared package changes, run the checks affected by that change across your apps.",
       "distinction": "Overlaps with Turborepo in task orchestration and caching. Also offers plugins and generators; package installation remains the package manager’s job.",
       "url": "https://nx.dev/",
-      "icon": "assets/icons/nx.svg"
+      "icon": "assets/icons/nx.svg",
+      "personalNote": "A valid option, but I usually choose Turborepo with Bun workspaces."
     },
     {
       "id": "turborepo",
@@ -1025,7 +1091,8 @@
       "example": "Build shared packages before the Next.js app that uses them, skipping work whose inputs have not changed.",
       "distinction": "Overlaps with Nx in builds and task caching. Works alongside package-manager workspaces; it is distinct from the Turbopack bundler.",
       "url": "https://turborepo.com/",
-      "icon": "assets/icons/turborepo.svg"
+      "icon": "assets/icons/turborepo.svg",
+      "personalNote": "My usual choice alongside Bun workspaces for a monorepo."
     },
     {
       "id": "husky",
@@ -1037,7 +1104,8 @@
       "example": "Run a lint command before a commit and stop the commit when that check fails.",
       "distinction": "Runs checks you configure; it is not a linter itself. Local hooks can be bypassed, so required checks also belong in CI.",
       "url": "https://typicode.github.io/husky/",
-      "icon": "assets/icons/husky.svg"
+      "icon": "assets/icons/husky.svg",
+      "personalNote": "I want checks wired into the workflow, rather than relying on a coding agent to remember them. Hooks are how I put duplicate-code and staged-file checks in its path."
     },
     {
       "id": "lint-staged",
@@ -1049,7 +1117,8 @@
       "example": "Have Husky call lint-staged before committing, then format and lint the staged TypeScript files.",
       "distinction": "Husky triggers the Git hook; lint-staged selects files and runs commands. The formatter or linter performs the actual checks. Whole-project checks still belong in CI.",
       "url": "https://github.com/lint-staged/lint-staged",
-      "icon": "assets/icons/lint-staged.svg"
+      "icon": "assets/icons/lint-staged.svg",
+      "personalNote": "Part of my hook setup so checks run against the files being committed. I want agents to get concrete feedback from those checks."
     },
     {
       "id": "jscpd",
@@ -1061,7 +1130,8 @@
       "example": "Flag copied logic across files during a code-quality check or CI run.",
       "distinction": "Detects textual duplication, not whether the program behaves correctly. A repeated block is a review prompt, not automatically a reason to refactor.",
       "url": "https://github.com/kucherenko/jscpd",
-      "icon": "assets/icons/jscpd.svg"
+      "icon": "assets/icons/jscpd.svg",
+      "personalNote": "I use duplicate-code detection in my hook setup so agents have to confront duplication instead of overlooking it."
     },
     {
       "id": "playwright",
@@ -1073,7 +1143,8 @@
       "example": "Test that a user can sign in, upload a file and complete an important workflow.",
       "distinction": "Exercises the running application through a browser. Code-level tests cover smaller pieces of logic; the two approaches complement each other.",
       "url": "https://playwright.dev",
-      "icon": "assets/icons/playwright.svg"
+      "icon": "assets/icons/playwright.svg",
+      "personalNote": "An obvious choice for me for browser testing."
     },
     {
       "id": "git",
@@ -1085,7 +1156,8 @@
       "example": "Commit a change on a branch, compare it with main and merge it when ready.",
       "distinction": "Git manages the repository and its history locally. GitHub hosts Git repositories and adds pull requests, reviews and issues.",
       "url": "https://git-scm.com/",
-      "icon": "assets/icons/git.svg"
+      "icon": "assets/icons/git.svg",
+      "personalNote": "An essential part of my workflow. I do not have much to add."
     },
     {
       "id": "github",
@@ -1097,7 +1169,8 @@
       "example": "Share a project, review a proposed change and merge it into the main branch.",
       "distinction": "Git tracks version history; GitHub hosts repositories and adds collaboration tools. GitHub issues overlap with some work tracked in Linear.",
       "url": "https://github.com/",
-      "icon": "assets/icons/github.svg"
+      "icon": "assets/icons/github.svg",
+      "personalNote": "An essential part of my workflow. I do not have much to add."
     },
     {
       "id": "linear",
@@ -1109,7 +1182,8 @@
       "example": "Track a feature from idea through implementation and completion.",
       "distinction": "Tracks the work to be done; GitHub hosts and reviews the code implementing it. Their issue-tracking features overlap.",
       "url": "https://linear.app/",
-      "icon": "assets/icons/linear.svg"
+      "icon": "assets/icons/linear.svg",
+      "personalNote": "An obvious choice for me for tracking work."
     },
     {
       "id": "composio",
@@ -1169,7 +1243,8 @@
       "example": "Read and reply to chats from several networks without switching between their apps.",
       "distinction": "A personal messaging client. It connects to existing chat networks rather than providing messaging infrastructure for your own product.",
       "url": "https://www.beeper.com/",
-      "icon": "assets/icons/beeper.webp"
+      "icon": "assets/icons/beeper.webp",
+      "personalNote": "One of the tools that keeps me sane while using a computer. Almost essential for me now."
     },
     {
       "id": "notion-calendar",
@@ -1181,7 +1256,8 @@
       "example": "See your schedule in one place and block out time for focused work.",
       "distinction": "A calendar application for managing your day; Linear tracks project work and issues.",
       "url": "https://www.notion.com/product/calendar",
-      "icon": "assets/icons/notion-calendar.svg"
+      "icon": "assets/icons/notion-calendar.svg",
+      "personalNote": "One of the tools that keeps me sane while using a computer. Almost essential for me now."
     },
     {
       "id": "1password",
@@ -1193,7 +1269,8 @@
       "example": "Generate a unique password for a new service and fill it when signing in.",
       "distinction": "Manages the credentials you use. Clerk and Better Auth implement sign-in for users of the apps you build.",
       "url": "https://1password.com/",
-      "icon": "assets/icons/1password.svg"
+      "icon": "assets/icons/1password.svg",
+      "personalNote": "One of the tools that keeps me sane while using a computer. Almost essential for me now."
     },
     {
       "id": "ghostty",
@@ -1205,7 +1282,8 @@
       "example": "Run Bun, Git or a coding agent in a terminal window.",
       "distinction": "The terminal displays and interacts with programs. Your shell interprets commands, and tools such as Bun or Pi do their own work inside it.",
       "url": "https://ghostty.org/",
-      "icon": "assets/icons/ghostty.svg"
+      "icon": "assets/icons/ghostty.svg",
+      "personalNote": "A terminal I like having in my setup."
     },
     {
       "id": "fireship",
@@ -1215,7 +1293,8 @@
       "type": "YouTube · code & tech news",
       "purpose": "Short programming explainers, developer news and technology commentary.",
       "url": "https://www.youtube.com/@Fireship",
-      "icon": "assets/icons/fireship.webp"
+      "icon": "assets/icons/fireship.webp",
+      "personalNote": "Part of my daily viewing to keep up with the tech world."
     },
     {
       "id": "theo",
@@ -1225,7 +1304,8 @@
       "type": "YouTube · web development",
       "purpose": "Commentary on web development, TypeScript, frameworks and developer tools.",
       "url": "https://www.youtube.com/@t3dotgg",
-      "icon": "assets/icons/theo.webp"
+      "icon": "assets/icons/theo.webp",
+      "personalNote": "Part of my daily viewing to keep up with the tech world."
     },
     {
       "id": "y-combinator",
@@ -1235,7 +1315,8 @@
       "type": "YouTube · startups",
       "purpose": "Talks, interviews and advice about building startups, making products and working with customers.",
       "url": "https://www.youtube.com/@ycombinator",
-      "icon": "assets/icons/y-combinator.webp"
+      "icon": "assets/icons/y-combinator.webp",
+      "personalNote": "Part of my daily viewing to keep up with the tech world."
     },
     {
       "id": "nate-b-jones",
@@ -1245,7 +1326,8 @@
       "type": "YouTube · AI & strategy",
       "purpose": "Analysis and discussion of AI developments and their practical implications.",
       "url": "https://www.youtube.com/@NateBJones",
-      "icon": "assets/icons/nate-b-jones.webp"
+      "icon": "assets/icons/nate-b-jones.webp",
+      "personalNote": "I watch when I want to go a little deeper on AI. Not part of my daily viewing."
     },
     {
       "id": "two-minute-papers",
@@ -1255,7 +1337,8 @@
       "type": "YouTube · research explained",
       "purpose": "Accessible explanations of research in AI, computer graphics and related fields.",
       "url": "https://www.youtube.com/@TwoMinutePapers",
-      "icon": "assets/icons/two-minute-papers.webp"
+      "icon": "assets/icons/two-minute-papers.webp",
+      "personalNote": "I like it for the more scientific side of things and a closer look at research."
     },
     {
       "id": "alex-hormozi",
@@ -1275,7 +1358,8 @@
       "type": "Newsletter · technology",
       "purpose": "Read concise technology news summaries and follow links to the original stories.",
       "url": "https://tldr.tech/",
-      "icon": "assets/icons/tldr.svg"
+      "icon": "assets/icons/tldr.svg",
+      "personalNote": "An important part of how I keep up with Big Tech and what is happening across the industry."
     },
     {
       "id": "luma",
@@ -1287,7 +1371,8 @@
       "example": "Follow a community calendar and get updates about upcoming meetups.",
       "distinction": "An events platform, grouped here with newsletters as a source of updates and discovery.",
       "url": "https://luma.com/",
-      "icon": "assets/icons/luma.webp"
+      "icon": "assets/icons/luma.webp",
+      "personalNote": "My go-to for local community and events."
     },
     {
       "id": "theprimeagen",
@@ -1309,7 +1394,8 @@
       "example": "Write code, run local projects and take your development setup with you.",
       "distinction": "The physical laptop, separate from the operating system and tools installed on it. The exact model is not specified here.",
       "url": "https://frame.work/",
-      "icon": "assets/icons/framework.svg"
+      "icon": "assets/icons/framework.svg",
+      "personalNote": "I am looking forward to getting one when my Mac dies. It is on my wish list, not something I use yet."
     },
     {
       "id": "mx-master-3s",
@@ -1320,7 +1406,8 @@
       "purpose": "Navigate, select and scroll through applications with a wireless mouse.",
       "example": "Move between code, browser tabs and documents, using the main scroll wheel and thumb wheel.",
       "url": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
-      "icon": "assets/icons/mx-master-3s-generated.webp"
+      "icon": "assets/icons/mx-master-3s-generated.webp",
+      "personalNote": "Part of my default hardware setup, alongside the Glove80 and Samsung ultrawide."
     },
     {
       "id": "matt-pocock-skills",
@@ -1332,7 +1419,8 @@
       "example": "Use a skill to question a feature idea or break a refactor into small steps.",
       "distinction": "A collection of instructions used by an agent, rather than a separate coding agent or model.",
       "url": "https://github.com/mattpocock/skills",
-      "icon": "assets/icons/mattpocock.webp"
+      "icon": "assets/icons/mattpocock.webp",
+      "personalNote": "Matt Pocock’s skills are a no-brainer for me."
     },
     {
       "id": "corey-haines-marketing-skills",
@@ -1356,7 +1444,8 @@
       "example": "Register a domain for a new project and connect it to the deployed app.",
       "distinction": "Registration gives you the domain name. Hosting runs the app, while DNS points the name to its destination.",
       "url": "https://vercel.com/domains",
-      "icon": "assets/icons/vercel.svg"
+      "icon": "assets/icons/vercel.svg",
+      "personalNote": "My easiest option when I do not want a separate registrar. I like having domain setup in the same place so I can tell my agent to attach a domain to the project it is deploying."
     },
     {
       "id": "vercel-chat-sdk",
@@ -1368,7 +1457,8 @@
       "example": "Use shared bot logic for an assistant in Slack and Discord.",
       "distinction": "Connects a bot to messaging platforms. AI SDK handles model interactions; AI Elements provides React interface components.",
       "url": "https://chat-sdk.dev/",
-      "icon": "assets/icons/vercel.svg"
+      "icon": "assets/icons/vercel.svg",
+      "personalNote": "I like being able to integrate with multiple chat apps through one SDK. I have not seen another option quite like it, and it fits well with AI SDK."
     },
     {
       "id": "vercel-ai-elements",
@@ -1380,7 +1470,8 @@
       "example": "Render streaming responses and tool calls in an AI SDK chatbot.",
       "distinction": "Provides interface components built on shadcn/ui. AI SDK handles AI behavior and state; Chat SDK connects bots to external chat platforms.",
       "url": "https://elements.ai-sdk.dev/",
-      "icon": "assets/icons/vercel.svg"
+      "icon": "assets/icons/vercel.svg",
+      "personalNote": "I like these components for building AI interfaces alongside AI SDK."
     },
     {
       "id": "21st-dev",
@@ -1392,7 +1483,8 @@
       "example": "Find a hero section or pricing layout and bring its component code into a project.",
       "distinction": "A community collection of interface designs and code, rather than a framework that runs your app.",
       "url": "https://21st.dev/",
-      "icon": "assets/icons/21st-dev.ico"
+      "icon": "assets/icons/21st-dev.ico",
+      "personalNote": "The biggest component collection I know. I have pulled lots of beautiful components out of it."
     },
     {
       "id": "tweakcn",
@@ -1404,7 +1496,8 @@
       "example": "Try a new color palette and export the theme into your app.",
       "distinction": "Changes the styling of your components; shadcn/ui supplies the components themselves.",
       "url": "https://tweakcn.com/",
-      "icon": "assets/icons/tweakcn.webp"
+      "icon": "assets/icons/tweakcn.webp",
+      "personalNote": "Perfect for tweaking shadcn/ui so every website I build does not end up looking the same."
     },
     {
       "id": "burp-suite",
@@ -1416,7 +1509,8 @@
       "example": "Test whether your app correctly rejects a request for another user’s private record.",
       "distinction": "Tests security behavior through HTTP traffic. Playwright checks browser flows; Burp helps investigate how the app handles unexpected or manipulated requests. Automated scanning depends on the Burp edition.",
       "url": "https://portswigger.net/burp",
-      "icon": "assets/icons/burp-suite.png"
+      "icon": "assets/icons/burp-suite.png",
+      "personalNote": "An obvious inclusion for me for security testing."
     },
     {
       "id": "awesome",
@@ -1428,7 +1522,8 @@
       "example": "Explore lists for self-hosting, React or developer tools when researching a new project.",
       "distinction": "A directory of curated lists. Follow a topic to discover individual projects and resources.",
       "url": "https://github.com/sindresorhus/awesome",
-      "icon": "assets/icons/github.svg"
+      "icon": "assets/icons/github.svg",
+      "personalNote": "If you have never explored this, I think it is worth a look."
     },
     {
       "id": "pwa-today",
@@ -1440,7 +1535,8 @@
       "example": "Try the demos on your phone to see which features your browser supports before choosing how to build an app.",
       "distinction": "A PWA is an approach to building web apps, not a framework. Capabilities depend on the browser, operating system and implementation; the site also demonstrates web APIs that do not require PWA installation.",
       "url": "https://whatpwacando.today/",
-      "icon": "assets/icons/pwa-today.png"
+      "icon": "assets/icons/pwa-today.png",
+      "personalNote": "If you have never explored this, I think it is worth a look."
     },
     {
       "id": "c4-model",
@@ -1452,7 +1548,8 @@
       "example": "Start with users and external systems, then zoom in to your web app, API and database to show their responsibilities and connections.",
       "distinction": "A way to describe and reason about architecture, independent of drawing tools or frameworks. A C4 container is an application or data store, not necessarily a Docker container. Use the levels that help explain your system.",
       "url": "https://c4model.com/",
-      "icon": "assets/icons/c4-model.svg"
+      "icon": "assets/icons/c4-model.svg",
+      "personalNote": "Worth understanding so you can ask a coding agent to draw the system, analyse it and discuss improvements. Basic architecture diagrams are useful tools for thinking."
     },
     {
       "id": "roadmap-sh",
@@ -1464,7 +1561,8 @@
       "example": "Open the frontend or backend roadmap to see how topics connect and choose what to learn next.",
       "distinction": "A learning resource rather than an application framework. Use its roadmaps for orientation and adapt the path to the project you want to build.",
       "url": "https://roadmap.sh/",
-      "icon": "assets/icons/roadmap-sh.png"
+      "icon": "assets/icons/roadmap-sh.png",
+      "personalNote": "If you have never explored this, I think it is worth a look."
     }
   ],
   "scenarios": [
